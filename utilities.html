@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Hartree approximation and counterterms &#8212; pyqcm 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Summary of options" href="options.html" />
+    <link rel="prev" title="The Variational Cluster Approximation" href="vca.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="options.html" title="Summary of options"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vca.html" title="The Variational Cluster Approximation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Hartree approximation and counterterms</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="hartree-approximation-and-counterterms">
+<h1>Hartree approximation and counterterms<a class="headerlink" href="#hartree-approximation-and-counterterms" title="Permalink to this headline">¶</a></h1>
+<section id="the-hartree-approximation">
+<h2>The Hartree approximation<a class="headerlink" href="#the-hartree-approximation" title="Permalink to this headline">¶</a></h2>
+<p>Extended interactions require an extension of quantum cluster methods: inter-cluster interactions have to be cut off and replaced by a mean field, in the Hartree approximation.
+An extended interaction on the cluster is then reduced to</p>
+<div class="math notranslate nohighlight">
+\[\sum_{(ij)}V^c_{ij}n_i n_j +
+\sum_{(ij)}V^m_{ij}\left(n_i \langle n_j\rangle + n_j \langle n_i\rangle - \langle n_i\rangle\langle n_j\rangle \right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(V_m\)</span> stands for the terms of <span class="math notranslate nohighlight">\(V_{ij}\)</span> which need to be treated in the Hartree approximation, and <span class="math notranslate nohighlight">\(V^c\)</span> those that do not need to be. <span class="math notranslate nohighlight">\((ij)\)</span> stands for a pair of sites (<span class="math notranslate nohighlight">\(i\ne j\)</span>).</p>
+<p>Since <span class="math notranslate nohighlight">\(V_m\)</span> is real symmetric, the mean-field Hamiltonian may be recast into</p>
+<div class="math notranslate nohighlight">
+\[H_m = \sum_{ij}V^m_{ij}\left(n_i \langle n_j\rangle - \frac12\langle n_i\rangle\langle n_j\rangle \right)\]</div>
+<p>where now the sum is over independent values of <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.
+<span class="math notranslate nohighlight">\(V^m\)</span> can be diagonalized by an orthogonal transformation <span class="math notranslate nohighlight">\(L\)</span>: <span class="math notranslate nohighlight">\(V^m = L\Lambda \tilde L\)</span>.
+One then defines eigenoperators <span class="math notranslate nohighlight">\(O_a = L_{aj}n_j\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[H_m = \sum_a \lambda_a\left\{O_a \langle O_a\rangle - \frac12 \langle O_a\rangle^2\right\}\]</div>
+<p>Now, let us consider the mean values <span class="math notranslate nohighlight">\(\langle O_a\rangle\)</span> as adjustable variational (or mean-field) parameters.
+Then, in terms of the coefficients <span class="math notranslate nohighlight">\(h_a=\lambda_a\langle O_a\rangle\)</span> of the operator <span class="math notranslate nohighlight">\(O_a\)</span>, the mean-field Hamiltonian takes the following form:</p>
+<div class="math notranslate nohighlight">
+\[H_m = \sum_a \left\{ h_a O_a - \frac{h_a^2}{2\lambda_a} \right\}\]</div>
+<p>The variation of parameter <span class="math notranslate nohighlight">\(h_a\)</span> the yields</p>
+<div class="math notranslate nohighlight">
+\[\langle O_a\rangle = \frac{h_a}{\lambda_a} \rightarrow h_a=\lambda_a\langle O_a\rangle\]</div>
+<p>The Hartree procedure consists in starting with trial values of <span class="math notranslate nohighlight">\(_a\)</span> and iteratively performing the above assignation until convergence.</p>
+</section>
+<section id="list-of-functions">
+<h2>List of functions<a class="headerlink" href="#list-of-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.hartree.hartree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.hartree.</span></span><span class="sig-name descname"><span class="pre">hartree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Vm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accur_rel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.hartree" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class contains the elements needed to perform the Hartree approximation for the inter-cluster components of an
+extended interaction. The basic self-consistency relation is</p>
+<div class="math notranslate nohighlight">
+\[v_m = ve\langle V_m\rangle    \]</div>
+<p>where <em>v</em> is the coefficient of the operator <em>V</em> and <span class="math notranslate nohighlight">\(v_m\)</span> that of the operator <span class="math notranslate nohighlight">\(V_m\)</span>, and <em>e</em> is an eigenvalue specific to the cluster shape and the interaction. <span class="math notranslate nohighlight">\(\langle V_m\rangle\)</span> is the average of the operator <span class="math notranslate nohighlight">\(V_m\)</span>, taken
+as a lattice of as a cluster average.</p>
+<dl class="simple">
+<dt>attributes:</dt><dd><ul class="simple">
+<li><p>Vm (str) : mean-field operator</p></li>
+<li><p>V (str) : extended interaction</p></li>
+<li><p>eig (float) : eigenvalue <em>e</em> of the mean-field operator in the self-consistency relation</p></li>
+<li><p>lattice (boolean) : True if lattice averages are used</p></li>
+<li><p>diff : difference between successive values of <span class="math notranslate nohighlight">\(v_m\)</span></p></li>
+<li><p>ave : averasge of the operator <span class="math notranslate nohighlight">\(V_m\)</span></p></li>
+<li><p>accur : desired accuracy</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.hartree.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Vm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accur_rel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.hartree.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Vm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the mean-field operator</p></li>
+<li><p><strong>V</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the interaction operator</p></li>
+<li><p><strong>eig</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – eigenvalue</p></li>
+<li><p><strong>accur</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – required accuracy of the self-consistent procedure</p></li>
+<li><p><strong>accur_rel</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – required relative accuracy of the self-consistent procedure</p></li>
+<li><p><strong>lattice</strong> (<em>boolean</em>) – if True, the lattice average is used, otherwise the cluster average</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.hartree.converged">
+<span class="sig-name descname"><span class="pre">converged</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.hartree.converged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests whether the mean-field procedure has converged</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return boolean</dt>
+<dd class="field-odd"><p>True if the mean-field procedure has converged</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.hartree.omega">
+<span class="sig-name descname"><span class="pre">omega</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.hartree.omega" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the constant contribution, added to the Potthoff functional</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.hartree.omega_var">
+<span class="sig-name descname"><span class="pre">omega_var</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.hartree.omega_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the constant contribution, added to the Potthoff functional</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.hartree.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.hartree.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the value of the mean-field operator based on its average</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pr</strong> (<em>boolean</em>) – if True, progress is printed on the screen</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="counterterms">
+<h2>Counterterms<a class="headerlink" href="#counterterms" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.hartree.counterterm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.hartree.</span></span><span class="sig-name descname"><span class="pre">counterterm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.counterterm" title="Permalink to this definition">¶</a></dt>
+<dd><p>That class contains information about operators that are added to the cluster 
+Hamiltonian in order to make their average vanish. The coefficient <em>v</em> of the operator <em>V</em>
+is adjusted so that <span class="math notranslate nohighlight">\(\langle V\rangle=0\)</span>. The coefficient is updated using the 
+relation</p>
+<div class="math notranslate nohighlight">
+\[\langle O_1\rangle-\langle O_2\rangle = S (v_1-v_2)\]</div>
+<p>where <span class="math notranslate nohighlight">\(v_{1,2}\)</span> are two values of the coefficient of the operator used in succession,
+<span class="math notranslate nohighlight">\(\langle v_{1,2}\rangle\)</span> are the corresponding averages and <em>S</em> is the (varying) slope.</p>
+<dl class="simple">
+<dt>attributes:</dt><dd><ul class="simple">
+<li><p>name (str) : name of the countererm operator</p></li>
+<li><p>fullname (str) : name, including the cluster label</p></li>
+<li><p>clus (int) : label of the cluster</p></li>
+<li><p>S (float) : slope</p></li>
+<li><p>accur (float) : accuracy to which the average must vanish.</p></li>
+<li><p>v (float) : value of the coefficient of the operator</p></li>
+<li><p>v0 (float) : previous value of the coefficient of the operator (previous iteration)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.counterterm.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.counterterm.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the counterterm (previously defined in the model)</p></li>
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – cluster label to which it is applied</p></li>
+<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – initial value of the slope</p></li>
+<li><p><strong>accur</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – accuracy</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.counterterm.converged">
+<span class="sig-name descname"><span class="pre">converged</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.counterterm.converged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a convergence test</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return boolean</dt>
+<dd class="field-odd"><p>True if converged</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.counterterm.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.counterterm.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>updates the value of the operator given its averaged</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>first</strong> (<em>boolean</em>) – True if this is the first time it is called for a given iterative sequence</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<section id="module-pyqcm.loop">
+<span id="looping-utilities"></span><h1>Looping utilities<a class="headerlink" href="#module-pyqcm.loop" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.loop.Hartree">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.loop.</span></span><span class="sig-name descname"><span class="pre">Hartree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">F</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">couplings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps_algo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.loop.Hartree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the Hartree approximation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>F</strong> – task to perform wihtin the loop</p></li>
+<li><p><strong>couplings</strong> (<em>[</em><em>class hartree</em><em>]</em>) – list of Hartree couplings (or single coupling)</p></li>
+<li><p><strong>maxiter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – maximum number of Hartree iterations</p></li>
+<li><p><strong>eps_algo</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of elements in the epsilon algorithm convergence accelerator = 2*eps_algo + 1 (0 = no acceleration)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.loop.controlled_loop">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.loop.</span></span><span class="sig-name descname"><span class="pre">controlled_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varia</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.loop.controlled_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a controlled loop for VCA or CDMFT with a predictor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> – a function called at each step of the loop</p></li>
+<li><p><strong>varia</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – names of the variational parameters</p></li>
+<li><p><strong>loop_param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the parameter looped over</p></li>
+<li><p><strong>loop_range</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>)</em>) – range of the loop (min, max, step)</p></li>
+<li><p><strong>control_func</strong> – (optional) name of the function that controls the loop (returns boolean)</p></li>
+<li><p><strong>adjust</strong> (<em>boolean</em>) – if True, adjusts the steps depending on control or status of convergence</p></li>
+<li><p><strong>predict</strong> (<em>boolean</em>) – if True, uses a linear or quadratic predictor</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.loop.fade">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.loop.</span></span><span class="sig-name descname"><span class="pre">fade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">F</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.loop.fade" title="Permalink to this definition">¶</a></dt>
+<dd><p>fades the model between two sets of parameters, in n steps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>F</strong> – task to perform wihtin the loop</p></li>
+<li><p><strong>p1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – first set of parameters</p></li>
+<li><p><strong>p2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – second set of parameters</p></li>
+<li><p><strong>n</strong> – number of steps</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.loop.fixed_density_loop">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.loop.</span></span><span class="sig-name descname"><span class="pre">fixed_density_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxdmu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dens_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.loop.fixed_density_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a loop while trying to keep a fixed density</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – initial value of mu</p></li>
+<li><p><strong>target_n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – desired value of the density</p></li>
+<li><p><strong>kappa</strong> – initial guess of the compressibility</p></li>
+<li><p><strong>maxdmu</strong> – maximum change in mu at each step (absolute value)</p></li>
+<li><p><strong>func</strong> – function called at each step of the loop. No required argument. returns None.</p></li>
+<li><p><strong>loop_param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the parameter looped over</p></li>
+<li><p><strong>loop_values</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – an array of values of loop_param</p></li>
+<li><p><strong>var_param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – array of variational parameters (names) to be predicted</p></li>
+<li><p><strong>dens_tol</strong> – tolerance on the value of the density</p></li>
+<li><p><strong>dir</strong> – directory of calling script</p></li>
+<li><p><strong>measure</strong> – name of function to be called when the desired density is reached</p></li>
+<li><p><strong>cluster_density</strong> – if True, uses the cluster density instead of the lattice density</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.loop.linear_loop">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.loop.</span></span><span class="sig-name descname"><span class="pre">linear_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varia</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.loop.linear_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a controlled loop for VCA or CDMFT with a predictor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>N</strong> – number of intervals within the loop</p></li>
+<li><p><strong>func</strong> – function called at each step of the loop</p></li>
+<li><p><strong>varia</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – names of the variational parameters</p></li>
+<li><p><strong>P</strong> (<em>{str:</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>)</em><em>}</em>) – dict of parameters to vary with initial and final values</p></li>
+<li><p><strong>predict</strong> (<em>boolean</em>) – if True, uses a linear or quadratic predictor</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.loop.loop_from_file">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.loop.</span></span><span class="sig-name descname"><span class="pre">loop_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.loop.loop_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a task over a set of instances defined in a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> – function (task) to perform</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the data file specifying the solutions, in the same tab-separated format usually used to write solutions</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="other-utilities">
+<h1>Other utilities<a class="headerlink" href="#other-utilities" title="Permalink to this headline">¶</a></h1>
+<section id="module-pyqcm.profile">
+<span id="profile-of-expectation-values"></span><h2>Profile of expectation values<a class="headerlink" href="#module-pyqcm.profile" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.profile.plot_profile">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.profile.</span></span><span class="sig-name descname"><span class="pre">plot_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_spin_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">singlet_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triplet_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.profile.plot_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a figure of various local quantities on the repeated unit, from averages computed in the ground state wavefunction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – scale factor applied to the density</p></li>
+<li><p><strong>bond_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – scale factor applied to the bond charge density</p></li>
+<li><p><strong>current_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – scale factor applied to the currents on the bonds</p></li>
+<li><p><strong>spin_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – scale factor applied to the spins on the sites</p></li>
+<li><p><strong>spin_angle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – angle at which to draw the spins, from their nominal direction</p></li>
+<li><p><strong>bond_spin_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – scale factor applied to the spins on the bonds</p></li>
+<li><p><strong>singlet_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – scale factor applied to the singlet pairing amplitudes</p></li>
+<li><p><strong>triplet_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – scale factor applied to the triplet pairing amplitudes</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the output file, if not None</p></li>
+<li><p><strong>layer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – layer number (z coordinate)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="defining-models-for-slabs">
+<h2>Defining models for slabs<a class="headerlink" href="#defining-models-for-slabs" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.slab.slab">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.slab.</span></span><span class="sig-name descname"><span class="pre">slab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nlayer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">superlattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.slab.slab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class to define multi-layer systems, typically layers of planes.
+The fundamental unit is a 2D model that is repeated in the z direction</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.slab.slab.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nlayer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">superlattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.slab.slab.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the 2D model</p></li>
+<li><p><strong>nlayer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – total number of layers in the slab</p></li>
+<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model assembled (limited to one cluster)</p></li>
+<li><p><strong>sites</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – list of sites in each layer</p></li>
+<li><p><strong>superlattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – superlattice vectors in 2D</p></li>
+<li><p><strong>lattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – lattice vectors in 2D</p></li>
+<li><p><strong>thickness</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of inequivalent layers (&lt;= nlayer/2). If None, all layers are different</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.slab.slab.hopping_operator">
+<span class="sig-name descname"><span class="pre">hopping_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.slab.slab.hopping_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a hopping operator
+Same arguments as the pyqcm.hopping_operator() function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.slab.slab.interaction_operator">
+<span class="sig-name descname"><span class="pre">interaction_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.slab.slab.interaction_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an interaction operator
+Same arguments as the pyqcm.interaction_operator() function</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Hartree approximation and counterterms</a><ul>
+<li><a class="reference internal" href="#the-hartree-approximation">The Hartree approximation</a></li>
+<li><a class="reference internal" href="#list-of-functions">List of functions</a></li>
+<li><a class="reference internal" href="#counterterms">Counterterms</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyqcm.loop">Looping utilities</a></li>
+<li><a class="reference internal" href="#other-utilities">Other utilities</a><ul>
+<li><a class="reference internal" href="#module-pyqcm.profile">Profile of expectation values</a></li>
+<li><a class="reference internal" href="#defining-models-for-slabs">Defining models for slabs</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="vca.html"
+                          title="previous chapter">The Variational Cluster Approximation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="options.html"
+                          title="next chapter">Summary of options</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/utilities.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="options.html" title="Summary of options"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="vca.html" title="The Variational Cluster Approximation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Hartree approximation and counterterms</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

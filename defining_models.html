@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Defining models &#8212; pyqcm 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parameter sets, Hilbert space sectors and model instances" href="parameters.html" />
+    <link rel="prev" title="Models and clusters" href="models.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models and clusters"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Defining models</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="defining-models">
+<h1>Defining models<a class="headerlink" href="#defining-models" title="Permalink to this headline">¶</a></h1>
+<p>This section explains how to define models through python calls.</p>
+<section id="defining-cluster-models">
+<h2>Defining cluster models<a class="headerlink" href="#defining-cluster-models" title="Permalink to this headline">¶</a></h2>
+<p>Clusters are the building blocks of lattice models. One needs to define them first.
+This is done through calls to <cite>qcm_ED</cite>. For instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyqcm</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">new_cluster_model</span><span class="p">(</span><span class="s1">&#39;2x2_C2v&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">new_cluster_model(name,</span> <span class="pre">Ns,</span> <span class="pre">Nb,</span> <span class="pre">perm,</span> <span class="pre">bath_irrep)</span></code> takes the following arguments:</p>
+<ol class="arabic simple">
+<li><p>A name given to the cluster model</p></li>
+<li><p>The number <span class="math notranslate nohighlight">\(N_s\)</span> of physical sites</p></li>
+<li><p>The number <span class="math notranslate nohighlight">\(N_b\)</span>  of bath sites</p></li>
+<li><p>(optional) A list of permutations of the  <span class="math notranslate nohighlight">\(N_o=N_s+N_b\)</span>  orbitals that define generators of the symmetries of the cluster.</p></li>
+<li><p>(optional) A boolean flag that, if true, signals that bath orbitals belong to irreducible representations of the symmetry group of the cluster, instead of being part of permutations of the different orbitals of the cluster-bath system.</p></li>
+</ol>
+<p>In the above example, a four-site cluster is defined, without any bath sites. The positions of the sites are not relevant to <cite>qcm_ED</cite>, and so are not defined at this stage.
+However, a plaquette geometry is implicit here, with the following site labels:</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/2x2.png"><img alt="_images/2x2.png" src="_images/2x2.png" style="height: 100px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 1</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The cluster symmetries (permutations) passed to the function thus correspond to reflexions with respect to the horizontal and vertical axes, respectively.
+The cluster symmetries will be used by <cite>qcm_ED</cite> to lighten the exact diagonalization task. Large clusters will take less memory, convergence of the Lanczos method will be faster, and computing the Green function at a given frequency will be more efficient.
+The different permutations that constitute the generators must commute with each other. They generate an Abelian group with <span class="math notranslate nohighlight">\(g\)</span> elements. Such a group has an equal number <span class="math notranslate nohighlight">\(g\)</span> of irreducible representations, numbered from 0 to <span class="math notranslate nohighlight">\(g-1\)</span>.</p>
+<section id="defining-operators-on-the-cluster">
+<h3>Defining operators on the cluster<a class="headerlink" href="#defining-operators-on-the-cluster" title="Permalink to this headline">¶</a></h3>
+<p>Most operators in the model are best defined on the lattice and their restrition to the cluster is defined automatically, so there is no need to define them explicitly on each cluster of the super unit cell. This is not the case if one wants to use <cite>qcm_ED</cite> as a standalone ED solver without using <cite>qcm</cite>.
+Bath operators, on the other hand, need to be defined explicitly within the cluster model since they do not exist on the lattice model and <cite>qcm</cite> only knows about their existence through a hybridization function.</p>
+<p>The following code defines the cluster and bath operators for the cluster illustrated in the last section, which we reproduce here:</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/h4-6b.png"><img alt="_images/h4-6b.png" src="_images/h4-6b.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 2</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Content of the cluster definition file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyqcm</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">no</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">ns</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">new_cluster_model</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="n">ns</span><span class="p">,</span> <span class="n">no</span><span class="o">-</span><span class="n">ns</span><span class="p">,</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+
+
+<span class="n">new_cluster_operator</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="s1">&#39;bt1&#39;</span><span class="p">,</span> <span class="s1">&#39;one-body&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">5</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">6</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">7</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">new_cluster_operator</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="s1">&#39;bt2&#39;</span><span class="p">,</span> <span class="s1">&#39;one-body&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">8</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">9</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">4</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">new_cluster_operator</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="s1">&#39;be1&#39;</span><span class="p">,</span> <span class="s1">&#39;one-body&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">5</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">5</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">6</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">6</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">7</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">7</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">new_cluster_operator</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="s1">&#39;be2&#39;</span><span class="p">,</span> <span class="s1">&#39;one-body&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">8</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">8</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">9</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">9</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">10</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="n">no</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that the symmetry defined here is a rotation by 120 degrees. This generates the group <span class="math notranslate nohighlight">\(C_3\)</span>, which has complex representations. <cite>qcm_ED</cite> can only deal with Abelian groups (the correct treatment of non-Abelian symmetries is too complex when computing Green functions for the benefits it would provide). In the above example, a better strategy when no complex operators are present would be to define only a <span class="math notranslate nohighlight">\(C_2\)</span> symmetry based on one of three possible reflections. This would only provide 2 symmetry operations instead of 3, but the representations would be real instead of complex, thus saving more time and memory.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">new_cluster_operator(model,</span> <span class="pre">name,</span> <span class="pre">type,</span> <span class="pre">elements)</span></code> takes the following arguments:</p>
+<ol class="arabic simple">
+<li><p>The name of the model (the same given to <code class="docutils literal notranslate"><span class="pre">new_model()</span></code>)</p></li>
+<li><p>The name of the operator</p></li>
+<li><p>The type of operator; one of ‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’</p></li>
+<li><p>An array of real matrix elements. Each element of the array is a 3-tuple giving the labels of the orbitals involved and the value of the matrix element itself. Note that spin-up and spin-down orbital labels are separated by the total number of orbitals on the custer, here <cite>no=10</cite>.</p></li>
+</ol>
+<p>If a complex-valued operator is needed, then the function <code class="docutils literal notranslate"><span class="pre">qcm_ED.new_operator_complex()</span></code> must be used, the only difference being that the actual matrix elements are complex numbers.</p>
+</section>
+</section>
+<section id="defining-lattice-models">
+<h2>Defining lattice models<a class="headerlink" href="#defining-lattice-models" title="Permalink to this headline">¶</a></h2>
+<section id="a-simple-example">
+<h3>A simple example<a class="headerlink" href="#a-simple-example" title="Permalink to this headline">¶</a></h3>
+<p>The following simple example illustrates how to define a Hubbard model on the square lattice in two dimensions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyqcm</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">new_cluster_model</span><span class="p">(</span><span class="n">clus</span><span class="s1">&#39;, 4, 0, [[4, 3, 2, 1]])</span>
+<span class="n">add_cluster</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                                      <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">lattice_model</span><span class="p">(</span><span class="s1">&#39;2x2_C2&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">interaction_operator</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+<span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t3&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t3&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">anomalous_operator</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">anomalous_operator</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">density_wave</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>There is a call to <code class="docutils literal notranslate"><span class="pre">new_cluster_model()</span></code> to define a <span class="math notranslate nohighlight">\(2\times2\)</span> plaquette with a <span class="math notranslate nohighlight">\(C_2\)</span> symmetry (rotation by 180 degrees). Then this cluster is added to the lattice model via the function <code class="docutils literal notranslate"><span class="pre">add_cluster()</span></code> which takes 3 arguments:</p>
+<ol class="arabic simple">
+<li><p>The name of the cluster model (here <code class="docutils literal notranslate"><span class="pre">clus</span></code>)</p></li>
+<li><p>The base position of the cluster within the super unit cell (here <code class="docutils literal notranslate"><span class="pre">[0,0,0]</span></code>)</p></li>
+<li><p>An array of integer positions of the different cluster sites. This is where the geometry of the cluster appears.</p></li>
+</ol>
+<p>In the above example, the super unit cell contains a single cluster. Therefore <code class="docutils literal notranslate"><span class="pre">add_cluster()</span></code> is called only once and the lattice model can then be wrapped up by a call to <code class="docutils literal notranslate"><span class="pre">lattice_model()</span></code>, which takes three arguments (the last one optional):</p>
+<ol class="arabic simple">
+<li><p>The name of the model, for reporting purposes</p></li>
+<li><p>The <span class="math notranslate nohighlight">\(d\)</span> vectors defining the superlattice vectors. <span class="math notranslate nohighlight">\(d\)</span> is the dimension of the model.</p></li>
+<li><p>The <span class="math notranslate nohighlight">\(d\)</span> vectors defining the lattice vectors of the model. In the above example this is omitted because the default value is used: <code class="docutils literal notranslate"><span class="pre">[[1,0,0],</span> <span class="pre">[0,1,0]]</span></code>.</p></li>
+</ol>
+<p>Note that all vectors used in these specifications have three components (even for lower dimensional models) and have <strong>integer</strong> components. They are in fact coefficients of basis vectors generating a working Bravais lattice and are therefore integers by definition (not all vectors of this working Bravais lattice need belong to the actual Bravais lattice of the model; the case of the graphene lattice is illustrated below).</p>
+<p>Once the geometry of the model is defined, operators can be added to the model via various functions. The Hubbard on-site interaction is added with a call to <code class="docutils literal notranslate"><span class="pre">interaction_operator('U')</span></code>, whose sole argument in this case is the name we choose for that operator (more arguments are needed for other types of interactions, multi-band models, etc; see the detailed documents in the reference section on functions).</p>
+<p>Nearest-neighbor hopping is defined with a call to <code class="docutils literal notranslate"><span class="pre">hopping_operator()</span></code>, which has three mandatory arguments:</p>
+<ol class="arabic simple">
+<li><p>The name of the operator</p></li>
+<li><p>The link on which the operator is defined</p></li>
+<li><p>The amplitude of the operator on that link.</p></li>
+</ol>
+<p>Optional keyword arguments are needed for multi-band models, spin-flip operators, etc. In the above example this function is called twice with the same name but different links (along [1,0,0] and [0,1,0] respectively). The matrix elements generated by the two calls are simply added to the list associated with this operator. Similar calls are performed for the second-neighbor hopping <code class="docutils literal notranslate"><span class="pre">t2</span></code> and the third-neighbor hopping <code class="docutils literal notranslate"><span class="pre">t3</span></code>.</p>
+<p>A d-wave pairing operator is defined via a call to <code class="docutils literal notranslate"><span class="pre">anomalous_operator()</span></code> , which takes the same arguments as <code class="docutils literal notranslate"><span class="pre">hopping_operator()</span></code>, i.e., name, link and amplitude. Note that two calls are made with the same name <code class="docutils literal notranslate"><span class="pre">D</span></code>, one in the <span class="math notranslate nohighlight">\(x\)</span> direction, the other one in the <span class="math notranslate nohighlight">\(y\)</span> direction, with amplitudes 1 and -1, in accordance with the d-wave character of the operator.</p>
+<p>Finally, a density wave corresponding to <span class="math notranslate nohighlight">\((\pi,\pi)\)</span> antiferromagnetism is added, with a call to <code class="docutils literal notranslate"><span class="pre">density_wave()</span></code>, which has 3 mandatory arguments:</p>
+<ol class="arabic simple">
+<li><p>The name of the operator (here ‘M’)</p></li>
+<li><dl class="simple">
+<dt>The type of density-wave (here ‘Z’ for a spin density wave in the <span class="math notranslate nohighlight">\(z\)</span> component of the spin). Other possibilities are:</dt><dd><ul class="simple">
+<li><p>‘N’ : charge density wave</p></li>
+<li><p>‘X’ : spin density wave in the <span class="math notranslate nohighlight">\(x\)</span> component of the spin</p></li>
+<li><p>‘spin’ : same as <cite>Z</cite></p></li>
+<li><p>‘singlet’ : singlet pairing</p></li>
+<li><p>‘dx’ : triplet pairing in the <span class="math notranslate nohighlight">\(x\)</span> direction using the <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> vector formalism.</p></li>
+<li><p>‘dy’ : same, in the <span class="math notranslate nohighlight">\(y\)</span> direction</p></li>
+<li><p>‘dz’ : same, in the <span class="math notranslate nohighlight">\(z\)</span> direction (this one does not require Nambu doubling)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The wavevector <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> of the density wave. It has real components (in multiples of <span class="math notranslate nohighlight">\(\pi\)</span>) and it must be commensurate with the super unit cell within some small numerical tolerance.</p></li>
+</ol>
+<p>Additional keyword arguments to <code class="docutils literal notranslate"><span class="pre">density_wave()</span></code> include the link on which the density wave is defined (for bond-density waves), bands involved (for multi-band models), additional phases and amplitudes, etc. Again, see the reference section for details.</p>
+</section>
+<section id="a-more-complex-example">
+<h3>A more complex example<a class="headerlink" href="#a-more-complex-example" title="Permalink to this headline">¶</a></h3>
+<p>The following example defines a model on the graphene lattice using two cluster within the super unit cell and the graphene lattice, as illustrated below:</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/h8.png"><img alt="_images/h8.png" src="_images/h8.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 3</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Of possible set of function calls to define the Hubbard model on this system is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cluster_h4_6b_C3</span>
+<span class="kn">import</span> <span class="nn">pyqcm</span>
+
+<span class="n">add_cluster</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">add_cluster</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">lattice_model</span><span class="p">(</span><span class="s1">&#39;h4_6b_C3&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">set_basis</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.866025403784438</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">interaction_operator</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+<span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">band1</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">band2</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">band1</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">band2</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">band1</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">band2</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first statement, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cluster_h4_6b_C3</span></code>, imports a cluster definition file, for instance the one associated with Fig. 2 above. Using the name <code class="docutils literal notranslate"><span class="pre">clus</span></code> given to the cluster in that file, two copies of the clusters are added to the super unit cell. The positions associated with the two copies are different, but the cluster model is the same, which means that only one copy of the Hilbert space operators and bases necessary for the exact diagonalization will be constructed. The origin has been placed exactly between the two clusters. The positions in each cluster are defined relative to the base position of each cluster.</p>
+<p>The integer positions are defined in terms of the basis defined by the call to <code class="docutils literal notranslate"><span class="pre">set_basis()</span></code>. The argument of that function is a set of real-valued vectors defining the basis vectors of the working Bravais lattice.
+On Fig. 3, the first two of these vectors are <span class="math notranslate nohighlight">\(\mathbf{e}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}_2\)</span>.</p>
+<p>The call to <code class="docutils literal notranslate"><span class="pre">lattice_model()</span></code> defines both the superlattice vectors <span class="math notranslate nohighlight">\(\mathbf{E}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{E}_2\)</span> (second argument) and the basis vectors of the model’s physical Bravais lattice (third argument).
+The lattice basis vectors only serve to attribute band labels to the different sites. In <cite>qcm</cite>, each degree of freedom of a given spin (i.e. each orbital) must have its own site on the working Bravais lattice. The basis vectors of the physical Bravais lattice then define band labels (from 1 to <span class="math notranslate nohighlight">\(N_\mathrm{band}\)</span>) attributed to each site. The order in which bands are labelled depends on the order in which the sites appear. Given the above definitions and Fig. 3, the A sublattice of graphene corresponds to band 2 and the B sublattice to band 1.</p>
+<p>Given that the model has two bands, the definition of the hopping operator <code class="docutils literal notranslate"><span class="pre">t</span></code> must contain band information: the keywords <code class="docutils literal notranslate"><span class="pre">band1</span></code> and <code class="docutils literal notranslate"><span class="pre">band2</span></code> are used to specify the band numbers associated with the two sites separated by the bond vector (link) given in argument. Internally, a loop is done over all sites of the super unit cell; the bond vector is used to identify a second site; if that site exists and if the bands associated with the two sites agree with <code class="docutils literal notranslate"><span class="pre">band1</span></code> and <code class="docutils literal notranslate"><span class="pre">band2</span></code>, then a matrix element is added to the operator. In the above example, three calls are needed because of the three directions (bonds).</p>
+<p>The greatest risk in such calls is to mislabel the bands. In order to check that operators were defined properly, a call to <code class="docutils literal notranslate"><span class="pre">print_model()</span></code> is warranted. This function takes one mandatory argument: the name of a text file in which a detailed enumeration of model properties will be printed. Additional keyword arguments control the production of asymptote files (.asy) that graphically illustrate each operator. This is a powerful way to check the validity of the model definition.</p>
+</section>
+<section id="other-examples">
+<h3>Other examples<a class="headerlink" href="#other-examples" title="Permalink to this headline">¶</a></h3>
+<p>The distribution contains a folder (<cite>Examples</cite>) that contains many examples of models and codes. New users are encouraged to study a few of these models and to consult the reference section for more detailed information about model building.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Defining models</a><ul>
+<li><a class="reference internal" href="#defining-cluster-models">Defining cluster models</a><ul>
+<li><a class="reference internal" href="#defining-operators-on-the-cluster">Defining operators on the cluster</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#defining-lattice-models">Defining lattice models</a><ul>
+<li><a class="reference internal" href="#a-simple-example">A simple example</a></li>
+<li><a class="reference internal" href="#a-more-complex-example">A more complex example</a></li>
+<li><a class="reference internal" href="#other-examples">Other examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="models.html"
+                          title="previous chapter">Models and clusters</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="parameters.html"
+                          title="next chapter">Parameter sets, Hilbert space sectors and model instances</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/defining_models.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models and clusters"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Defining models</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

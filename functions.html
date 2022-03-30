@@ -1,0 +1,1574 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reference: List of functions &#8212; pyqcm 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Spectral properties" href="spectral.html" />
+    <link rel="prev" title="Parameter sets, Hilbert space sectors and model instances" href="parameters.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="spectral.html" title="Spectral properties"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Reference: List of functions</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-pyqcm">
+<span id="reference-list-of-functions"></span><h1>Reference: List of functions<a class="headerlink" href="#module-pyqcm" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.CPT_Green_function">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">CPT_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.CPT_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the CPT Green function at a given frequency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> – complex frequency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single or an array of complex-valued matrices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.CPT_Green_function_inverse">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">CPT_Green_function_inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.CPT_Green_function_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the inverse CPT Green function at a given frequency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> – complex frequency</p></li>
+<li><p><strong>k</strong> – array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single or an array of complex-valued matrices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.Green_function_average">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Green_function_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Green_function_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cluster Green function average (integral over frequencies)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing =       4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.Green_function_dimension">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Green_function_dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Green_function_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the dimension of the CPT Green function matrix
+:return: int</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.Green_function_solve">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Green_function_solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Green_function_solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Usually, the Green function representation is computed only when needed, in a just-in-time fashion (i.e. in a lazy way).
+This forces the computation of the Green function representation for the current instance (i.e. non lazy).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.Lehmann_Green_function">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Lehmann_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Lehmann_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the Lehmann representation of the periodized Green function for a set of wavevectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>band</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – band index (starts at 1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of pairs {poles, residues}, each of poles and residues being itself a list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyqcm.MinimizationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">MinimizationError</span></span><a class="headerlink" href="#pyqcm.MinimizationError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyqcm.MissingArgError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">MissingArgError</span></span><a class="headerlink" href="#pyqcm.MissingArgError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyqcm.OutOfBoundsError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">OutOfBoundsError</span></span><a class="headerlink" href="#pyqcm.OutOfBoundsError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyqcm.ParseError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">ParseError</span></span><a class="headerlink" href="#pyqcm.ParseError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.Potthoff_functional">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Potthoff_functional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hartree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sef.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Potthoff_functional" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the Potthoff functional for a given instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the file to append with the result</p></li>
+<li><p><strong>hartree</strong> (<em>(</em><em>class hartree</em><em>)</em>) – Hartree approximation couplings (see pyqcm/hartree.py)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the value of the self-energy functional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.QP_weight">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">QP_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.QP_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the k-dependent quasi-particle weight from the self-energy derived from the periodized Green function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – increment in the imaginary axis direction used to computed the derivative of the self-energy</p></li>
+<li><p><strong>band</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – band index (starts at 1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single float or an array of floats, depending on the shape of k</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyqcm.TooManyIterationsError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">TooManyIterationsError</span></span><a class="headerlink" href="#pyqcm.TooManyIterationsError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.V_matrix">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">V_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.V_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the matrix <span class="math notranslate nohighlight">\(V=G_0^{-1}-G^{c-1}_0\)</span> at a given frequency and wavevectors, where <span class="math notranslate nohighlight">\(G_0\)</span> is the noninteracting Green function on the infinite lattice and <span class="math notranslate nohighlight">\(G^c_0\)</span> is the noninteracting Green function on the cluster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> (<em>wavevector</em>) – wavevector (ndarray(3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single (d,d) or an array (N,d,d) of complex-valued matrices. d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyqcm.VarParamMismatchError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">VarParamMismatchError</span></span><a class="headerlink" href="#pyqcm.VarParamMismatchError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyqcm.WrongArgumentError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">WrongArgumentError</span></span><a class="headerlink" href="#pyqcm.WrongArgumentError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.add_cluster">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">add_cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.add_cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a cluster to the repeated unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model</p></li>
+<li><p><strong>pos</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – base position of cluster (array of ints)</p></li>
+<li><p><strong>sites</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – list of positions of sites (2D array of ints)</p></li>
+<li><p><strong>ref</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – label of a previous cluster (starts at 1) to which this one is entirely equivalent (0 = no equivalence)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.anomalous_operator">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">anomalous_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.anomalous_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an anomalous operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>link</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – bond vector (3-component integer array)</p></li>
+<li><p><strong>amplitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – pairing multiplier</p></li>
+<li><p><strong>band1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the first band (None by default)</p></li>
+<li><p><strong>band2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the second band (None by default)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>type (<em>str</em>) – one of ‘singlet’ (default), ‘dz’, ‘dy’, ‘dx’</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.averages">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">averages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'averages.tsv'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.averages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the lattice averages of the operators present in the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the file in which the information is appended</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return {str,float}</dt>
+<dd class="field-even"><p>a dict giving the values of the averages for each parameter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.band_Green_function">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">band_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.band_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the periodized Green function at a given frequency and wavevectors, in the band basis (defined
+in the noninteracting model). It only differs from the periodized Green function in multi-band models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single (d,d) or an array (N,d,d) of complex-valued matrices. d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.cluster_Green_function">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cluster Green function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing =       4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance (default 0)</p></li>
+<li><p><strong>blocks</strong> (<em>boolean</em>) – true if returned in the basis of irreducible representations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.cluster_Green_function_dimension">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_Green_function_dimension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_Green_function_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the dimension of the cluster Green function matrix
+:param int clus: label of the cluster
+:return: int</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.cluster_QP_weight">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_QP_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_QP_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the cluster quasi-particle weight from the cluster self-energy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – cluster label (starts at 0)</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – increment in the imaginary axis direction used to computed the derivative of the self-energy</p></li>
+<li><p><strong>band</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – band index (starts at 1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.cluster_averages">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_averages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_averages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the average and variance of all operators of the cluster model in the cluster ground state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster model instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dict str : (float, float) with the averages and variances as a function of operator name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.cluster_hopping_matrix">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_hopping_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_hopping_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the one-body matrix of cluster no i for instance ‘label’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> – label of the cluster (0 to the number of clusters - 1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>full</strong> (<em>boolean</em>) – if True, returns the full hopping matrix, including bath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.cluster_info">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_info" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return:A list of 4-tuples</dt>
+<dd class="field-odd"><p>(str, int, int, int, int): name of the cluster model, number of physical sites, number of bath sites, dimension of the Green function, number of point-group symmetry operations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.cluster_parameters">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the values of the cluster parameters in a given instance, as well as the cluster model name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster model instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple:  dict{string,float}, str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.cluster_self_energy">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_self_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_self_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cluster self-energy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster (0 to the number of clusters -1)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing =       4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance (default 0)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.density_wave">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">density_wave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.density_wave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a density wave</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – type of density-wave – one of ‘Z’, ‘X’, ‘Y’, ‘N’=’cdw’, ‘singlet’, ‘dz’, ‘dy’, ‘dx’</p></li>
+<li><p><strong>Q</strong> (<em>wavevector</em>) – wavevector of the density wave (in multiple of <span class="math notranslate nohighlight">\(pi\)</span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>link (<em>[int]</em>) – bond vector, for bond density waves</p></li>
+<li><p>amplitude (<em>complex</em>) – amplitude multiplier. <strong>Caution</strong>: A factor of 2 must be used in some situations (see <a class="reference internal" href="models.html#density-wave-theory"><span class="std std-ref">Density waves</span></a>)</p></li>
+<li><p>band (<em>int</em>) – Band label (0 by default = all bands)</p></li>
+<li><p>phase (<em>float</em>) – real phase (as a multiple of <span class="math notranslate nohighlight">\(pi\)</span>)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.dispersion">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">dispersion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.dispersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the dispersion relation for a single or an array of wavevectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> (<em>wavevector</em>) – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single (ndarray(d)) or an array (ndarray(N,d)) of real values (energies). d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.dos">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">dos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.dos" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the density of states at a given frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ndarray(d) of real values, d being the reduced GF dimension</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.epsilon">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">epsilon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.epsilon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the epsilon algorithm for accelerated convergence</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – sequence to be extrapolated</p></li>
+<li><p><strong>pr</strong> (<em>boolean</em>) – if True, prints the resulting extrapolation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return [float]</dt>
+<dd class="field-even"><p>the extrapolated values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.explicit_operator">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">explicit_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.explicit_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an explicit operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a><em>)</em><em>]</em>) – List of tuples. Each tuple contains three elements (in order): a list representing position, a list representing link and a complex amplitude.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>tau (<em>int</em>) – specifies the tau Pauli matrix  (0,1,2,3)</p></li>
+<li><p>sigma (<em>int</em>) – specifies the sigma Pauli matrix  (0,1,2,3)</p></li>
+<li><p>type (<em>str</em>) – one of ‘one-body’ [default], ‘singlet’, ‘dz’, ‘dy’, ‘dx’, ‘Hubbard’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.ground_state">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">ground_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.ground_state" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of pairs (float, str) of the ground state energy and sector string, for each cluster of the system</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.hopping_operator">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">hopping_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hopping_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a hopping term or, more generally, a one-body operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>link</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – bond vector (3-component integer array)</p></li>
+<li><p><strong>amplitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – hopping amplitude multiplier</p></li>
+<li><p><strong>band1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the first band (None by default)</p></li>
+<li><p><strong>band2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the second band (None by default)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>tau (<em>int</em>) – specifies the tau Pauli matrix  (0,1,2,3)</p></li>
+<li><p>sigma (<em>int</em>) – specifies the sigma Pauli matrix  (0,1,2,3)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.hybridization_function">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">hybridization_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hybridization_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the hybridization function for cluster ‘cluster’ and instance ‘label’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.interaction_operator">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">interaction_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.interaction_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an interaction operator of type Hubbard, Hund, Heisenberg or X, Y, Z</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>band1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the first band (None by default)</p></li>
+<li><p><strong>band2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the second band (None by default)</p></li>
+<li><p><strong>link</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – link of the operator (None by default)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p>amplitude (<em>float</em>): amplitude multiplier</p></li>
+<li><p>type (<em>str</em>): one of ‘Hubbard’, ‘Heisenberg’, ‘Hund’, ‘X’, ‘Y’, ‘Z’</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.interactions">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">interactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.interactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the one-body matrix of cluster no i for instance ‘label’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cluster</strong> – label of the cluster (0 to the number of clusters - 1)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a real-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.lattice_model">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">lattice_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">superlattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>initiates the lattice model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the name of the model</p></li>
+<li><p><strong>superlattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – array of integers of shape (d,3), d being the dimension</p></li>
+<li><p><strong>lattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – array of integers of shape (d,3), d being the dimension. If None, will be replaced by the unit lattice.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.matrix_elements">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">matrix_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.matrix_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the type and matrix elements defining a Hermitian operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model</p></li>
+<li><p><strong>op</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple (typ, elem)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.mixing">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">mixing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.mixing" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the mixing state of the system:</p>
+<ul class="simple">
+<li><p>0 – normal.  GF matrix is n x n, n being the number of sites</p></li>
+<li><p>1 – anomalous. GF matrix is 2n x 2n</p></li>
+<li><p>2 – spin-flip.  GF matrix is 2n x 2n</p></li>
+<li><p>3 – anomalous and spin-flip (full Nambu doubling).  GF matrix is 4n x 4n</p></li>
+<li><p>4 – up and down spins different.  GF matrix is n x n, but computed twice, with spin_down = false and true</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.model_is_closed">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">model_is_closed</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_is_closed" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the model can no longer be modified. False otherwise.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.model_size">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">model_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_size" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a 5-tuple:</p>
+</dd>
+</dl>
+<ol class="arabic simple">
+<li><p>the size of the supercell</p></li>
+<li><p>the number of bands</p></li>
+<li><p>a tuple containing the sizes of each cluster</p></li>
+<li><p>a tuple containing the sizes of each cluster’s bath</p></li>
+<li><p>a tuple containing the references of each cluster (label of reference cluster, from 0 to the nunber of clusters-1)</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.momentum_profile">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">momentum_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.momentum_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the momentum-resolved average of an operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the lattice operator</p></li>
+<li><p><strong>k</strong> – array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an array of values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.new_cluster_model">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">new_cluster_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bath_irrep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.new_cluster_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initiates a new model (no operators yet)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name to be given to the model</p></li>
+<li><p><strong>n_sites</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of cluster sites</p></li>
+<li><p><strong>n_bath</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of bath sites</p></li>
+<li><p><strong>generators</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – symmetry generators (2D array of ints)</p></li>
+<li><p><strong>bath_irrep</strong> (<em>[</em><em>boolean</em><em>]</em>) – True if bath orbitals belong to irreducible representations of the symmetry group</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.new_cluster_model_instance">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">new_cluster_model_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.new_cluster_model_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initiates a new instance of the cluster model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model</p></li>
+<li><p><strong>values</strong> (<em>{str</em><em>,</em><em>float}</em>) – values of the operators</p></li>
+<li><p><strong>sec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – target Hilbert space sectors</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of model_instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.new_cluster_operator">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">new_cluster_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.new_cluster_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a new operator from its matrix elements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model to which the operator will belong</p></li>
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>op_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – type of operator (‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’)</p></li>
+<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>)</em><em>]</em>) – array of matrix elements (list of tuples)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.new_cluster_operator_complex">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">new_cluster_operator_complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.new_cluster_operator_complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a new operator from its complex-valued matrix elements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model to which the operator will belong</p></li>
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>op_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – type of operator (‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’)</p></li>
+<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a><em>)</em><em>]</em>) – array of matrix elements (list of tuples)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.new_model_instance">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">new_model_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.new_model_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new instance of the lattice model, with values associated to terms of the Hamiltonian.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>record</strong> (<em>boolean</em>) – if True, keeps a str-valued record of the instance in memory, containing all the data necessary to read the instance back without solving.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return (class model_instance)</dt>
+<dd class="field-even"><p>an instance of the class <cite>model_instance</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.parameter_set">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">parameter_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.parameter_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the content of the parameter set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – governs the action of the function</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>depends on opt</p>
+</dd>
+</dl>
+<p>if opt = ‘all’, all parameters as a dictionary {str,(float, str, float)}. The three components are</p>
+<ol class="arabic simple">
+<li><p>the value of the parameter,</p></li>
+<li><p>the name of its overlord (or None),</p></li>
+<li><p>the multiplier by which its value is obtained from that of the overlord.</p></li>
+</ol>
+<p>if opt = ‘independent’, returns only the independent parameters, as a dictionary {str,float}
+if opt = ‘report’, returns a string with parameter values and dependencies.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.parameter_string">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">parameter_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lattice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.parameter_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the model parameters. 
+:param boolean lattice : if True, only indicates the independent lattice parameters.
+:param boolean CR : if True, put each parameter on a line.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.parameters">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the values of the parameters in a given instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dict {string,float}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.params_from_file">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">params_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.params_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads an output file for parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – line number of data in output file (excluding titles).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a dict of (parameter, value)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.periodized_Green_function">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">periodized_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.periodized_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the periodized Green function at a given frequency and wavevectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single (d,d) or an array (N,d,d) of complex-valued matrices. d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.periodized_Green_function_element">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">periodized_Green_function_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.periodized_Green_function_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the element (r,c) of the periodized Green function at a given frequency and wavevectors (starts at 0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – a row index (starts at 0)</p></li>
+<li><p><strong>c</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – a column index (starts at 0)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> – array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a vector of complex numbers</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.potential_energy">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">potential_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.potential_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the potential energy for a given instance, as the functional trace of Sigma x G</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the value of the potential energy</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.print_averages">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_averages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ave</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_averages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the averages nicely on the screen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ave</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the dictionary produced by qcm.averages()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.print_cluster_averages">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_cluster_averages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ave</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_cluster_averages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the averages nicely on the screen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ave</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the dictionary produced by qcm.averages()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.print_graph">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sites</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints a graphiz (dot) program for the cluster</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model</p></li>
+<li><p><strong>sites</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – list of positions of sites (2D array of ints)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.print_model">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a description of the model into a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.print_options">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_options</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the list of global options and parameters on the screen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – 0 -&gt; prints to screen. 1 -&gt; prints to latex. 2 -&gt; prints to RST</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.print_parameters">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the parameters nicely on the screen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>P</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the dictionary of parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.print_wavefunction">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_wavefunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_wavefunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints the ground state wavefunction(s) on the screen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>pr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – prints wavefucntion to screen if pr=True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the wavefunction</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.projected_Green_function">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">projected_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.projected_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the projected Green function at a given frequency, as used in CDMFT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the projected Green function matrix (d x d), d being the dimension of the CPT Green function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.properties">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns two strings of properties of a model instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a pair of strings (the description line and the data line).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.qmatrix">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">qmatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.qmatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Lehmann representation of the Green function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster model instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>2-tuple made of
+1. the array of M real eigenvalues, M being the number of poles in the representation
+2. a rectangular (L x M) matrix (real of complex), L being the dimension of the Green function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.read_cluster_model_instance">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">read_cluster_model_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.read_cluster_model_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads the solution from a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – long string containing the solution</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of model_instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.read_from_file">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">read_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.read_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads an output file for parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – line number of data in output file (excluding titles)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>string to be added to an eventual input file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.read_from_file_legacy">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">read_from_file_legacy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.read_from_file_legacy" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads model parameters from a text file, for legacy results
+:param str filename: name of the input text file</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.read_model">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">read_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.read_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the definition of the model from a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> – name of the file, the same as that of the model, i.e., without the ‘.model’ suffix.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.reduced_Green_function_dimension">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">reduced_Green_function_dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.reduced_Green_function_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the dimension of the reduced Green function, i.e. a simple multiple of the
+number of bands n, depending on the mixing state: n, 2n or 4n, and the number of bands</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.sectors">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">sectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.sectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alternative method of setting target sectors (see <cite>set_target_sectors(…)</cite>). An example of usage is, R = [[1,2], [3,4]] –&gt; [“R1…/R2…”, “R3…/R4…”].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>R</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>] or </em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – Symmetry sector.</p></li>
+<li><p><strong>N</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>] or </em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – Particle number.</p></li>
+<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>] or </em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – Total spin.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.self_energy">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">self_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.self_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the self-energy associated with the periodized Green function at a given frequency and wavevectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single (d,d) or an array (N,d,d) of complex-valued matrices. d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.set_basis">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">set_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.set_basis" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>B</strong> – the basis (a (D x 3) real matrix)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.set_global_parameter">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">set_global_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.set_global_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the value of a global parameter. 
+If the global parameter is Boolean, then value is True by default and should not be specified.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the global option</p></li>
+<li><p><strong>value</strong> – value of that option (None, int, float or str)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.set_parameter">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">set_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.set_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the value of a parameter within a parameter_set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the parameter</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – its value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.set_parameters">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">set_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dump</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a new set of parameters, including dependencies</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param tuple/str params</dt>
+<dd class="field-odd"><p>the values/dependence of the parameters (array of 2- or 3-tuples), or string containing syntax</p>
+</dd>
+<dt class="field-even">param boolean dump</dt>
+<dd class="field-even"><p>if True, sets the global str parameter_set_str tothe value</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Return [tuple]</dt>
+<dd class="field-odd"><p>list of tuples of the form (str, float) or (str, float, str). The first form gives the parameter name and its value. The second gives the parameter name, a multiplier and the name of the reference parameter. See the documentation on the hierarchy of parameters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.set_params_from_file">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">set_params_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.set_params_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads an output file for parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – line number of data in output file (excluding titles)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.set_target_sectors">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">set_target_sectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.set_target_sectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the Hilbert space sectors in which to look for the ground state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sec</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – the target sectors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.site_and_bond_profile">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">site_and_bond_profile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.site_and_bond_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the site and bond profiles in all clusters of the repeated unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A pair of ndarrays</p>
+</dd>
+</dl>
+<p>site profile – the components are 
+x y z n Sx Sy Sz psi.real psi.imag</p>
+<p>bond profile – the components are  
+x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy.imag dz.imag</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.spatial_dimension">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">spatial_dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.spatial_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the spatial dimension (0, 1, 2, 3) of the model</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.spectral_average">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">spectral_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.spectral_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the contribution of a frequency to the average of an operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the operator</p></li>
+<li><p><strong>z</strong> – complex frequency</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.spin_spectral_function">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">spin_spectral_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.spin_spectral_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the k-dependent spin-resolved spectral function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> – complex freqency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>band</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – band index (starts at 1)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>depending on the shape of k, a nd.array(3) of nd.array(N,3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.susceptibility">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">susceptibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.susceptibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the dynamic susceptibility of an operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>freqs</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a><em>]</em>) – array of complex frequencies</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of cluster model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>array of complex susceptibilities</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.susceptibility_poles">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">susceptibility_poles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.susceptibility_poles" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the dynamic susceptibility of an operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of cluster model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns [(float,float)]</dt>
+<dd class="field-even"><p>array of 2-tuple (pole, residue)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.switch_cluster_model">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">switch_cluster_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.switch_cluster_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>switches cluster model to ‘name’. Hack used in DCA.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.tk">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">tk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.tk" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the k-dependent one-body matrix of the lattice model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a single or an array of complex-valued matrices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.update_bath">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">update_bath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.update_bath" title="Permalink to this definition">¶</a></dt>
+<dd><p>updates the model parameters without creating a new instance or reseting the instance specified</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.variational_parameters">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">variational_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.variational_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a list of the names of the variational parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.wavevector_grid">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">wavevector_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">1.0,</span> <span class="pre">-</span> <span class="pre">1.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'z'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.wavevector_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a set of wavevectors for a MDC</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of wavevectors on the side</p></li>
+<li><p><strong>orig</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – origin (in multiples of pi)</p></li>
+<li><p><strong>side</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – length of the side (in multiples of pi)</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – momentum component in the third direction (in multiples of pi)</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ndarray of wavevectors (n*n x 3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.wavevector_path">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">wavevector_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'triangle'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.wavevector_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a wavevector path and associated tick marks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of wavevectors per segment</p></li>
+<li><p><strong>shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the geometry of the path, one of: line, halfline, triangle, graphene, graphene2, diagonal, cubic, cubic2, tetragonal, tetragonal2  OR a tuple with two wavevectors for a straight path between the two</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns tuple</dt>
+<dd class="field-even"><ol class="arabic simple">
+<li><p>a ndarray of wavevectors 2) a list of tick positions 3) a list of tick strings</p></li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.write_cluster_instance_to_file">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">write_cluster_instance_to_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.write_cluster_instance_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the solved cluster model instance to a text file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the file</p></li>
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="list-of-classes">
+<h2>List of classes<a class="headerlink" href="#list-of-classes" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#pyqcm.model" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.model_instance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">model_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Reference: List of functions</a><ul>
+<li><a class="reference internal" href="#list-of-classes">List of classes</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="parameters.html"
+                          title="previous chapter">Parameter sets, Hilbert space sectors and model instances</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="spectral.html"
+                          title="next chapter">Spectral properties</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/functions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="spectral.html" title="Spectral properties"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Reference: List of functions</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>
