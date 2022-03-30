@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction &#8212; pyqcm 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Models and clusters" href="models.html" />
+    <link rel="prev" title="Welcome to pyqcm’s documentation!" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models and clusters"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to pyqcm’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<section id="what-is-pyqcm">
+<h2>What is pyqcm?<a class="headerlink" href="#what-is-pyqcm" title="Permalink to this headline">¶</a></h2>
+<p>pyqcm is a python module that interfaces with a library written in C++: <strong>qcm</strong>.
+This library provide a collection of functions that help implement quantum cluster methods.
+Specifically, it provides an exact diagonalization solver for small clusters on which a Hubbard-like model is defined and provides functions to define infinite-lattice models and to embed the clusters into the lattice via <em>Cluster Pertrubation Theory</em> (CPT). Methods like the <em>Variational Cluster Approximation</em> (VCA) and <em>Cluster Dynamical Mean Field Theory</em> (CDMFT) are then implemented from qcm by the pyqcm module, which is written in Python only.</p>
+<p>This document is not a review of the above methods; the reader is referred to the appropriate review articles for that. It is strictly a user’s manual for the pyqcm module.
+Some degree of understanding of the above methods is however necessary to proceed.
+This document also provides insights as to the inner working of the code, and therefore consitutes also a embryonic developer’s manual.</p>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Pyqcm is written in Python and thus requires no compilation.
+However, the following librairies are needed:</p>
+<p><strong>qcm</strong>. The source code can be cloned with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dsenech</span><span class="nd">@bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dsenech</span><span class="o">/</span><span class="n">qcm_wed</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>It is written in C++, and requires lapack and python3 for interfacing. It also contains the pyqcm python module.</p>
+<p><strong>CUBA</strong> (<a class="reference external" href="http://www.feynarts.de/cuba/">http://www.feynarts.de/cuba/</a>) is required by qcm for performing integrals in dimension &gt; 2 (hence the name, for <em>cubature</em>). qcm uses version 4.0 or above. Version 2.1 is not supported. However, the CUBA library must be compiled with a modified makefile in order to use it within another shared library (the option -fPIC must be added. See the file <cite>INSTALL</cite> included in the distribution for details).</p>
+<p><strong>BLAS-LAPACK</strong>. Needed for efficient vector and matrix operations.</p>
+</section>
+<section id="compiling-qcm">
+<h2>Compiling qcm<a class="headerlink" href="#compiling-qcm" title="Permalink to this headline">¶</a></h2>
+<p>Please consult the INSTALL files in each library’s distribution to see how to compile and install the libraries.
+The shared object file qcm.so should be somewhere in the system’s Python path.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#what-is-pyqcm">What is pyqcm?</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#compiling-qcm">Compiling qcm</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to pyqcm’s documentation!</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="models.html"
+                          title="next chapter">Models and clusters</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/intro.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models and clusters"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to pyqcm’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

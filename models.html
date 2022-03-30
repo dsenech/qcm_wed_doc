@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Models and clusters &#8212; pyqcm 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Defining models" href="defining_models.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="defining_models.html" title="Defining models"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Models and clusters</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="models-and-clusters">
+<h1>Models and clusters<a class="headerlink" href="#models-and-clusters" title="Permalink to this headline">¶</a></h1>
+<p>Pyqcm can be applied to Hubbard and extended Hubbard models with one or more bands defined in 0 to 3 dimensions of space.</p>
+<section id="lattice-models">
+<h2>Lattice models<a class="headerlink" href="#lattice-models" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>qcm</strong> library deals with lattice models.
+These are defined by a Hamiltonian in dimension <span class="math notranslate nohighlight">\(D=0,1,2\)</span> or 3.
+<span class="math notranslate nohighlight">\(D\)</span> is the dimension of the Brillouin zone, i.e. the number of directions in which the model is infinite and a basic unit periodically repeated. For instance, one could consider a two-dimensional Hubbard model (a frequent case), or maybe a two-dimensional model with a finite number of layers in the third dimension, for instance to study heterostructures or a slab geometry, which still constitutes a two-dimensional model because it is infinite in two directions only. The model is made of one-body terms and interaction terms and has the general form</p>
+<div class="math notranslate nohighlight">
+\[H = \sum_a h_a H_a\]</div>
+<p>where each index <span class="math notranslate nohighlight">\(a\)</span> represent either a one-body operator or an interaction term, and <span class="math notranslate nohighlight">\(h_a\)</span> is the (real) value of the coefficient of each term. The operator <span class="math notranslate nohighlight">\(H_a\)</span> is Hermitian.</p>
+<p>The parameters <span class="math notranslate nohighlight">\(h_a\)</span> of the lattice model are commonly referred to as ‘lattice parameters’ in this document and in the code, to contrast them with the parameters of the cluster Hamiltonian.</p>
+<p>In the code, the definition of an operator <span class="math notranslate nohighlight">\(H_a\)</span> of a one-body operator, the value of its coefficient <span class="math notranslate nohighlight">\(h_a\)</span> in the Hamiltonian and of its expectation value <span class="math notranslate nohighlight">\(\langle H_a\rangle\)</span> are encapsulated in the same data structure, so that the same symbol is often used to refer to all three concepts. This has to be kept in mind in this manual. When we say <em>the value of operator</em> <span class="math notranslate nohighlight">\(H_a\)</span>, we mean the value of its coefficient <span class="math notranslate nohighlight">\(h_a\)</span>, and we sometimes use the words <em>operator</em> and <em>parameter</em> interchangeably.</p>
+<p>One distinguishes the following types of terms:</p>
+<section id="one-body-operators">
+<h3>One-body operators<a class="headerlink" href="#one-body-operators" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H_a = \sum_{\alpha\beta} t^{(a)}_{\alpha\beta} c^\dagger_\alpha c_\beta\]</div>
+<p>where each of the indices <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> stands for a given site and spin (composite index <span class="math notranslate nohighlight">\((i,\sigma)\)</span>).
+The hopping amplitude matrix <span class="math notranslate nohighlight">\(t^{(a)}_{\alpha\beta}\)</span> is Hermitian.
+For a given pair of sites, labelled 1 and 2, the general form of the one-body term is</p>
+<div class="math notranslate nohighlight">
+\[\sum_{\alpha\beta}\sum_{i,j} c^\dagger_{i\alpha} \tau^{(a)}_{ij} \sigma^{(b)}_{\alpha\beta}  c_{j\beta}\]</div>
+<p>The use of Pauli matrices <span class="math notranslate nohighlight">\(\sigma^b_{\alpha\beta}\)</span> and <span class="math notranslate nohighlight">\(\tau^a_{ij}\)</span> makes sure that the operator is Hermitian (we suppose that <span class="math notranslate nohighlight">\(a=0\)</span>, <span class="math notranslate nohighlight">\(b=0\)</span> correpsond to the identity matrix). Case <span class="math notranslate nohighlight">\(a=1\)</span> and <span class="math notranslate nohighlight">\(b=0\)</span> corresponds to an ordinary hopping term, without spin flip. In specifying the precise shape of the one-body operator, it will suffice to specify the matrix types <span class="math notranslate nohighlight">\(a=0\)</span> and <span class="math notranslate nohighlight">\(b=0\)</span> for the spatial and spin parts respectively.</p>
+</section>
+<section id="anomalous-operators">
+<h3>Anomalous operators<a class="headerlink" href="#anomalous-operators" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H_a = \sum_{\alpha\beta} \left(\Delta^{(a)}_{\alpha\beta} c_\alpha c_\beta  + \mathrm{H.c.}\right)\]</div>
+<p>where again the indices <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are composite indices. The pairing amplitude <span class="math notranslate nohighlight">\(\Delta^{(a)}_{\alpha\beta}\)</span> is antisymmetric.</p>
+</section>
+<section id="density-waves">
+<span id="density-wave-theory"></span><h3>Density waves<a class="headerlink" href="#density-waves" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>If the operator is a site density wave, its expression is</p>
+<div class="math notranslate nohighlight">
+\[x\sum_\mathbf{r} A_\mathbf{r} \cos(\mathbf{Q}\cdot\mathbf{r}+\phi)\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[A_{\mathbf{r}} = n_{\mathbf{r}}, S^{z}_\mathbf{r}, S^{x}_\mathbf{r}\]</div>
+<p>If it is a bond density wave, its expression is</p>
+<div class="math notranslate nohighlight">
+\[\sum_{\mathbf{r}} \left[ x c_\mathbf{r}^\dagger c_{\mathbf{r}+\mathbf{e}} e^{i(\mathbf{Q}\cdot\mathbf{r}+\phi)} + \mathrm{H.c} \right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> is the link vector.</p>
+<p>The types mean the following:</p>
+<ul class="simple">
+<li><p>‘N’ : normal, i.e., charge density wave</p></li>
+<li><p>‘Z’ or ‘spin’ : spin density wave, for <span class="math notranslate nohighlight">\(S_z\)</span></p></li>
+<li><p>‘X’ : spin density wave, for <span class="math notranslate nohighlight">\(S_x\)</span></p></li>
+<li><p>‘singlet’ : a pair-density wave, with singlet pairing. In this case and the following, the first creation operator in the above equation is replaced by an annihilation operator.</p></li>
+<li><p>‘dx’, ‘dy’ ‘dz’ : a pair density wave, with triplet pairing, with d-vector in the directions x, y or z.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="on-site-interaction-terms">
+<h3>On-site interaction terms<a class="headerlink" href="#on-site-interaction-terms" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H_a = \sum_{i} U^{(a)}_i n_{i\uparrow} n_{i\downarrow}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_{is}=c^\dagger_{is} c_{is}\)</span> is the number operator at site <span class="math notranslate nohighlight">\(i\)</span> and spin projection <span class="math notranslate nohighlight">\(s=\uparrow,\downarrow\)</span>.</p>
+</section>
+<section id="extended-interaction-terms">
+<h3>Extended interaction terms<a class="headerlink" href="#extended-interaction-terms" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H_a = \sum_{ij} V^{(a)}_{ij} n_i n_j \qquad (n_i = n_{i\uparrow}+n_{i\downarrow})\]</div>
+</section>
+<section id="hund-s-coupling-terms">
+<h3>Hund’s coupling terms<a class="headerlink" href="#hund-s-coupling-terms" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\hat O = \sum_{i,j} J_{ij} H_{ij}\]</div>
+<p>where <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> stand for site indices.</p>
+<div class="math notranslate nohighlight">
+\[H_{ij} = -n_{i\uparrow}n_{j\uparrow} - n_{i\downarrow}n_{j\downarrow} + c^\dagger_{i\uparrow}c_{j\uparrow}c^\dagger_{j\downarrow}c_{i\downarrow}
++ c^\dagger_{j\uparrow}c_{i\uparrow}c^\dagger_{i\downarrow}c_{j\downarrow}
++ c^\dagger_{i\uparrow}c_{j\uparrow}c^\dagger_{i\downarrow}c_{j\downarrow}
++ c^\dagger_{j\uparrow}c_{i\uparrow}c^\dagger_{j\downarrow}c_{i\downarrow}\]</div>
+<p>See, e.g., A. Liebsch and  T. A. Costi, The European Physical Journal B, Vol. 51, p. 523 (2006).
+This can also be written as</p>
+<div class="math notranslate nohighlight">
+\[H_{ij} = -n_{i\uparrow}n_{j\uparrow} - n_{i\downarrow}n_{j\downarrow}
++ (c^\dagger_{i\uparrow}c_{j\uparrow}+\mathrm{H.c.})(c^\dagger_{i\downarrow}c_{j\downarrow}+ \mathrm{H.c.})\]</div>
+<p>or as</p>
+<div class="math notranslate nohighlight">
+\[H_{ij} = -c^\dagger_{i\uparrow}c^\dagger_{j\uparrow}c_{j\uparrow}c_{i\uparrow} - c^\dagger_{i\downarrow}c^\dagger_{j\downarrow}c_{j\downarrow}c_{i\downarrow}
++ c^\dagger_{i\uparrow}c^\dagger_{i\downarrow}c_{j\downarrow}c_{j\uparrow}
++ c^\dagger_{j\uparrow}c^\dagger_{j\downarrow}c_{i\downarrow}c_{i\uparrow}
+- c^\dagger_{j\uparrow}c^\dagger_{i\downarrow}c_{i\uparrow}c_{j\downarrow}
+- c^\dagger_{i\uparrow}c^\dagger_{j\downarrow}c_{j\uparrow}c_{i\downarrow}\]</div>
+</section>
+</section>
+<section id="clusters">
+<h2>Clusters<a class="headerlink" href="#clusters" title="Permalink to this headline">¶</a></h2>
+<p>A cluster is a unit of the system that is solved exactly by exact diagonalization by the <strong>qcm_ED</strong> library. There may be more than one the repeated unit (or super unit cell). The spatial correlations are exactly taken care of only within the cluster. The size of the cluster is limited by the capacity to perform exact diagonalizations. Clusters may also be attached to bath sites, which are not part of the lattice model <em>per se</em> but serve to simulate each cluster’s environment in CDMFT.
+The cluster Hamiltonian <span class="math notranslate nohighlight">\(H'\)</span>, or <em>reference Hamiltonian</em>, has the same form as the lattice Hamiltonian (except for the possible presence of a bath), but the values of its one-body terms, noted <span class="math notranslate nohighlight">\(h'_a\)</span>, may differ. The interaction terms are the same on the cluster and on the lattice. The case of extended interactions requires a special treatment because of the bonds broken across cluster boundaries, which must be treated within the Hartree approximation.</p>
+</section>
+<section id="lattices-and-superlattices">
+<h2>Lattices and superlattices<a class="headerlink" href="#lattices-and-superlattices" title="Permalink to this headline">¶</a></h2>
+<p>The super unit cell (SUC) of the model is the repeated unit, made of one or more clusters.
+The repetition defines a superlattice. For instance, the figure below shows how the honeycomb lattice is tiled with an 8-site super unit cell (shaded in blue), itself made of two 4-site clusters. The original Bravais basis vectors are <span class="math notranslate nohighlight">\(\mathbf{e}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}_2\)</span>. The superlattice vectors are <span class="math notranslate nohighlight">\(\mathbf{E}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{E}_2\)</span>. The inter-cluster links are indicated by dashed lines and the intra-cluster links by full lines.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/h8.png"><img alt="_images/h8.png" src="_images/h8.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 1</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Another example is the triangular lattice, where the supercell can be made of a two contiguous and inverted 10-site triangles, each of them being a cluster with the point group of the lattice, but not a repeatable pattern on the lattice. Only by adjoining two such clusters does one recover a repeatable unit.
+The number of superlattice vectors defines the dimension of the lattice model.</p>
+</section>
+<section id="multiband-models">
+<h2>Multiband models<a class="headerlink" href="#multiband-models" title="Permalink to this headline">¶</a></h2>
+<p>Multiband models are treated in <strong>qcm</strong> in a seemingly restrictive fashion, which in fact poses no restriction at all. It is assumed that each geometric site on the lattice correspond to a single orbital (with two spins). Models with more than one band must necessarily be accounted for by assigning differents sites to each band. The perfect example of this is the Hubbard model on the honeycomb (aka graphene) lattice.  The lattice is not a Bravais lattice, since it contains one vacancy for every two occupied sites on an underlying triangular lattice. But there is no obligation in <strong>qcm</strong> for the lattice to be a Bravais lattice, i.e., for every site of the Bravais lattice to be occupied by an orbital.
+The reason for doing things this way is that sometimes the two bands are equivalent, like in graphene. For instance, one can then define a 6-site cluster centered on a vacancy (the vertices of a hexagon). See Fig. 2 below. This cluster, interesting to use because of its symmetry, is a repeatable unit of the honeycomb lattice, but does not contain three identical unit cells of graphene, and could not be used if bands were treated only on a unit-cell basis.
+The concept of band in fact is only relevant to the lattice itself, not to the clusters, which ignore it.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/hexa6.png"><img alt="_images/hexa6.png" src="_images/hexa6.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 2</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="bath-sites">
+<h2>Bath sites<a class="headerlink" href="#bath-sites" title="Permalink to this headline">¶</a></h2>
+<p>Each cluster treated by <strong>qcm_ED</strong> can be associated with a bath of uncorrelated sites. This is illustrated on Fig. 3 for the four-site cluster of Fig. 1. From the point of view of the ED solver, the distinction between bath sites and physical sites is irrelevant. The only difference is that only physical sites have interactions. All the sites associated with a cluster are labelled consecutively, starting with the physical sites.
+The bath sites do not really have a position, even though they are pictured on Fig. 3 as if they occupied neighboring sites on the lattice.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/h4-6b.png"><img alt="_images/h4-6b.png" src="_images/h4-6b.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-text">Figure 3</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="site-and-orbital-labels">
+<h2>Site and orbital labels<a class="headerlink" href="#site-and-orbital-labels" title="Permalink to this headline">¶</a></h2>
+<p>By convention, orbitals (or degrees of freedom) within a cluster are numbered and labelled consecutively as follows, where <span class="math notranslate nohighlight">\(N_s\)</span> is the number of physical sites, <span class="math notranslate nohighlight">\(N_b\)</span> the number of bath sites, and <span class="math notranslate nohighlight">\(N_o=N_s+N_b\)</span>:</p>
+<ul class="simple">
+<li><p>From 0 to <span class="math notranslate nohighlight">\(N_s-1\)</span>, the spin up orbitals of the cluster proper.</p></li>
+<li><p>From <span class="math notranslate nohighlight">\(N_s\)</span> to <span class="math notranslate nohighlight">\(N_o-1\)</span>, the spin up orbitals of the bath.</p></li>
+<li><p>From <span class="math notranslate nohighlight">\(N_o\)</span> to <span class="math notranslate nohighlight">\(N_o+N_s-1\)</span>, the spin down orbitals of the cluster proper.</p></li>
+<li><p>From <span class="math notranslate nohighlight">\(N_o+N_s\)</span> to <span class="math notranslate nohighlight">\(2N_o-1\)</span>, the spin down orbitals of the bath.</p></li>
+</ul>
+<p>The above numbering is relevant to the ED solver <strong>qcm_ED</strong>, but not to <strong>qcm</strong>. Instead, orbitals within the super unit cell are labelled in the order of consecutive clusters and keep the same ordering as they already have within clusters, except that bath sites are excluded.
+This means in particular that the spin down orbitals of the SUC are no longer grouped together; rather, it is the cluster index that is the most external index.
+Explicitly, the ordering of labels is as follows:</p>
+<ul class="simple">
+<li><p>From 0 to <span class="math notranslate nohighlight">\(N_{s1}-1\)</span>, the spin up orbitals of cluster # 1 containing <span class="math notranslate nohighlight">\(N_{s1}\)</span> physical sites.</p></li>
+<li><p>From <span class="math notranslate nohighlight">\(N_{s1}\)</span> to <span class="math notranslate nohighlight">\(2N_{s1}-1\)</span>, the spin down orbitals of cluster # 1.</p></li>
+<li><p>From <span class="math notranslate nohighlight">\(2N_{s1}\)</span> to <span class="math notranslate nohighlight">\(2N_{s1}+N_{s2}-1\)</span>, the spin up orbitals of cluster # 2 containing <span class="math notranslate nohighlight">\(N_{s2}\)</span> physical sites.</p></li>
+<li><p>From <span class="math notranslate nohighlight">\(2N_{s1}+N_{s2}\)</span> to <span class="math notranslate nohighlight">\(2N_{s1}+2N_{s2}-1\)</span>, the spin down orbitals of cluster # 2.</p></li>
+<li><p>etc.</p></li>
+</ul>
+</section>
+<section id="green-function-indices-and-mixing-states">
+<h2>Green function indices and mixing states<a class="headerlink" href="#green-function-indices-and-mixing-states" title="Permalink to this headline">¶</a></h2>
+<p>The above scheme describes the indices labeling the degrees of freedom.
+A slightly different scheme labels the indices of the Green function, depending on the <em>mixing state</em>:</p>
+<p><strong>Normal mixing</strong>. If there are no anomalous terms nor spin-flip terms in the model, then the Green function (cluster or lattice) does not mix up and down spins and the Gorkov function vanishes. The cluster Green function for cluster <span class="math notranslate nohighlight">\(i\)</span> is a <span class="math notranslate nohighlight">\(N_{si}\times N_{si}\)</span> matrix, associated with the destructions operators forming an array</p>
+<div class="math notranslate nohighlight">
+\[(c_{i\uparrow}) \qquad i=0,\dots,N_{si}-1\]</div>
+<p>The CPT Green function for the super unit cell (SUC) is then a <span class="math notranslate nohighlight">\(N_s\times N_s\)</span> matrix, where <span class="math notranslate nohighlight">\(N_s\)</span> is the total number of physical sites in the repeated unit:</p>
+<div class="math notranslate nohighlight">
+\[N_s = \sum_{i} N_{si}\]</div>
+<p>This mixing state is called <em>normal mixing</em>.</p>
+<p><strong>Spin asymmetric mixing</strong>. If the model is not spin symmetric, i.e., if the up and down spins are not equivalent, then the down part of the Green function is different, but is still a <span class="math notranslate nohighlight">\(N_s\times N_s\)</span> matrix. This case is called <em>spin asymmetric mixing</em>.
+It entails separate computations for the up and down spin Green functions.</p>
+<p><strong>Spin-flip mixing</strong>. If there are spin-flip terms, but sill no anomalous terms, the cluster Green function is a <span class="math notranslate nohighlight">\(2N_{si}\times 2N_{si}\)</span> matrix, associated with the destructions operators forming an array</p>
+<div class="math notranslate nohighlight">
+\[(c_{i\uparrow})\oplus(c_{i\downarrow}) \qquad i=0,\dots,N_{si}-1\]</div>
+<p>The CPT Green function for the SUC is then a <span class="math notranslate nohighlight">\(2N_s\times 2N_s\)</span> matrix, and the cluster index is the outermost index. This is called <em>spin-flip mixing</em>.</p>
+<p><strong>Simple Nambu mixing</strong>. If there are anomalous terms, but no spin-flip terms, the cluster Green function is a <span class="math notranslate nohighlight">\(2N_{si}\times 2N_{si}\)</span> matrix, associated with the destruction and creation operators forming an array</p>
+<div class="math notranslate nohighlight">
+\[(c_{i\uparrow})\oplus(c^\dagger_{i\downarrow}) \qquad i=0,\dots,N_{si}-1\]</div>
+<p>The CPT Green function for the SUC is then a <span class="math notranslate nohighlight">\(2N_s\times 2N_s\)</span> matrix, and the cluster index is still the outermost index. This is called <em>simple Nambu mixing</em>.</p>
+<p><strong>Full Nambu mixing</strong>. If there are both anomalous and spin-flip terms, the cluster Green function is a <span class="math notranslate nohighlight">\(4N_{si}\times 4N_{si}\)</span> matrix, associated with the destruction and creation operators forming an array</p>
+<div class="math notranslate nohighlight">
+\[(c_{i\uparrow})\oplus(c_{i\downarrow})\oplus(c^\dagger_{i\uparrow})\oplus(c^\dagger_{i\downarrow})\qquad i=0,\dots,N_{si}-1\]</div>
+<p>The CPT Green function for the SUC is then a <span class="math notranslate nohighlight">\(4N_s\times 4N_s\)</span> matrix, and the cluster index is still the outermost index. This is called <em>full Nambu mixing</em>.</p>
+<p><strong>Simple spin-asymmetric Nambu mixing</strong>. If there anomalous terms, no spin-flip terms, but up and down spins are not equivalent, the cluster Green function is a  <span class="math notranslate nohighlight">\(2N_{si}\times 2N_{si}\)</span> matrix, associated with the destruction and creation operators forming an array</p>
+<div class="math notranslate nohighlight">
+\[(c_{i\uparrow})\oplus(c^\dagger_{i\downarrow}) \qquad i=0,\dots,N_{si}-1\]</div>
+<p>and another array</p>
+<div class="math notranslate nohighlight">
+\[(c_{i\downarrow})\oplus(c^\dagger_{i\uparrow}) \qquad i=0,\dots,N_{si}-1\]</div>
+<p>It entails separate computations for the two cases.</p>
+<p>Different clusters may have different mixings, for instance if one of them describes a normal layer and another one a superconducting layer.
+However, the lattice model will have the more general mixing of the two and the Green function of each cluster will be <em>upgraded</em> to the lattice mixing as needed, for instance by doubling it by adding a Nambu transformed part.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Models and clusters</a><ul>
+<li><a class="reference internal" href="#lattice-models">Lattice models</a><ul>
+<li><a class="reference internal" href="#one-body-operators">One-body operators</a></li>
+<li><a class="reference internal" href="#anomalous-operators">Anomalous operators</a></li>
+<li><a class="reference internal" href="#density-waves">Density waves</a></li>
+<li><a class="reference internal" href="#on-site-interaction-terms">On-site interaction terms</a></li>
+<li><a class="reference internal" href="#extended-interaction-terms">Extended interaction terms</a></li>
+<li><a class="reference internal" href="#hund-s-coupling-terms">Hund’s coupling terms</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clusters">Clusters</a></li>
+<li><a class="reference internal" href="#lattices-and-superlattices">Lattices and superlattices</a></li>
+<li><a class="reference internal" href="#multiband-models">Multiband models</a></li>
+<li><a class="reference internal" href="#bath-sites">Bath sites</a></li>
+<li><a class="reference internal" href="#site-and-orbital-labels">Site and orbital labels</a></li>
+<li><a class="reference internal" href="#green-function-indices-and-mixing-states">Green function indices and mixing states</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="intro.html"
+                          title="previous chapter">Introduction</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="defining_models.html"
+                          title="next chapter">Defining models</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/models.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="defining_models.html" title="Defining models"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Models and clusters</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

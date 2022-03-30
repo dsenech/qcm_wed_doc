@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Parallel processing &#8212; pyqcm 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Summary of options" href="options.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="options.html" title="Summary of options"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Parallel processing</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="parallel-processing">
+<h1>Parallel processing<a class="headerlink" href="#parallel-processing" title="Permalink to this headline">¶</a></h1>
+<section id="generality">
+<h2>Generality<a class="headerlink" href="#generality" title="Permalink to this headline">¶</a></h2>
+<p>pyqcm could benefit from various methods to perform parallel processing in shared memory system.
+Three parallelisations method could be used in theory:</p>
+<ul class="simple">
+<li><p>Those implemented in BLAS/LAPACK,</p></li>
+<li><p>Those implemented in the CUBA numerical integration library</p></li>
+<li><p>And those implemented in QCM library (with OpenMP).</p></li>
+</ul>
+<p>By default, pyqcm (and QCM) disable parallelization using BLAS/LAPACK and CUBA, to use its own implementation using OpenMP with all the cores available on the machine.
+Users can still specify fewer number of core to use by exporting the environment variable OMP_NUM_THREADS, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OMP_NUM_THREADs</span><span class="o">=</span><span class="n">X</span> <span class="c1">#use X cores</span>
+</pre></div>
+</div>
+<p>User can also choose to rely on the CUBA library parallelization by setting the environment variable CUBACORES.
+QCM OpenMP parallelization must also be unset:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CUBACORES</span><span class="o">=</span><span class="n">X</span> <span class="c1">#use X cubacores, X must be &gt;=2</span>
+<span class="n">OMP_NUM_THREADs</span><span class="o">=</span><span class="mi">1</span> <span class="c1">#unset OpenMP</span>
+</pre></div>
+</div>
+<p>However, using this method, only the integration section would be treated in parallel.</p>
+</section>
+<section id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<p>The following Figure 1 compares parallelization performance on a simulation which spend most of its time (i.e. more than 99% using a single core) in the numerical integration.
+Tests were performed on a 2 x Intel Xeon Gold 6238 Cascade Lake &#64; 2.10GHz with 22 cores each and HyperThreading disabled.</p>
+<figure class="align-center" id="id1">
+<img alt="_images/parallel_performance.png" src="_images/parallel_performance.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Parallel performance using QCM OpenMP (in red) and Cuba parallelization (in blue).</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>User should note that while OpenMP used the same object in memory to perform calculation in parallel, CUBA rather duplicate the object in the memory, resulting in a significant memory consumption.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Parallel processing</a><ul>
+<li><a class="reference internal" href="#generality">Generality</a></li>
+<li><a class="reference internal" href="#performance">Performance</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="options.html"
+                          title="previous chapter">Summary of options</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/parallel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="options.html" title="Summary of options"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Parallel processing</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

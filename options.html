@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Summary of options &#8212; pyqcm 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parallel processing" href="parallel.html" />
+    <link rel="prev" title="Hartree approximation and counterterms" href="utilities.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="parallel.html" title="Parallel processing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="utilities.html" title="Hartree approximation and counterterms"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Summary of options</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="summary-of-options">
+<h1>Summary of options<a class="headerlink" href="#summary-of-options" title="Permalink to this headline">¶</a></h1>
+<p>The behavior of <cite>qcm</cite> can be controlled by many global parameters that can be set via a call to <code class="docutils literal notranslate"><span class="pre">qcm.set_global_parameter()</span></code>.
+There are four kinds of global parameter, depending on the type of variable involved:</p>
+<ol class="arabic simple">
+<li><p>Boolean parameter. They are all false by default. Calling <code class="docutils literal notranslate"><span class="pre">qcm.set_global_parameter(name)</span></code> with the name of the parameter sets that parameter to True.</p></li>
+<li><p>integer-valued parameter. Calling <code class="docutils literal notranslate"><span class="pre">qcm.set_global_parameter(name,</span> <span class="pre">val)</span></code> with the name of the parameter sets that parameter’s value to <code class="docutils literal notranslate"><span class="pre">val</span></code>.</p></li>
+<li><p>real-valued parameter. Same calling prototype as above.</p></li>
+<li><p>string-valued parameter. Same calling prototype as above.</p></li>
+</ol>
+<p>The following tables list the different global parameters, their default value and a short description.</p>
+<section id="boolean-options">
+<h2>Boolean options<a class="headerlink" href="#boolean-options" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>default</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>verb_Hilbert</p></td>
+<td><p>false</p></td>
+<td><p>prints progress information on bases and operators in the Hilbert space</p></td>
+</tr>
+<tr class="row-odd"><td><p>verb_ED</p></td>
+<td><p>false</p></td>
+<td><p>prints ED information and progress</p></td>
+</tr>
+<tr class="row-even"><td><p>verb_integrals</p></td>
+<td><p>false</p></td>
+<td><p>prints information and progress about integrals</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSR_sym_store</p></td>
+<td><p>false</p></td>
+<td><p>stores CSR matrices fully for openMP application</p></td>
+</tr>
+<tr class="row-even"><td><p>strip_anomalous_self</p></td>
+<td><p>false</p></td>
+<td><p>sets to zero the anomalous part of the self-energy</p></td>
+</tr>
+<tr class="row-odd"><td><p>print_Hamiltonian</p></td>
+<td><p>false</p></td>
+<td><p>Prints the Hamiltonian on the screen, if small enough</p></td>
+</tr>
+<tr class="row-even"><td><p>SEF_calc</p></td>
+<td><p>false</p></td>
+<td><p>Calculates the Self-energy functional, even when not performing VCA</p></td>
+</tr>
+<tr class="row-odd"><td><p>periodized_averages</p></td>
+<td><p>false</p></td>
+<td><p>computes lattice averages using the periodized Green function</p></td>
+</tr>
+<tr class="row-even"><td><p>continued_fraction</p></td>
+<td><p>false</p></td>
+<td><p>Uses the continued fraction solver for the Green function instead of the band Lanczos method</p></td>
+</tr>
+<tr class="row-odd"><td><p>dual_basis</p></td>
+<td><p>false</p></td>
+<td><p>uses the dual basis for wavevector computations</p></td>
+</tr>
+<tr class="row-even"><td><p>nosym</p></td>
+<td><p>false</p></td>
+<td><p>does not take cluster symmetries into account</p></td>
+</tr>
+<tr class="row-odd"><td><p>modified_Lanczos</p></td>
+<td><p>false</p></td>
+<td><p>Uses the modified Lanczos method for the ground state instead of the usual Lanczos method</p></td>
+</tr>
+<tr class="row-even"><td><p>periodic</p></td>
+<td><p>false</p></td>
+<td><p>considers the cluster(s) as periodic</p></td>
+</tr>
+<tr class="row-odd"><td><p>zero_dim</p></td>
+<td><p>false</p></td>
+<td><p>sets the spatial dimension to zero, on any model</p></td>
+</tr>
+<tr class="row-even"><td><p>print_all</p></td>
+<td><p>false</p></td>
+<td><p>prints dependent parameters as well</p></td>
+</tr>
+<tr class="row-odd"><td><p>check_lanczos_residual</p></td>
+<td><p>false</p></td>
+<td><p>checks the Lanczos residual at the end of the eigenvector computation</p></td>
+</tr>
+<tr class="row-even"><td><p>no_degenerate_BL</p></td>
+<td><p>false</p></td>
+<td><p>forbids band lanczos to proceed when the eigenstates have degenerate energies</p></td>
+</tr>
+<tr class="row-odd"><td><p>potential_energy</p></td>
+<td><p>false</p></td>
+<td><p>Calculates the potential energy with Tr(Sigma*G) when computing averages</p></td>
+</tr>
+<tr class="row-even"><td><p>one_body_solution</p></td>
+<td><p>false</p></td>
+<td><p>Only solves the one-body part of the problem, for the Green function</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="integer-valued-options">
+<h2>Integer-valued options<a class="headerlink" href="#integer-valued-options" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>default</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>max_iter_lanczos</p></td>
+<td><p>600</p></td>
+<td><p>Maximum number of iterations in the Lanczos procedure</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_iter_QN</p></td>
+<td><p>60</p></td>
+<td><p>maximum number of iterations in the quasi-Newton method</p></td>
+</tr>
+<tr class="row-even"><td><p>cuba3D_mineval</p></td>
+<td><p>16000</p></td>
+<td><p>minimum number of integrand evaluations in CUBA (3D)</p></td>
+</tr>
+<tr class="row-odd"><td><p>seed</p></td>
+<td><p>0</p></td>
+<td><p>seed of the random number generator</p></td>
+</tr>
+<tr class="row-even"><td><p>kgrid_side</p></td>
+<td><p>32</p></td>
+<td><p>number of wavevectors on the side in a fixed wavevector grid</p></td>
+</tr>
+<tr class="row-odd"><td><p>print_precision</p></td>
+<td><p>8</p></td>
+<td><p>precision of printed output</p></td>
+</tr>
+<tr class="row-even"><td><p>cuba2D_mineval</p></td>
+<td><p>1024</p></td>
+<td><p>minimum number of integrand evaluations in CUBA (2D)</p></td>
+</tr>
+<tr class="row-odd"><td><p>dim_max_print</p></td>
+<td><p>64</p></td>
+<td><p>Maximum dimension for printing vectors and matrices</p></td>
+</tr>
+<tr class="row-even"><td><p>max_iter_CF</p></td>
+<td><p>400</p></td>
+<td><p>Maximum number of iterations in the continuous fraction Lanczos procedure</p></td>
+</tr>
+<tr class="row-odd"><td><p>GK_min_regions</p></td>
+<td><p>8</p></td>
+<td><p>minimum number of regions in the Gauss-Kronrod method</p></td>
+</tr>
+<tr class="row-even"><td><p>Davidson_states</p></td>
+<td><p>1</p></td>
+<td><p>Number of states requested in the Davidson-Liu algorithm</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_dim_full</p></td>
+<td><p>256</p></td>
+<td><p>Maximum dimension for using full diagonalization</p></td>
+</tr>
+<tr class="row-even"><td><p>max_iter_BL</p></td>
+<td><p>600</p></td>
+<td><p>Maximum number of iterations in the band Lanczos procedure</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="real-valued-options">
+<h2>Real-valued options<a class="headerlink" href="#real-valued-options" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>default</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Qmatrix_vtol</p></td>
+<td><p>1e-10</p></td>
+<td><p>minimum value of a Qmatrix contribution</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qmatrix_wtol</p></td>
+<td><p>1e-05</p></td>
+<td><p>maximum difference in frequencies in Q-matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>band_lanczos_minimum_gap</p></td>
+<td><p>1e-05</p></td>
+<td><p>gap between the lowest two states in BL below which the method fails</p></td>
+</tr>
+<tr class="row-odd"><td><p>accur_Q_matrix</p></td>
+<td><p>1e-05</p></td>
+<td><p>tolerance in the normalization of the Q matrix</p></td>
+</tr>
+<tr class="row-even"><td><p>minimum_weight</p></td>
+<td><p>0.01</p></td>
+<td><p>minimum weight in the density matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>cutoff_scale</p></td>
+<td><p>1e+12</p></td>
+<td><p>high-frequency cutoff in integrals</p></td>
+</tr>
+<tr class="row-even"><td><p>large_scale</p></td>
+<td><p>20</p></td>
+<td><p>high-frequency region for imaginary frequency axis integrals</p></td>
+</tr>
+<tr class="row-odd"><td><p>eta</p></td>
+<td><p>0.0001</p></td>
+<td><p>value of the imaginary part of the frequency in Chern number/Berry phase computations</p></td>
+</tr>
+<tr class="row-even"><td><p>temperature</p></td>
+<td><p>0</p></td>
+<td><p>Temperature of the system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>accur_OP</p></td>
+<td><p>0.0001</p></td>
+<td><p>accuracy of lattice averages</p></td>
+</tr>
+<tr class="row-even"><td><p>small_scale</p></td>
+<td><p>0.5</p></td>
+<td><p>low-frequency region for imaginary frequency axis integrals</p></td>
+</tr>
+<tr class="row-odd"><td><p>accur_SEF</p></td>
+<td><p>5e-08</p></td>
+<td><p>Accuracy of the Potthoff functional</p></td>
+</tr>
+<tr class="row-even"><td><p>accur_continued_fraction</p></td>
+<td><p>0.01</p></td>
+<td><p>value of beta below which the simple Lanczos process stops</p></td>
+</tr>
+<tr class="row-odd"><td><p>accur_Davidson</p></td>
+<td><p>1e-05</p></td>
+<td><p>maximum norm of residuals in the Davidson-Liu algorithm</p></td>
+</tr>
+<tr class="row-even"><td><p>accur_lanczos</p></td>
+<td><p>1e-12</p></td>
+<td><p>tolerance of the Ritz residual estimate in the Lanczos method</p></td>
+</tr>
+<tr class="row-odd"><td><p>accur_band_lanczos</p></td>
+<td><p>1e-12</p></td>
+<td><p>energy difference tolerance for stopping the BL process</p></td>
+</tr>
+<tr class="row-even"><td><p>accur_deflation</p></td>
+<td><p>1e-07</p></td>
+<td><p>norm below which a vector is deflated in the Band Lanczos method</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="char-valued-options">
+<h2>Char-valued options<a class="headerlink" href="#char-valued-options" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>default</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hamiltonian_format</p></td>
+<td><p>S</p></td>
+<td><p>Desired Hamiltonian format: S (CSR matrix), O (individual operators), F (factorized), N (none = on the fly)</p></td>
+</tr>
+<tr class="row-odd"><td><p>periodization</p></td>
+<td><p>G</p></td>
+<td><p>periodization scheme: G, S, M, C or N (None)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Summary of options</a><ul>
+<li><a class="reference internal" href="#boolean-options">Boolean options</a></li>
+<li><a class="reference internal" href="#integer-valued-options">Integer-valued options</a></li>
+<li><a class="reference internal" href="#real-valued-options">Real-valued options</a></li>
+<li><a class="reference internal" href="#char-valued-options">Char-valued options</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="utilities.html"
+                          title="previous chapter">Hartree approximation and counterterms</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="parallel.html"
+                          title="next chapter">Parallel processing</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/options.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="parallel.html" title="Parallel processing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="utilities.html" title="Hartree approximation and counterterms"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Summary of options</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>
