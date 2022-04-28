@@ -54,22 +54,25 @@ Specifically, it provides an exact diagonalization solver for small clusters on 
 Some degree of understanding of the above methods is however necessary to proceed.
 This document also provides insights as to the inner working of the code, and therefore consitutes also a embryonic developer’s manual.</p>
 </section>
-<section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Pyqcm is written in Python and thus requires no compilation.
-However, the following librairies are needed:</p>
-<p><strong>qcm</strong>. The source code can be cloned with the following command:</p>
+However, it is based on a C++ library (<strong>qcm</strong>) provided with the distribution, and depends on <strong>CUBA</strong> for numerical integration and
+<strong>BLAS-LAPACK</strong> for elementary (non sparse) linear algebra.</p>
+<p>The source code can be cloned with the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dsenech</span><span class="nd">@bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dsenech</span><span class="o">/</span><span class="n">qcm_wed</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
-<p>It is written in C++, and requires lapack and python3 for interfacing. It also contains the pyqcm python module.</p>
-<p><strong>CUBA</strong> (<a class="reference external" href="http://www.feynarts.de/cuba/">http://www.feynarts.de/cuba/</a>) is required by qcm for performing integrals in dimension &gt; 2 (hence the name, for <em>cubature</em>). qcm uses version 4.0 or above. Version 2.1 is not supported. However, the CUBA library must be compiled with a modified makefile in order to use it within another shared library (the option -fPIC must be added. See the file <cite>INSTALL</cite> included in the distribution for details).</p>
-<p><strong>BLAS-LAPACK</strong>. Needed for efficient vector and matrix operations.</p>
-</section>
-<section id="compiling-qcm">
-<h2>Compiling qcm<a class="headerlink" href="#compiling-qcm" title="Permalink to this headline">¶</a></h2>
-<p>Please consult the INSTALL files in each library’s distribution to see how to compile and install the libraries.
-The shared object file qcm.so should be somewhere in the system’s Python path.</p>
+<p>or, from github:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dsenech</span><span class="o">/</span><span class="n">qcm_wed</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>Compiling can be done with pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">path_to_qcm_wed_folder</span><span class="o">&gt;</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -85,8 +88,7 @@ The shared object file qcm.so should be somewhere in the system’s Python path.
     <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#what-is-pyqcm">What is pyqcm?</a></li>
-<li><a class="reference internal" href="#requirements">Requirements</a></li>
-<li><a class="reference internal" href="#compiling-qcm">Compiling qcm</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
 </ul>
 </li>
 </ul>

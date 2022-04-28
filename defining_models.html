@@ -50,7 +50,7 @@
 <section id="defining-cluster-models">
 <h2>Defining cluster models<a class="headerlink" href="#defining-cluster-models" title="Permalink to this headline">¶</a></h2>
 <p>Clusters are the building blocks of lattice models. One needs to define them first.
-This is done through calls to <cite>qcm_ED</cite>. For instance:</p>
+This is done through calls to <cite>new_cluster_model()</cite>. For instance:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyqcm</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">new_cluster_model</span><span class="p">(</span><span class="s1">&#39;2x2_C2v&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
 </pre></div>
@@ -63,7 +63,7 @@ This is done through calls to <cite>qcm_ED</cite>. For instance:</p>
 <li><p>(optional) A list of permutations of the  <span class="math notranslate nohighlight">\(N_o=N_s+N_b\)</span>  orbitals that define generators of the symmetries of the cluster.</p></li>
 <li><p>(optional) A boolean flag that, if true, signals that bath orbitals belong to irreducible representations of the symmetry group of the cluster, instead of being part of permutations of the different orbitals of the cluster-bath system.</p></li>
 </ol>
-<p>In the above example, a four-site cluster is defined, without any bath sites. The positions of the sites are not relevant to <cite>qcm_ED</cite>, and so are not defined at this stage.
+<p>In the above example, a four-site cluster is defined, without any bath sites. The positions of the sites are not relevant to the impurity solver, and so are not defined at this stage.
 However, a plaquette geometry is implicit here, with the following site labels:</p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/2x2.png"><img alt="_images/2x2.png" src="_images/2x2.png" style="height: 100px;" /></a>
@@ -72,12 +72,12 @@ However, a plaquette geometry is implicit here, with the following site labels:<
 </figcaption>
 </figure>
 <p>The cluster symmetries (permutations) passed to the function thus correspond to reflexions with respect to the horizontal and vertical axes, respectively.
-The cluster symmetries will be used by <cite>qcm_ED</cite> to lighten the exact diagonalization task. Large clusters will take less memory, convergence of the Lanczos method will be faster, and computing the Green function at a given frequency will be more efficient.
+The cluster symmetries will be used by the ED solver to lighten the exact diagonalization task. Large clusters will take less memory, convergence of the Lanczos method will be faster, and computing the Green function at a given frequency will be more efficient.
 The different permutations that constitute the generators must commute with each other. They generate an Abelian group with <span class="math notranslate nohighlight">\(g\)</span> elements. Such a group has an equal number <span class="math notranslate nohighlight">\(g\)</span> of irreducible representations, numbered from 0 to <span class="math notranslate nohighlight">\(g-1\)</span>.</p>
 <section id="defining-operators-on-the-cluster">
 <h3>Defining operators on the cluster<a class="headerlink" href="#defining-operators-on-the-cluster" title="Permalink to this headline">¶</a></h3>
-<p>Most operators in the model are best defined on the lattice and their restrition to the cluster is defined automatically, so there is no need to define them explicitly on each cluster of the super unit cell. This is not the case if one wants to use <cite>qcm_ED</cite> as a standalone ED solver without using <cite>qcm</cite>.
-Bath operators, on the other hand, need to be defined explicitly within the cluster model since they do not exist on the lattice model and <cite>qcm</cite> only knows about their existence through a hybridization function.</p>
+<p>Most operators in the model are best defined on the lattice and their restriction to the cluster is defined automatically, so there is no need to define them explicitly on each cluster of the super unit cell. This is not the case if one wants to use the ED solver as a standalone program without reference to a lattice model.
+Bath operators, on the other hand, need to be defined explicitly within the cluster model since they do not exist on the lattice model.</p>
 <p>The following code defines the cluster and bath operators for the cluster illustrated in the last section, which we reproduce here:</p>
 <figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="_images/h4-6b.png"><img alt="_images/h4-6b.png" src="_images/h4-6b.png" style="height: 200px;" /></a>
@@ -130,7 +130,7 @@ Bath operators, on the other hand, need to be defined explicitly within the clus
 <span class="p">])</span>
 </pre></div>
 </div>
-<p>Note that the symmetry defined here is a rotation by 120 degrees. This generates the group <span class="math notranslate nohighlight">\(C_3\)</span>, which has complex representations. <cite>qcm_ED</cite> can only deal with Abelian groups (the correct treatment of non-Abelian symmetries is too complex when computing Green functions for the benefits it would provide). In the above example, a better strategy when no complex operators are present would be to define only a <span class="math notranslate nohighlight">\(C_2\)</span> symmetry based on one of three possible reflections. This would only provide 2 symmetry operations instead of 3, but the representations would be real instead of complex, thus saving more time and memory.</p>
+<p>Note that the symmetry defined here is a rotation by 120 degrees. This generates the group <span class="math notranslate nohighlight">\(C_3\)</span>, which has complex representations. <strong>pyqcm</strong> can only deal with Abelian groups (the correct treatment of non-Abelian symmetries is too complex when computing Green functions for the benefits it would provide). In the above example, a better strategy when no complex operators are present would be to define only a <span class="math notranslate nohighlight">\(C_2\)</span> symmetry based on one of three possible reflections. This would only provide 2 symmetry operations instead of 3, but the representations would be real instead of complex, thus saving more time and memory.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">new_cluster_operator(model,</span> <span class="pre">name,</span> <span class="pre">type,</span> <span class="pre">elements)</span></code> takes the following arguments:</p>
 <ol class="arabic simple">
 <li><p>The name of the model (the same given to <code class="docutils literal notranslate"><span class="pre">new_model()</span></code>)</p></li>
@@ -138,7 +138,7 @@ Bath operators, on the other hand, need to be defined explicitly within the clus
 <li><p>The type of operator; one of ‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’</p></li>
 <li><p>An array of real matrix elements. Each element of the array is a 3-tuple giving the labels of the orbitals involved and the value of the matrix element itself. Note that spin-up and spin-down orbital labels are separated by the total number of orbitals on the custer, here <cite>no=10</cite>.</p></li>
 </ol>
-<p>If a complex-valued operator is needed, then the function <code class="docutils literal notranslate"><span class="pre">qcm_ED.new_operator_complex()</span></code> must be used, the only difference being that the actual matrix elements are complex numbers.</p>
+<p>If a complex-valued operator is needed, then the function <code class="docutils literal notranslate"><span class="pre">new_cluster_operator_complex()</span></code> must be used, the only difference being that the actual matrix elements are complex numbers.</p>
 </section>
 </section>
 <section id="defining-lattice-models">
@@ -149,8 +149,7 @@ Bath operators, on the other hand, need to be defined explicitly within the clus
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyqcm</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">new_cluster_model</span><span class="p">(</span><span class="n">clus</span><span class="s1">&#39;, 4, 0, [[4, 3, 2, 1]])</span>
-<span class="n">add_cluster</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-                                      <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">add_cluster</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 <span class="n">lattice_model</span><span class="p">(</span><span class="s1">&#39;2x2_C2&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 <span class="n">interaction_operator</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
 <span class="n">hopping_operator</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -170,7 +169,8 @@ Bath operators, on the other hand, need to be defined explicitly within the clus
 <li><p>The base position of the cluster within the super unit cell (here <code class="docutils literal notranslate"><span class="pre">[0,0,0]</span></code>)</p></li>
 <li><p>An array of integer positions of the different cluster sites. This is where the geometry of the cluster appears.</p></li>
 </ol>
-<p>In the above example, the super unit cell contains a single cluster. Therefore <code class="docutils literal notranslate"><span class="pre">add_cluster()</span></code> is called only once and the lattice model can then be wrapped up by a call to <code class="docutils literal notranslate"><span class="pre">lattice_model()</span></code>, which takes three arguments (the last one optional):</p>
+<p>The funcion <code class="docutils literal notranslate"><span class="pre">add_cluster()</span></code> is used to add individual clusters to the super unit cell. Only at the end of this process can the lattice model itself be defined properly by the function <code class="docutils literal notranslate"><span class="pre">lattice_model()</span></code>, which is the signal that no more clusters are needed.
+In the above example, the super unit cell contains a single cluster. Therefore <code class="docutils literal notranslate"><span class="pre">add_cluster()</span></code> is called only once and the lattice model can then be wrapped up by a call to <code class="docutils literal notranslate"><span class="pre">lattice_model()</span></code>, which takes three arguments (the last one optional):</p>
 <ol class="arabic simple">
 <li><p>The name of the model, for reporting purposes</p></li>
 <li><p>The <span class="math notranslate nohighlight">\(d\)</span> vectors defining the superlattice vectors. <span class="math notranslate nohighlight">\(d\)</span> is the dimension of the model.</p></li>
@@ -217,7 +217,7 @@ Bath operators, on the other hand, need to be defined explicitly within the clus
 </figure>
 <p>Of possible set of function calls to define the Hubbard model on this system is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cluster_h4_6b_C3</span>
-<span class="kn">import</span> <span class="nn">pyqcm</span>
+<span class="kn">from</span> <span class="nn">pyqcm</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">add_cluster</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 <span class="n">add_cluster</span><span class="p">(</span><span class="s1">&#39;clus&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
@@ -240,7 +240,7 @@ The lattice basis vectors only serve to attribute band labels to the different s
 </section>
 <section id="other-examples">
 <h3>Other examples<a class="headerlink" href="#other-examples" title="Permalink to this headline">¶</a></h3>
-<p>The distribution contains a folder (<cite>Examples</cite>) that contains many examples of models and codes. New users are encouraged to study a few of these models and to consult the reference section for more detailed information about model building.</p>
+<p>The distribution contains a folder (<cite>notebooks</cite>) that contains many examples of models and codes. New users are encouraged to study a few of these models and to consult the reference section for more detailed information about model building.</p>
 </section>
 </section>
 </section>
