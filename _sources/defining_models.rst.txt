@@ -9,7 +9,7 @@ Defining cluster models
 =======================
 
 Clusters are the building blocks of lattice models. One needs to define them first.
-This is done through calls to `qcm_ED`. For instance::
+This is done through calls to `new_cluster_model()`. For instance::
 
     from pyqcm import *
     new_cluster_model('2x2_C2v', 4, 0, [[3, 4, 1, 2], [2, 1, 4, 3]])
@@ -22,7 +22,7 @@ The function ``new_cluster_model(name, Ns, Nb, perm, bath_irrep)`` takes the fol
 #. (optional) A list of permutations of the  :math:`N_o=N_s+N_b`  orbitals that define generators of the symmetries of the cluster.
 #. (optional) A boolean flag that, if true, signals that bath orbitals belong to irreducible representations of the symmetry group of the cluster, instead of being part of permutations of the different orbitals of the cluster-bath system.
 
-In the above example, a four-site cluster is defined, without any bath sites. The positions of the sites are not relevant to `qcm_ED`, and so are not defined at this stage.
+In the above example, a four-site cluster is defined, without any bath sites. The positions of the sites are not relevant to the impurity solver, and so are not defined at this stage.
 However, a plaquette geometry is implicit here, with the following site labels:
 
 .. figure:: 2x2.png
@@ -33,14 +33,14 @@ However, a plaquette geometry is implicit here, with the following site labels:
 
 
 The cluster symmetries (permutations) passed to the function thus correspond to reflexions with respect to the horizontal and vertical axes, respectively.
-The cluster symmetries will be used by `qcm_ED` to lighten the exact diagonalization task. Large clusters will take less memory, convergence of the Lanczos method will be faster, and computing the Green function at a given frequency will be more efficient.
+The cluster symmetries will be used by the ED solver to lighten the exact diagonalization task. Large clusters will take less memory, convergence of the Lanczos method will be faster, and computing the Green function at a given frequency will be more efficient.
 The different permutations that constitute the generators must commute with each other. They generate an Abelian group with :math:`g` elements. Such a group has an equal number :math:`g` of irreducible representations, numbered from 0 to :math:`g-1`.
 
 Defining operators on the cluster
 ---------------------------------
 
-Most operators in the model are best defined on the lattice and their restrition to the cluster is defined automatically, so there is no need to define them explicitly on each cluster of the super unit cell. This is not the case if one wants to use `qcm_ED` as a standalone ED solver without using `qcm`.
-Bath operators, on the other hand, need to be defined explicitly within the cluster model since they do not exist on the lattice model and `qcm` only knows about their existence through a hybridization function.
+Most operators in the model are best defined on the lattice and their restriction to the cluster is defined automatically, so there is no need to define them explicitly on each cluster of the super unit cell. This is not the case if one wants to use the ED solver as a standalone program without reference to a lattice model.
+Bath operators, on the other hand, need to be defined explicitly within the cluster model since they do not exist on the lattice model.
 
 The following code defines the cluster and bath operators for the cluster illustrated in the last section, which we reproduce here:
 
@@ -96,7 +96,7 @@ Content of the cluster definition file::
     ])
 
 
-Note that the symmetry defined here is a rotation by 120 degrees. This generates the group :math:`C_3`, which has complex representations. `qcm_ED` can only deal with Abelian groups (the correct treatment of non-Abelian symmetries is too complex when computing Green functions for the benefits it would provide). In the above example, a better strategy when no complex operators are present would be to define only a :math:`C_2` symmetry based on one of three possible reflections. This would only provide 2 symmetry operations instead of 3, but the representations would be real instead of complex, thus saving more time and memory.
+Note that the symmetry defined here is a rotation by 120 degrees. This generates the group :math:`C_3`, which has complex representations. **pyqcm** can only deal with Abelian groups (the correct treatment of non-Abelian symmetries is too complex when computing Green functions for the benefits it would provide). In the above example, a better strategy when no complex operators are present would be to define only a :math:`C_2` symmetry based on one of three possible reflections. This would only provide 2 symmetry operations instead of 3, but the representations would be real instead of complex, thus saving more time and memory.
 
 The function ``new_cluster_operator(model, name, type, elements)`` takes the following arguments:
 
@@ -105,7 +105,7 @@ The function ``new_cluster_operator(model, name, type, elements)`` takes the fol
 #. The type of operator; one of 'one-body', 'anomalous', 'interaction', 'Hund', 'Heisenberg'
 #. An array of real matrix elements. Each element of the array is a 3-tuple giving the labels of the orbitals involved and the value of the matrix element itself. Note that spin-up and spin-down orbital labels are separated by the total number of orbitals on the custer, here `no=10`.
 
-If a complex-valued operator is needed, then the function ``qcm_ED.new_operator_complex()`` must be used, the only difference being that the actual matrix elements are complex numbers.
+If a complex-valued operator is needed, then the function ``new_cluster_operator_complex()`` must be used, the only difference being that the actual matrix elements are complex numbers.
 
 Defining lattice models
 =======================
@@ -118,8 +118,7 @@ The following simple example illustrates how to define a Hubbard model on the sq
     from pyqcm import *
 
     new_cluster_model(clus', 4, 0, [[4, 3, 2, 1]])
-    add_cluster('clus', [0, 0, 0], [[0, 0, 0],
-                                          [1, 0, 0], [0, 1, 0], [1, 1, 0]])
+    add_cluster('clus', [0, 0, 0], [[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0]])
     lattice_model('2x2_C2', [[2, 0, 0], [0, 2, 0]])
     interaction_operator('U')
     hopping_operator('t', [1, 0, 0], -1)
@@ -138,6 +137,7 @@ There is a call to ``new_cluster_model()`` to define a :math:`2\times2` plaquett
 #. The base position of the cluster within the super unit cell (here ``[0,0,0]``)
 #. An array of integer positions of the different cluster sites. This is where the geometry of the cluster appears.
 
+The funcion ``add_cluster()`` is used to add individual clusters to the super unit cell. Only at the end of this process can the lattice model itself be defined properly by the function ``lattice_model()``, which is the signal that no more clusters are needed.
 In the above example, the super unit cell contains a single cluster. Therefore ``add_cluster()`` is called only once and the lattice model can then be wrapped up by a call to ``lattice_model()``, which takes three arguments (the last one optional):
 
 #. The name of the model, for reporting purposes
@@ -189,7 +189,7 @@ The following example defines a model on the graphene lattice using two cluster 
 Of possible set of function calls to define the Hubbard model on this system is::
 
     import cluster_h4_6b_C3
-    import pyqcm
+    from pyqcm import *
 
     add_cluster('clus', [-1, 0, 0], [[0, 0, 0], [-1, 0, 0], [1, 1, 0], [0, -1, 0]])
     add_cluster('clus', [1, 0, 0], [[0, 0, 0], [1, 0, 0], [-1, -1, 0], [0, 1, 0]])
@@ -217,5 +217,5 @@ The greatest risk in such calls is to mislabel the bands. In order to check that
 Other examples
 --------------
 
-The distribution contains a folder (`Examples`) that contains many examples of models and codes. New users are encouraged to study a few of these models and to consult the reference section for more detailed information about model building.
+The distribution contains a folder (`notebooks`) that contains many examples of models and codes. New users are encouraged to study a few of these models and to consult the reference section for more detailed information about model building.
 

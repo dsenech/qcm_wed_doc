@@ -13,25 +13,26 @@ This document is not a review of the above methods; the reader is referred to th
 Some degree of understanding of the above methods is however necessary to proceed.
 This document also provides insights as to the inner working of the code, and therefore consitutes also a embryonic developer's manual.
 
-Requirements
+Installation
 ============
 
 Pyqcm is written in Python and thus requires no compilation.
-However, the following librairies are needed:
+However, it is based on a C++ library (**qcm**) provided with the distribution, and depends on **CUBA** for numerical integration and 
+**BLAS-LAPACK** for elementary (non sparse) linear algebra.
 
-**qcm**. The source code can be cloned with the following command::
+The source code can be cloned with the following command::
 
     git clone https://dsenech@bitbucket.org/dsenech/qcm_wed.git
 
-It is written in C++, and requires lapack and python3 for interfacing. It also contains the pyqcm python module.
+or, from github::
 
-**CUBA** (http://www.feynarts.de/cuba/) is required by qcm for performing integrals in dimension > 2 (hence the name, for *cubature*). qcm uses version 4.0 or above. Version 2.1 is not supported. However, the CUBA library must be compiled with a modified makefile in order to use it within another shared library (the option -fPIC must be added. See the file `INSTALL` included in the distribution for details).
+    git clone https://github.com/dsenech/qcm_wed.git
+    git checkout master
 
-**BLAS-LAPACK**. Needed for efficient vector and matrix operations.
+Compiling can be done with pip::
 
-Compiling qcm
-========================
+    cd <path_to_qcm_wed_folder>
+    pip install .
 
-Please consult the INSTALL files in each library's distribution to see how to compile and install the libraries.
-The shared object file qcm.so should be somewhere in the system's Python path.
+
 
