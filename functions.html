@@ -164,7 +164,7 @@ This forces the computation of the Green function representation for the current
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.Potthoff_functional">
-<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Potthoff_functional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hartree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sef.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Potthoff_functional" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Potthoff_functional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hartree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sef.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetrized_operator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Potthoff_functional" title="Permalink to this definition">¶</a></dt>
 <dd><p>computes the Potthoff functional for a given instance</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -172,6 +172,7 @@ This forces the computation of the Green function representation for the current
 <li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
 <li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the file to append with the result</p></li>
 <li><p><strong>hartree</strong> (<em>(</em><em>class hartree</em><em>)</em>) – Hartree approximation couplings (see pyqcm/hartree.py)</p></li>
+<li><p><strong>symmetrized_operator</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of an operator wrt which the functional must be symmetrized</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -440,6 +441,12 @@ in the noninteracting model). It only differs from the periodized Green function
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.complex_HS">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">complex_HS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.complex_HS" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the model needs a complex Hilbert space. False otherwise.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.density_wave">
 <span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">density_wave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.density_wave" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines a density wave</p>
@@ -537,6 +544,20 @@ in the noninteracting model). It only differs from the periodized Green function
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.get_global_parameter">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">get_global_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.get_global_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the value of a global parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the global option</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the value, according to type</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1003,6 +1024,12 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.print_parameter_set">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_parameter_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_parameter_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints the content of the parameter set</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.print_parameters">
 <span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints the parameters nicely on the screen</p>
@@ -1446,7 +1473,7 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of wavevectors per segment</p></li>
-<li><p><strong>shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the geometry of the path, one of: line, halfline, triangle, graphene, graphene2, diagonal, cubic, cubic2, tetragonal, tetragonal2  OR a tuple with two wavevectors for a straight path between the two</p></li>
+<li><p><strong>shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the geometry of the path, one of: line, halfline, triangle, graphene, graphene2, diagonal, cubic, cubic2, tetragonal, tetragonal2  OR a tuple with two wavevectors for a straight path between the two OR a filename ending with “.tsv”. In the latter case, the file contains a tab-separated list of wavevectors (in units of pi) and tick marks: the first three columns are the x,y,z components of the wavevectors, and the last columns the strings (possibly latex) for the tick marks (write - in that column if you do not want a tick mark for a specific wavevector).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns tuple</dt>

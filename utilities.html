@@ -243,7 +243,7 @@ relation</p>
 <li><p><strong>func</strong> – a function called at each step of the loop</p></li>
 <li><p><strong>varia</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – names of the variational parameters</p></li>
 <li><p><strong>loop_param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the parameter looped over</p></li>
-<li><p><strong>loop_range</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>)</em>) – range of the loop (min, max, step)</p></li>
+<li><p><strong>loop_range</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>)</em>) – range of the loop (start, end, step)</p></li>
 <li><p><strong>control_func</strong> – (optional) name of the function that controls the loop (returns boolean)</p></li>
 <li><p><strong>adjust</strong> (<em>boolean</em>) – if True, adjusts the steps depending on control or status of convergence</p></li>
 <li><p><strong>predict</strong> (<em>boolean</em>) – if True, uses a linear or quadratic predictor</p></li>
@@ -295,7 +295,7 @@ relation</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.loop.linear_loop">
 <span class="sig-prename descclassname"><span class="pre">pyqcm.loop.</span></span><span class="sig-name descname"><span class="pre">linear_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varia</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.loop.linear_loop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs a controlled loop for VCA or CDMFT with a predictor</p>
+<dd><p>Performs a loop for VCA or CDMFT with a predictor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
