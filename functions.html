@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Reference: List of functions &#8212; pyqcm v1.0.5(git hash 7073ad2) documentation</title>
+    <title>Reference: List of functions &#8212; pyqcm v.1.0.7(git hash 4d266e3) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.0.5(git hash 7073ad2) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v.1.0.7(git hash 4d266e3) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Reference: List of functions</a></li> 
       </ul>
     </div>  
@@ -200,6 +200,11 @@ This forces the computation of the Green function representation for the current
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyqcm.SolverError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">SolverError</span></span><a class="headerlink" href="#pyqcm.SolverError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="pyqcm.TooManyIterationsError">
@@ -444,6 +449,14 @@ in the noninteracting model). It only differs from the periodized Green function
 <dt class="sig sig-object py" id="pyqcm.complex_HS">
 <span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">complex_HS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.complex_HS" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns True if the model needs a complex Hilbert space. False otherwise.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.density_matrix">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">density_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.density_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the density matrix of subsystem A, defined by the array of site indices “sites”
+:param [int] sites: list of sites defining subsystem A
+:return [complex], [int32], [int32]: the density matrix, the left and right bases (spins up and down)</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1589,7 +1602,7 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
         <li class="right" >
           <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.0.5(git hash 7073ad2) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v.1.0.7(git hash 4d266e3) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Reference: List of functions</a></li> 
       </ul>
     </div>

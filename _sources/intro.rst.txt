@@ -22,7 +22,7 @@ However, it is based on a C++ library (**qcm**) provided with the distribution, 
 
 The source code can be cloned with the following command::
 
-    git clone https://dsenech@bitbucket.org/dsenech/qcm_wed.git
+    git clone https://dsenech@bitbucket.org/dsenechQCM/qcm_wed.git
 
 or, from github::
 
