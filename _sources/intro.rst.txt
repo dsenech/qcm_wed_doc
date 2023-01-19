@@ -13,25 +13,67 @@ This document is not a review of the above methods; the reader is referred to th
 Some degree of understanding of the above methods is however necessary to proceed.
 This document also provides insights as to the inner working of the code, and therefore consitutes also a embryonic developer's manual.
 
-Requirements
+Installation
 ============
 
-Pyqcm is written in Python and thus requires no compilation.
-However, the following librairies are needed:
+Pyqcm is written in Python but required the compilation of its core C++ library
+(**qcm**) provided with the distribution, and depends on **CUBA** for numerical
+integration and **BLAS-LAPACK** for elementary (non sparse) linear algebra.
+Optional dependencies are **Eigen** for high performance linear algebra 
+(although qcm implements one, it is not as performant on many core system)
+and **PRIMME** eigensolver.
 
-**qcm**. The source code can be cloned with the following command::
+Basic installation
+------------------
 
-    git clone https://dsenech@bitbucket.org/dsenech/qcm_wed.git
+These instructions just install Pyqcm, its core library, and automatically
+download and compile numerical integration library CUBA.
 
-It is written in C++, and requires lapack and python3 for interfacing. It also contains the pyqcm python module.
+The source code can be cloned with the following command::
 
-**CUBA** (http://www.feynarts.de/cuba/) is required by qcm for performing integrals in dimension > 2 (hence the name, for *cubature*). qcm uses version 4.0 or above. Version 2.1 is not supported. However, the CUBA library must be compiled with a modified makefile in order to use it within another shared library (the option -fPIC must be added. See the file `INSTALL` included in the distribution for details).
+    #from bitbucket:
+    git clone https://dsenech@bitbucket.org/dsenechQCM/qcm_wed.git
+    #or, from github:
+    git clone https://github.com/dsenech/qcm_wed.git
 
-**BLAS-LAPACK**. Needed for efficient vector and matrix operations.
+Compiling can be done with pip::
 
-Compiling qcm
-========================
+    cd <path_to_qcm_wed_folder>
+    pip install .
 
-Please consult the INSTALL files in each library's distribution to see how to compile and install the libraries.
-The shared object file qcm.so should be somewhere in the system's Python path.
 
+Advanced installation
+---------------------
+
+These instruction allow to finely tune the configuration of Pyqcm (e.g. its
+optional dependencies).
+
+Clone the source code as above::
+
+    #from bitbucket
+    git clone https://dsenech@bitbucket.org/dsenechQCM/qcm_wed.git
+    git checkout Moise/modular_Hamiltonian #dev version
+
+Specify the build configuration by exporting the ``CMAKE_ARGS`` environment variable::
+
+    export CMAKE_ARGS="[BUILD_ARG1]=[VALUE1] [BUILD_ARG2]=[VALUE2] ..."
+
+Optional build arguments and their values include:
+
+* ``-DDOWNLOAD_CUBA=0/1``: Specify to download and compile automatically the CUBA integration library.
+* ``-DCUBA_DIR=[path_to_CUBA_root_dir]``: If CUBA not downloaded from above, specify the path to CUBA directory for linking Pyqcm against (must contain compiled Cuba library ``libcuba.a`` along with the header ``cuba.h``).
+* ``-DBLA_VENDOR=[value]``: BLAS implementation to use. See `CMake vendor documentation <https://cmake.org/cmake/help/latest/module/FindBLAS.html?highlight=bla_vendor#blas-lapack-vendors>`_ for more information (recommended: do not specify or ``FlexiBLAS`` on Alliance cluster).
+* ``-DEIGEN_HAMILTONIAN=0/1``: Specify to compile with Eigen format for the Hamiltonian for better performance in the diagonalisation solver on multi-core machine (require `Eigen library <https://eigen.tuxfamily.org/index.php?title=Main_Page>`_).
+* ``-DWITH_PRIMME=0/1``: Whether to use or not the PRIMME library and its eigensolver for finding ground state of the Hamiltonian (needs ``-DEIGEN_HAMILTONIAN=1``).
+* ``-DDOWNLOAD_PRIMME=0/1``: Specify to download and compile automatically the PRIMME eigensolver library (needs ``-DWITH_PRIMME=1``).
+* ``-DPRIMME_DIR=[path_to_PRIMME_root_dir]``: Specify the path to the PRIMME root directory for linking qcm_wed library against if not download automatically.
+
+For a full-capability build, use::
+
+    export CMAKE_ARGS="-DDOWNLOAD_CUBA=1 -DEIGEN_HAMILTONIAN=1 -DWITH_PRIMME=1 -DDOWNLOAD_PRIMME=1"
+
+Lastly, compile with::
+
+    pip install .
+
+See also the file ``INSTALL`` in the root of pyqcm folder which contains more information.

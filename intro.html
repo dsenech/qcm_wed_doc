@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction &#8212; pyqcm 1.0 documentation</title>
+    <title>Introduction &#8212; pyqcm v1.1.1(git hash 5aa5568) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Models and clusters" href="models.html" />
-    <link rel="prev" title="Welcome to pyqcm’s documentation!" href="index.html" /> 
+    <link rel="prev" title="pyqcm : documentation (v1.1.1)" href="index.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +31,9 @@
           <a href="models.html" title="Models and clusters"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to pyqcm’s documentation!"
+          <a href="index.html" title="pyqcm : documentation (v1.1.1)"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Introduction</a></li> 
       </ul>
     </div>  
@@ -56,16 +56,21 @@ This document also provides insights as to the inner working of the code, and th
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Pyqcm is written in Python and thus requires no compilation.
-However, it is based on a C++ library (<strong>qcm</strong>) provided with the distribution, and depends on <strong>CUBA</strong> for numerical integration and
-<strong>BLAS-LAPACK</strong> for elementary (non sparse) linear algebra.</p>
+<p>Pyqcm is written in Python but required the compilation of its core C++ library
+(<strong>qcm</strong>) provided with the distribution, and depends on <strong>CUBA</strong> for numerical
+integration and <strong>BLAS-LAPACK</strong> for elementary (non sparse) linear algebra.
+Optional dependencies are <strong>Eigen</strong> for high performance linear algebra
+(although qcm implements one, it is not as performant on many core system)
+and <strong>PRIMME</strong> eigensolver.</p>
+<section id="basic-installation">
+<h3>Basic installation<a class="headerlink" href="#basic-installation" title="Permalink to this headline">¶</a></h3>
+<p>These instructions just install Pyqcm, its core library, and automatically
+download and compile numerical integration library CUBA.</p>
 <p>The source code can be cloned with the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dsenech</span><span class="nd">@bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dsenech</span><span class="o">/</span><span class="n">qcm_wed</span><span class="o">.</span><span class="n">git</span>
-</pre></div>
-</div>
-<p>or, from github:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dsenech</span><span class="o">/</span><span class="n">qcm_wed</span><span class="o">.</span><span class="n">git</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#from bitbucket:</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dsenech</span><span class="nd">@bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dsenechQCM</span><span class="o">/</span><span class="n">qcm_wed</span><span class="o">.</span><span class="n">git</span>
+<span class="c1">#or, from github:</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dsenech</span><span class="o">/</span><span class="n">qcm_wed</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 <p>Compiling can be done with pip:</p>
@@ -73,6 +78,41 @@ However, it is based on a C++ library (<strong>qcm</strong>) provided with the d
 <span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
+</section>
+<section id="advanced-installation">
+<h3>Advanced installation<a class="headerlink" href="#advanced-installation" title="Permalink to this headline">¶</a></h3>
+<p>These instruction allow to finely tune the configuration of Pyqcm (e.g. its
+optional dependencies).</p>
+<p>Clone the source code as above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#from bitbucket</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dsenech</span><span class="nd">@bitbucket</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dsenechQCM</span><span class="o">/</span><span class="n">qcm_wed</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">Moise</span><span class="o">/</span><span class="n">modular_Hamiltonian</span> <span class="c1">#dev version</span>
+</pre></div>
+</div>
+<p>Specify the build configuration by exporting the <code class="docutils literal notranslate"><span class="pre">CMAKE_ARGS</span></code> environment variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CMAKE_ARGS</span><span class="o">=</span><span class="s2">&quot;[BUILD_ARG1]=[VALUE1] [BUILD_ARG2]=[VALUE2] ...&quot;</span>
+</pre></div>
+</div>
+<p>Optional build arguments and their values include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-DDOWNLOAD_CUBA=0/1</span></code>: Specify to download and compile automatically the CUBA integration library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-DCUBA_DIR=[path_to_CUBA_root_dir]</span></code>: If CUBA not downloaded from above, specify the path to CUBA directory for linking Pyqcm against (must contain compiled Cuba library <code class="docutils literal notranslate"><span class="pre">libcuba.a</span></code> along with the header <code class="docutils literal notranslate"><span class="pre">cuba.h</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-DBLA_VENDOR=[value]</span></code>: BLAS implementation to use. See <a class="reference external" href="https://cmake.org/cmake/help/latest/module/FindBLAS.html?highlight=bla_vendor#blas-lapack-vendors">CMake vendor documentation</a> for more information (recommended: do not specify or <code class="docutils literal notranslate"><span class="pre">FlexiBLAS</span></code> on Alliance cluster).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-DEIGEN_HAMILTONIAN=0/1</span></code>: Specify to compile with Eigen format for the Hamiltonian for better performance in the diagonalisation solver on multi-core machine (require <a class="reference external" href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen library</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-DWITH_PRIMME=0/1</span></code>: Whether to use or not the PRIMME library and its eigensolver for finding ground state of the Hamiltonian (needs <code class="docutils literal notranslate"><span class="pre">-DEIGEN_HAMILTONIAN=1</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-DDOWNLOAD_PRIMME=0/1</span></code>: Specify to download and compile automatically the PRIMME eigensolver library (needs <code class="docutils literal notranslate"><span class="pre">-DWITH_PRIMME=1</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-DPRIMME_DIR=[path_to_PRIMME_root_dir]</span></code>: Specify the path to the PRIMME root directory for linking qcm_wed library against if not download automatically.</p></li>
+</ul>
+<p>For a full-capability build, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CMAKE_ARGS</span><span class="o">=</span><span class="s2">&quot;-DDOWNLOAD_CUBA=1 -DEIGEN_HAMILTONIAN=1 -DWITH_PRIMME=1 -DDOWNLOAD_PRIMME=1&quot;</span>
+</pre></div>
+</div>
+<p>Lastly, compile with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>See also the file <code class="docutils literal notranslate"><span class="pre">INSTALL</span></code> in the root of pyqcm folder which contains more information.</p>
+</section>
 </section>
 </section>
 
@@ -88,7 +128,11 @@ However, it is based on a C++ library (<strong>qcm</strong>) provided with the d
     <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#what-is-pyqcm">What is pyqcm?</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#basic-installation">Basic installation</a></li>
+<li><a class="reference internal" href="#advanced-installation">Advanced installation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -97,7 +141,7 @@ However, it is based on a C++ library (<strong>qcm</strong>) provided with the d
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="index.html"
-                          title="previous chapter">Welcome to pyqcm’s documentation!</a></p>
+                          title="previous chapter">pyqcm : documentation (v1.1.1)</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -138,9 +182,9 @@ However, it is based on a C++ library (<strong>qcm</strong>) provided with the d
           <a href="models.html" title="Models and clusters"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to pyqcm’s documentation!"
+          <a href="index.html" title="pyqcm : documentation (v1.1.1)"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Introduction</a></li> 
       </ul>
     </div>

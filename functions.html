@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Reference: List of functions &#8212; pyqcm 1.0 documentation</title>
+    <title>Reference: List of functions &#8212; pyqcm v1.1.1(git hash 5aa5568) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Reference: List of functions</a></li> 
       </ul>
     </div>  
@@ -56,7 +56,7 @@
 <li><p><strong>z</strong> – complex frequency</p></li>
 <li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -75,7 +75,7 @@
 <li><p><strong>z</strong> – complex frequency</p></li>
 <li><p><strong>k</strong> – array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -91,7 +91,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing =       4)</p></li>
 </ul>
 </dd>
@@ -115,7 +115,7 @@
 This forces the computation of the Green function representation for the current instance (i.e. non lazy).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>
@@ -125,15 +125,15 @@ This forces the computation of the Green function representation for the current
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.Lehmann_Green_function">
-<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Lehmann_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Lehmann_Green_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Lehmann_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Lehmann_Green_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>computes the Lehmann representation of the periodized Green function for a set of wavevectors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
-<li><p><strong>band</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – band index (starts at 1)</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – orbital index (starts at 1)</p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -154,7 +154,7 @@ This forces the computation of the Green function representation for the current
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="pyqcm.OutOfBoundsError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">OutOfBoundsError</span></span><a class="headerlink" href="#pyqcm.OutOfBoundsError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">OutOfBoundsError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.OutOfBoundsError" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py exception">
@@ -164,14 +164,15 @@ This forces the computation of the Green function representation for the current
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.Potthoff_functional">
-<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Potthoff_functional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hartree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sef.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Potthoff_functional" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">Potthoff_functional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hartree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sef.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetrized_operator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.Potthoff_functional" title="Permalink to this definition">¶</a></dt>
 <dd><p>computes the Potthoff functional for a given instance</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
-<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the file to append with the result</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the file to append with the result</p></li>
 <li><p><strong>hartree</strong> (<em>(</em><em>class hartree</em><em>)</em>) – Hartree approximation couplings (see pyqcm/hartree.py)</p></li>
+<li><p><strong>symmetrized_operator</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of an operator wrt which the functional must be symmetrized</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -182,16 +183,16 @@ This forces the computation of the Green function representation for the current
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.QP_weight">
-<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">QP_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.QP_weight" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">QP_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.QP_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>computes the k-dependent quasi-particle weight from the self-energy derived from the periodized Green function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
-<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – increment in the imaginary axis direction used to computed the derivative of the self-energy</p></li>
-<li><p><strong>band</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – band index (starts at 1)</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – increment in the imaginary axis direction used to computed the derivative of the self-energy</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – orbital index (starts at 1)</p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -199,6 +200,11 @@ This forces the computation of the Green function representation for the current
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyqcm.SolverError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">SolverError</span></span><a class="headerlink" href="#pyqcm.SolverError" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="pyqcm.TooManyIterationsError">
@@ -212,10 +218,10 @@ This forces the computation of the Green function representation for the current
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
 <li><p><strong>k</strong> (<em>wavevector</em>) – wavevector (ndarray(3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -241,10 +247,10 @@ This forces the computation of the Green function representation for the current
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model</p></li>
-<li><p><strong>pos</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – base position of cluster (array of ints)</p></li>
-<li><p><strong>sites</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – list of positions of sites (2D array of ints)</p></li>
-<li><p><strong>ref</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – label of a previous cluster (starts at 1) to which this one is entirely equivalent (0 = no equivalence)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the cluster model</p></li>
+<li><p><strong>pos</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – base position of cluster (array of ints)</p></li>
+<li><p><strong>sites</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – list of positions of sites (2D array of ints)</p></li>
+<li><p><strong>ref</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – label of a previous cluster (starts at 1) to which this one is entirely equivalent (0 = no equivalence)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -255,16 +261,15 @@ This forces the computation of the Green function representation for the current
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.anomalous_operator">
-<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">anomalous_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.anomalous_operator" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">anomalous_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbitals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.anomalous_operator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines an anomalous operator</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of operator</p></li>
-<li><p><strong>link</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – bond vector (3-component integer array)</p></li>
-<li><p><strong>amplitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – pairing multiplier</p></li>
-<li><p><strong>band1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the first band (None by default)</p></li>
-<li><p><strong>band2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the second band (None by default)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>link</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – bond vector (3-component integer array)</p></li>
+<li><p><strong>amplitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – pairing multiplier</p></li>
+<li><p><strong>orbitals</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>)</em>) – lattice orbital labels (start at 1); if None, tries all possibilities.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
@@ -285,8 +290,8 @@ This forces the computation of the Green function representation for the current
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
-<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the file in which the information is appended</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the file in which the information is appended</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return {str,float}</dt>
@@ -303,10 +308,10 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
 <li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -322,10 +327,10 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing =       4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance (default 0)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance (default 0)</p></li>
 <li><p><strong>blocks</strong> (<em>boolean</em>) – true if returned in the basis of irreducible representations</p></li>
 </ul>
 </dd>
@@ -345,16 +350,16 @@ in the noninteracting model). It only differs from the periodized Green function
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.cluster_QP_weight">
-<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_QP_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_QP_weight" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">cluster_QP_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_QP_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>computes the cluster quasi-particle weight from the cluster self-energy</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – cluster label (starts at 0)</p></li>
-<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – increment in the imaginary axis direction used to computed the derivative of the self-energy</p></li>
-<li><p><strong>band</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – band index (starts at 1)</p></li>
+<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – cluster label (starts at 0)</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – increment in the imaginary axis direction used to computed the derivative of the self-energy</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – orbital index (starts at 1)</p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -369,7 +374,7 @@ in the noninteracting model). It only differs from the periodized Green function
 <dd><p>Computes the average and variance of all operators of the cluster model in the cluster ground state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster model instance</p>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster model instance</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a dict str : (float, float) with the averages and variances as a function of operator name</p>
@@ -386,7 +391,7 @@ in the noninteracting model). It only differs from the periodized Green function
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cluster</strong> – label of the cluster (0 to the number of clusters - 1)</p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 <li><p><strong>full</strong> (<em>boolean</em>) – if True, returns the full hopping matrix, including bath</p></li>
 </ul>
 </dd>
@@ -412,7 +417,7 @@ in the noninteracting model). It only differs from the periodized Green function
 <dd><p>returns the values of the cluster parameters in a given instance, as well as the cluster model name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster model instance</p>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster model instance</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a tuple:  dict{string,float}, str</p>
@@ -427,10 +432,10 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster (0 to the number of clusters -1)</p></li>
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>cluster</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters -1)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing =       4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance (default 0)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance (default 0)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -440,14 +445,28 @@ in the noninteracting model). It only differs from the periodized Green function
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.complex_HS">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">complex_HS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.complex_HS" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the model needs a complex Hilbert space. False otherwise.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.density_matrix">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">density_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.density_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the density matrix of subsystem A, defined by the array of site indices “sites”
+:param [int] sites: list of sites defining subsystem A
+:return [complex], [int32], [int32]: the density matrix, the left and right bases (spins up and down)</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.density_wave">
 <span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">density_wave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.density_wave" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines a density wave</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of operator</p></li>
-<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – type of density-wave – one of ‘Z’, ‘X’, ‘Y’, ‘N’=’cdw’, ‘singlet’, ‘dz’, ‘dy’, ‘dx’</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – type of density-wave – one of ‘Z’, ‘X’, ‘Y’, ‘N’=’cdw’, ‘singlet’, ‘dz’, ‘dy’, ‘dx’</p></li>
 <li><p><strong>Q</strong> (<em>wavevector</em>) – wavevector of the density wave (in multiple of <span class="math notranslate nohighlight">\(pi\)</span>)</p></li>
 </ul>
 </dd>
@@ -455,7 +474,7 @@ in the noninteracting model). It only differs from the periodized Green function
 <dd class="field-even"><ul class="simple">
 <li><p>link (<em>[int]</em>) – bond vector, for bond density waves</p></li>
 <li><p>amplitude (<em>complex</em>) – amplitude multiplier. <strong>Caution</strong>: A factor of 2 must be used in some situations (see <a class="reference internal" href="models.html#density-wave-theory"><span class="std std-ref">Density waves</span></a>)</p></li>
-<li><p>band (<em>int</em>) – Band label (0 by default = all bands)</p></li>
+<li><p>orb (<em>int</em>) – orbital label (0 by default = all orbitals)</p></li>
 <li><p>phase (<em>float</em>) – real phase (as a multiple of <span class="math notranslate nohighlight">\(pi\)</span>)</p></li>
 </ul>
 </dd>
@@ -474,7 +493,7 @@ in the noninteracting model). It only differs from the periodized Green function
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>k</strong> (<em>wavevector</em>) – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -490,8 +509,8 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -501,13 +520,21 @@ in the noninteracting model). It only differs from the periodized Green function
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.double_counting_correct">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">double_counting_correct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DC</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.double_counting_correct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies some kinetic parameters in view of the presence of interactions and averages values,
+in order to account minimally for double counting.
+:param [(str,str,str,float,float)] DC: list of recipes for the correction: (kinetic operator, interaction operator, density operator, coefficient, value of the kinetic operator without interaction)</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.epsilon">
 <span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">epsilon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.epsilon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs the epsilon algorithm for accelerated convergence</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – sequence to be extrapolated</p></li>
+<li><p><strong>y</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – sequence to be extrapolated</p></li>
 <li><p><strong>pr</strong> (<em>boolean</em>) – if True, prints the resulting extrapolation</p></li>
 </ul>
 </dd>
@@ -524,8 +551,8 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of operator</p></li>
-<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a><em>)</em><em>]</em>) – List of tuples. Each tuple contains three elements (in order): a list representing position, a list representing link and a complex amplitude.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>)</em><em>]</em>) – List of tuples. Each tuple contains three elements (in order): a list representing position, a list representing link and a complex amplitude.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
@@ -542,6 +569,30 @@ in the noninteracting model). It only differs from the periodized Green function
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.general_interaction_matrix_elements">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">general_interaction_matrix_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.general_interaction_matrix_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translates a list of matrix elements (i,j,k,l,v) for a general interaction into a list of compound elements (I,J,v)
+where I = i+n*j and J = k+n*l and v is the value of the matrix element
+Also checks that only non redundant elements are given
+:param (int,int,int,int,float) e: list of matrix elements
+:param int n: number of orbitals in the impurity model (excluding spin; 2*n with spin)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.get_global_parameter">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">get_global_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.get_global_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the value of a global parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the global option</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the value, according to type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.ground_state">
 <span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">ground_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.ground_state" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -553,16 +604,15 @@ in the noninteracting model). It only differs from the periodized Green function
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.hopping_operator">
-<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">hopping_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hopping_operator" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">hopping_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbitals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hopping_operator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines a hopping term or, more generally, a one-body operator</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of operator</p></li>
-<li><p><strong>link</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – bond vector (3-component integer array)</p></li>
-<li><p><strong>amplitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – hopping amplitude multiplier</p></li>
-<li><p><strong>band1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the first band (None by default)</p></li>
-<li><p><strong>band2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the second band (None by default)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>link</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – bond vector (3-component integer array)</p></li>
+<li><p><strong>amplitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – hopping amplitude multiplier</p></li>
+<li><p><strong>orbitals</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>)</em>) – lattice orbital labels (start at 1); if None, tries all possibilities.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
@@ -584,10 +634,10 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -598,15 +648,14 @@ in the noninteracting model). It only differs from the periodized Green function
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.interaction_operator">
-<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">interaction_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.interaction_operator" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">interaction_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbitals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.interaction_operator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines an interaction operator of type Hubbard, Hund, Heisenberg or X, Y, Z</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
-<li><p><strong>band1</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the first band (None by default)</p></li>
-<li><p><strong>band2</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of the second band (None by default)</p></li>
-<li><p><strong>link</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – link of the operator (None by default)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>orbitals</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>)</em>) – lattice orbital labels (start at 1); if None, tries all possibilities.</p></li>
+<li><p><strong>link</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – link of the operator (None by default)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Keyword Arguments</dt>
@@ -642,9 +691,9 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the name of the model</p></li>
-<li><p><strong>superlattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – array of integers of shape (d,3), d being the dimension</p></li>
-<li><p><strong>lattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – array of integers of shape (d,3), d being the dimension. If None, will be replaced by the unit lattice.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – the name of the model</p></li>
+<li><p><strong>superlattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – array of integers of shape (d,3), d being the dimension</p></li>
+<li><p><strong>lattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – array of integers of shape (d,3), d being the dimension. If None, will be replaced by the unit lattice.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -660,8 +709,8 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model</p></li>
-<li><p><strong>op</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the cluster model</p></li>
+<li><p><strong>op</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -718,9 +767,9 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the lattice operator</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the lattice operator</p></li>
 <li><p><strong>k</strong> – array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -736,10 +785,10 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name to be given to the model</p></li>
-<li><p><strong>n_sites</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of cluster sites</p></li>
-<li><p><strong>n_bath</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of bath sites</p></li>
-<li><p><strong>generators</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – symmetry generators (2D array of ints)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name to be given to the model</p></li>
+<li><p><strong>n_sites</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of cluster sites</p></li>
+<li><p><strong>n_bath</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of bath sites</p></li>
+<li><p><strong>generators</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – symmetry generators (2D array of ints)</p></li>
 <li><p><strong>bath_irrep</strong> (<em>[</em><em>boolean</em><em>]</em>) – True if bath orbitals belong to irreducible representations of the symmetry group</p></li>
 </ul>
 </dd>
@@ -756,10 +805,10 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the cluster model</p></li>
 <li><p><strong>values</strong> (<em>{str</em><em>,</em><em>float}</em>) – values of the operators</p></li>
-<li><p><strong>sec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – target Hilbert space sectors</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of model_instance</p></li>
+<li><p><strong>sec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – target Hilbert space sectors</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of model_instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -775,10 +824,10 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model to which the operator will belong</p></li>
-<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
-<li><p><strong>op_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – type of operator (‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’)</p></li>
-<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>)</em><em>]</em>) – array of matrix elements (list of tuples)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the cluster model to which the operator will belong</p></li>
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>op_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – type of operator (‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’)</p></li>
+<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>)</em><em>]</em>) – array of matrix elements (list of tuples)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -794,10 +843,10 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model to which the operator will belong</p></li>
-<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
-<li><p><strong>op_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – type of operator (‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’)</p></li>
-<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a><em>)</em><em>]</em>) – array of matrix elements (list of tuples)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the cluster model to which the operator will belong</p></li>
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>op_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – type of operator (‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’)</p></li>
+<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>)</em><em>]</em>) – array of matrix elements (list of tuples)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -813,7 +862,7 @@ in the noninteracting model). It only differs from the periodized Green function
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 <li><p><strong>record</strong> (<em>boolean</em>) – if True, keeps a str-valued record of the instance in memory, containing all the data necessary to read the instance back without solving.</p></li>
 </ul>
 </dd>
@@ -824,12 +873,17 @@ in the noninteracting model). It only differs from the periodized Green function
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.orbital_manager">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">orbital_manager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orbitals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.orbital_manager" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.parameter_set">
 <span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">parameter_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.parameter_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the content of the parameter set</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – governs the action of the function</p>
+<dd class="field-odd"><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – governs the action of the function</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>depends on opt</p>
@@ -859,7 +913,7 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dd><p>returns the values of the parameters in a given instance</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a dict {string,float}</p>
@@ -874,8 +928,8 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – line number of data in output file (excluding titles).</p></li>
+<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – line number of data in output file (excluding titles).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -891,10 +945,10 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
 <li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -910,12 +964,12 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – a row index (starts at 0)</p></li>
-<li><p><strong>c</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – a column index (starts at 0)</p></li>
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – a row index (starts at 0)</p></li>
+<li><p><strong>c</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – a column index (starts at 0)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
 <li><p><strong>k</strong> – array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -930,7 +984,7 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dd><p>computes the potential energy for a given instance, as the functional trace of Sigma x G</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>the value of the potential energy</p>
@@ -944,7 +998,7 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dd><p>Prints the averages nicely on the screen</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ave</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the dictionary produced by qcm.averages()</p>
+<dd class="field-odd"><p><strong>ave</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary produced by qcm.averages()</p>
 </dd>
 </dl>
 </dd></dl>
@@ -955,7 +1009,7 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dd><p>Prints the averages nicely on the screen</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ave</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the dictionary produced by qcm.averages()</p>
+<dd class="field-odd"><p><strong>ave</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary produced by qcm.averages()</p>
 </dd>
 </dl>
 </dd></dl>
@@ -967,8 +1021,8 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the cluster model</p></li>
-<li><p><strong>sites</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – list of positions of sites (2D array of ints)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the cluster model</p></li>
+<li><p><strong>sites</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – list of positions of sites (2D array of ints)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -983,7 +1037,7 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dd><p>Prints a description of the model into a file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the file</p>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the file</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>
@@ -997,9 +1051,15 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dd><p>Prints the list of global options and parameters on the screen</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – 0 -&gt; prints to screen. 1 -&gt; prints to latex. 2 -&gt; prints to RST</p>
+<dd class="field-odd"><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – 0 -&gt; prints to screen. 1 -&gt; prints to latex. 2 -&gt; prints to RST</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyqcm.print_parameter_set">
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">print_parameter_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.print_parameter_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints the content of the parameter set</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1008,7 +1068,7 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dd><p>Prints the parameters nicely on the screen</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>P</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the dictionary of parameters</p>
+<dd class="field-odd"><p><strong>P</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary of parameters</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1020,8 +1080,8 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
-<li><p><strong>pr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – prints wavefucntion to screen if pr=True</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>pr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – prints wavefucntion to screen if pr=True</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1037,9 +1097,9 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1054,7 +1114,7 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dd><p>Returns two strings of properties of a model instance</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a pair of strings (the description line and the data line).</p>
@@ -1068,7 +1128,7 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dd><p>Returns the Lehmann representation of the Green function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster model instance</p>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster model instance</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>2-tuple made of
@@ -1085,8 +1145,8 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – long string containing the solution</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of model_instance</p></li>
+<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – long string containing the solution</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of model_instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1102,8 +1162,8 @@ if opt = ‘report’, returns a string with parameter values and dependencies.<
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – line number of data in output file (excluding titles)</p></li>
+<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – line number of data in output file (excluding titles)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1147,9 +1207,9 @@ number of bands n, depending on the mixing state: n, 2n or 4n, and the number of
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>R</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>] or </em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – Symmetry sector.</p></li>
-<li><p><strong>N</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>] or </em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – Particle number.</p></li>
-<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>] or </em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em><em>]</em>) – Total spin.</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>] or </em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – Symmetry sector.</p></li>
+<li><p><strong>N</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>] or </em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – Particle number.</p></li>
+<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>] or </em><em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – Total spin.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1165,10 +1225,10 @@ number of bands n, depending on the mixing state: n, 2n or 4n, and the number of
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
 <li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1198,7 +1258,7 @@ If the global parameter is Boolean, then value is True by default and should not
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the global option</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the global option</p></li>
 <li><p><strong>value</strong> – value of that option (None, int, float or str)</p></li>
 </ul>
 </dd>
@@ -1215,8 +1275,8 @@ If the global parameter is Boolean, then value is True by default and should not
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the parameter</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – its value</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the parameter</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – its value</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1253,8 +1313,8 @@ If the global parameter is Boolean, then value is True by default and should not
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – line number of data in output file (excluding titles)</p></li>
+<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – line number of data in output file (excluding titles)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1269,7 +1329,7 @@ If the global parameter is Boolean, then value is True by default and should not
 <dd><p>Define the Hilbert space sectors in which to look for the ground state</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>sec</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – the target sectors</p>
+<dd class="field-odd"><p><strong>sec</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – the target sectors</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>
@@ -1307,7 +1367,7 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> – name of the operator</p></li>
 <li><p><strong>z</strong> – complex frequency</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1318,15 +1378,15 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyqcm.spin_spectral_function">
-<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">spin_spectral_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.spin_spectral_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyqcm.</span></span><span class="sig-name descname"><span class="pre">spin_spectral_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.spin_spectral_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>computes the k-dependent spin-resolved spectral function</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>freq</strong> – complex freqency</p></li>
 <li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
-<li><p><strong>band</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – band index (starts at 1)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – if None, sums all the orbitals. Otherwise just shows the weight for that orbital (starts at 1)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1342,9 +1402,9 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
-<li><p><strong>freqs</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.10)"><em>complex</em></a><em>]</em>) – array of complex frequencies</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of cluster model instance</p></li>
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>freqs</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) – array of complex frequencies</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of cluster model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1360,8 +1420,8 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the operator</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of cluster model instance</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of cluster model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns [(float,float)]</dt>
@@ -1385,7 +1445,7 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
 <li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1400,7 +1460,7 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 <dd><p>updates the model parameters without creating a new instance or reseting the instance specified</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the model instance</p>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>None</p>
@@ -1425,11 +1485,11 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of wavevectors on the side</p></li>
-<li><p><strong>orig</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – origin (in multiples of pi)</p></li>
-<li><p><strong>side</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – length of the side (in multiples of pi)</p></li>
-<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – momentum component in the third direction (in multiples of pi)</p></li>
-<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on the side</p></li>
+<li><p><strong>orig</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – origin (in multiples of pi)</p></li>
+<li><p><strong>side</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – length of the side (in multiples of pi)</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – momentum component in the third direction (in multiples of pi)</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1445,8 +1505,8 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of wavevectors per segment</p></li>
-<li><p><strong>shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the geometry of the path, one of: line, halfline, triangle, graphene, graphene2, diagonal, cubic, cubic2, tetragonal, tetragonal2  OR a tuple with two wavevectors for a straight path between the two</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors per segment</p></li>
+<li><p><strong>shape</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – the geometry of the path, one of: line, halfline, triangle, graphene, graphene2, diagonal, cubic, cubic2, tetragonal, tetragonal2  OR a tuple with two wavevectors for a straight path between the two OR a filename ending with “.tsv”. In the latter case, the file contains a tab-separated list of wavevectors (in units of pi) and tick marks: the first three columns are the x,y,z components of the wavevectors, and the last columns the strings (possibly latex) for the tick marks (write - in that column if you do not want a tick mark for a specific wavevector).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns tuple</dt>
@@ -1464,8 +1524,8 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the file</p></li>
-<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster model instance</p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the file</p></li>
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster model instance</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1562,7 +1622,7 @@ x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy
         <li class="right" >
           <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Reference: List of functions</a></li> 
       </ul>
     </div>
