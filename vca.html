@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>The Variational Cluster Approximation &#8212; pyqcm v.1.0.7(git hash 4d266e3) documentation</title>
+    <title>The Variational Cluster Approximation &#8212; pyqcm v1.1.1(git hash 5aa5568) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="cdmft.html" title="Cluster Dynamical Mean Field Theory"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v.1.0.7(git hash 4d266e3) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">The Variational Cluster Approximation</a></li> 
       </ul>
     </div>  
@@ -55,10 +55,10 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the parameter (independent variable)</p></li>
-<li><p><strong>prm</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – list of values of the parameter</p></li>
-<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the cluster (starts at 0)</p></li>
-<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the parameter (independent variable)</p></li>
+<li><p><strong>prm</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – list of values of the parameter</p></li>
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (starts at 0)</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
 <li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
 <li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
 </ul>
@@ -76,9 +76,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of the parameter (independent variable)</p></li>
-<li><p><strong>prm</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – list of values of the parameter</p></li>
-<li><p><strong>accur_SEF</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – precision of the computation of the self-energy functional</p></li>
+<li><p><strong>param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the parameter (independent variable)</p></li>
+<li><p><strong>prm</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – list of values of the parameter</p></li>
+<li><p><strong>accur_SEF</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – precision of the computation of the self-energy functional</p></li>
 <li><p><strong>hartree</strong> (<em>(</em><em>class hartree</em><em>)</em>) – Hartree approximation couplings (see pyqcm/hartree.py)</p></li>
 <li><p><strong>show</strong> (<em>boolean</em>) – if True, the plot is shown on the screen.</p></li>
 </ul>
@@ -96,13 +96,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>varia</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – variational parameter</p></li>
-<li><p><strong>P1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – control parameter</p></li>
-<li><p><strong>P1_range</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – an array of values of P1</p></li>
-<li><p><strong>P2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – dependent parameter</p></li>
-<li><p><strong>P2_range</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>)</em>) – 2-uple of values of P2 that bracket the transition</p></li>
+<li><p><strong>varia</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – variational parameter</p></li>
+<li><p><strong>P1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – control parameter</p></li>
+<li><p><strong>P1_range</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – an array of values of P1</p></li>
+<li><p><strong>P2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – dependent parameter</p></li>
+<li><p><strong>P2_range</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>)</em>) – 2-uple of values of P2 that bracket the transition</p></li>
 <li><p><strong>verb</strong> (<em>boolean</em>) – If True, prints progress</p></li>
-<li><p><strong>delta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – at each step, the new bracket for P2 will be P2c +/- delta, P2c being the previous critical value</p></li>
+<li><p><strong>delta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – at each step, the new bracket for P2 will be P2c +/- delta, P2c being the previous critical value</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -119,19 +119,19 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>var2sef</strong> – function that converts variational parameters to model parameters</p></li>
-<li><p><strong>names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>]</em>) – names of the variational parameters</p></li>
-<li><p><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – starting values</p></li>
-<li><p><strong>steps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – initial steps</p></li>
-<li><p><strong>accur</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – accuracy of parameters (also step for 2nd derivatives)</p></li>
-<li><p><strong>max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>]</em>) – maximum values that are tolerated</p></li>
-<li><p><strong>accur_grad</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – max value of gradient for convergence</p></li>
-<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – maximum number of iterations in the procedure</p></li>
-<li><p><strong>max_iter_diff</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – optional maximum value of the maximum step in the quasi-Newton method</p></li>
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – method used to optimize (‘SYMR1’, ‘NR’, ‘BFGS’, ‘altNR’, ‘Nelder-Mead’, ‘COBYLA’, ‘Powell’, ‘CG’, ‘minimax’)</p></li>
+<li><p><strong>names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – names of the variational parameters</p></li>
+<li><p><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – starting values</p></li>
+<li><p><strong>steps</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – initial steps</p></li>
+<li><p><strong>accur</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – accuracy of parameters (also step for 2nd derivatives)</p></li>
+<li><p><strong>max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em> or </em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>]</em>) – maximum values that are tolerated</p></li>
+<li><p><strong>accur_grad</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – max value of gradient for convergence</p></li>
+<li><p><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – maximum number of iterations in the procedure</p></li>
+<li><p><strong>max_iter_diff</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – optional maximum value of the maximum step in the quasi-Newton method</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – method used to optimize (‘SYMR1’, ‘NR’, ‘BFGS’, ‘altNR’, ‘Nelder-Mead’, ‘COBYLA’, ‘Powell’, ‘CG’, ‘minimax’)</p></li>
 <li><p><strong>hartree</strong> (<em>(</em><em>class hartree</em><em>)</em>) – Hartree approximation couplings (see pyqcm/hartree.py)</p></li>
 <li><p><strong>hartree_self_consistent</strong> (<em>boolean</em>) – True if the Hartree approximation is treated in the self-consistent, rather than variational, way.</p></li>
-<li><p><strong>symmetrized_operator</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – name of an operator wrt which the functional must be symmetrized</p></li>
-<li><p><strong>var_max_start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – label of the first variable for which the function is a maximum (minimal vars first, maximal vars last)</p></li>
+<li><p><strong>symmetrized_operator</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of an operator wrt which the functional must be symmetrized</p></li>
+<li><p><strong>var_max_start</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the first variable for which the function is a maximum (minimal vars first, maximal vars last)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -206,7 +206,7 @@
         <li class="right" >
           <a href="cdmft.html" title="Cluster Dynamical Mean Field Theory"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v.1.0.7(git hash 4d266e3) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">The Variational Cluster Approximation</a></li> 
       </ul>
     </div>

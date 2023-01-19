@@ -172,7 +172,7 @@ Finally, a density wave corresponding to :math:`(\pi,\pi)` antiferromagnetism is
     * 'dz' : same, in the :math:`z` direction (this one does not require Nambu doubling)
 #. The wavevector :math:`\mathbf{Q}` of the density wave. It has real components (in multiples of :math:`\pi`) and it must be commensurate with the super unit cell within some small numerical tolerance.
 
-Additional keyword arguments to ``density_wave()`` include the link on which the density wave is defined (for bond-density waves), bands involved (for multi-band models), additional phases and amplitudes, etc. Again, see the reference section for details.
+Additional keyword arguments to ``density_wave()`` include the link on which the density wave is defined (for bond-density waves), lattice orbitals involved (for multi-band models), additional phases and amplitudes, etc. Again, see the reference section for details.
 
 
 A more complex example
@@ -197,9 +197,9 @@ Of possible set of function calls to define the Hubbard model on this system is:
     set_basis([[1, 0, 0], [-0.5, 0.866025403784438, 0], [0, 0, 1]])
 
     interaction_operator('U')
-    hopping_operator('t', [1,0,0], -1, band1=2, band2=1)
-    hopping_operator('t', [0,1,0], -1, band1=2, band2=1)
-    hopping_operator('t', [-1,-1,0], -1, band1=2, band2=1)
+    hopping_operator('t', [1,0,0], -1, orbitals=(2,1))
+    hopping_operator('t', [0,1,0], -1, orbitals=(2,1))
+    hopping_operator('t', [-1,-1,0], -1, orbitals=(2,1))
 
 The first statement, ``import cluster_h4_6b_C3``, imports a cluster definition file, for instance the one associated with Fig. 2 above. Using the name ``clus`` given to the cluster in that file, two copies of the clusters are added to the super unit cell. The positions associated with the two copies are different, but the cluster model is the same, which means that only one copy of the Hilbert space operators and bases necessary for the exact diagonalization will be constructed. The origin has been placed exactly between the two clusters. The positions in each cluster are defined relative to the base position of each cluster.
 
@@ -207,11 +207,11 @@ The integer positions are defined in terms of the basis defined by the call to `
 On Fig. 3, the first two of these vectors are :math:`\mathbf{e}_1` and :math:`\mathbf{e}_2`.
 
 The call to ``lattice_model()`` defines both the superlattice vectors :math:`\mathbf{E}_1` and :math:`\mathbf{E}_2` (second argument) and the basis vectors of the model's physical Bravais lattice (third argument).
-The lattice basis vectors only serve to attribute band labels to the different sites. In `qcm`, each degree of freedom of a given spin (i.e. each orbital) must have its own site on the working Bravais lattice. The basis vectors of the physical Bravais lattice then define band labels (from 1 to :math:`N_\mathrm{band}`) attributed to each site. The order in which bands are labelled depends on the order in which the sites appear. Given the above definitions and Fig. 3, the A sublattice of graphene corresponds to band 2 and the B sublattice to band 1.
+The lattice basis vectors only serve to attribute orbital labels to the different sites. In `qcm`, each degree of freedom of a given spin (i.e. each orbital) must have its own site on the working Bravais lattice. The basis vectors of the physical Bravais lattice then define orbital labels (from 1 to :math:`N_\mathrm{band}`) attributed to each site. The order in which orbitals are labelled depends on the order in which the sites appear. Given the above definitions and Fig. 3, the A sublattice of graphene corresponds to orbital 2 and the B sublattice to orbital 1.
 
-Given that the model has two bands, the definition of the hopping operator ``t`` must contain band information: the keywords ``band1`` and ``band2`` are used to specify the band numbers associated with the two sites separated by the bond vector (link) given in argument. Internally, a loop is done over all sites of the super unit cell; the bond vector is used to identify a second site; if that site exists and if the bands associated with the two sites agree with ``band1`` and ``band2``, then a matrix element is added to the operator. In the above example, three calls are needed because of the three directions (bonds). 
+Given that the model has two bands, the definition of the hopping operator ``t`` must contain orbital information: the keywords ``orbitals`` (a tuple) is used to specify the orbital numbers associated with the two sites separated by the bond vector (link) given in argument. Internally, a loop is done over all sites of the super unit cell; the bond vector is used to identify a second site; if that site exists and if the orbitals associated with the two sites agree with ``orbitals``, then a matrix element is added to the operator. In the above example, three calls are needed because of the three directions (bonds). 
 
-The greatest risk in such calls is to mislabel the bands. In order to check that operators were defined properly, a call to ``print_model()`` is warranted. This function takes one mandatory argument: the name of a text file in which a detailed enumeration of model properties will be printed. Additional keyword arguments control the production of asymptote files (.asy) that graphically illustrate each operator. This is a powerful way to check the validity of the model definition.
+The greatest risk in such calls is to mislabel the orbitals. In order to check that operators were defined properly, a call to ``print_model()`` is warranted. This function takes one mandatory argument: the name of a text file in which a detailed enumeration of model properties will be printed. Additional keyword arguments control the production of asymptote files (.asy) that graphically illustrate each operator. This is a powerful way to check the validity of the model definition.
 
 
 Other examples

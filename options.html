@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Summary of options &#8212; pyqcm v.1.0.7(git hash 4d266e3) documentation</title>
+    <title>Summary of options &#8212; pyqcm v1.1.1(git hash 5aa5568) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -33,7 +33,7 @@
         <li class="right" >
           <a href="utilities.html" title="Hartree approximation and counterterms"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v.1.0.7(git hash 4d266e3) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Summary of options</a></li> 
       </ul>
     </div>  
@@ -85,59 +85,55 @@ There are four kinds of global parameter, depending on the type of variable invo
 <td><p>false</p></td>
 <td><p>uses the dual basis for wavevector computations</p></td>
 </tr>
-<tr class="row-even"><td><p>modified_Lanczos</p></td>
-<td><p>false</p></td>
-<td><p>Uses the modified Lanczos method for the ground state instead of the usual Lanczos method</p></td>
-</tr>
-<tr class="row-odd"><td><p>no_degenerate_BL</p></td>
+<tr class="row-even"><td><p>no_degenerate_BL</p></td>
 <td><p>false</p></td>
 <td><p>forbids band lanczos to proceed when the eigenstates have degenerate energies</p></td>
 </tr>
-<tr class="row-even"><td><p>nosym</p></td>
+<tr class="row-odd"><td><p>nosym</p></td>
 <td><p>false</p></td>
 <td><p>does not take cluster symmetries into account</p></td>
 </tr>
-<tr class="row-odd"><td><p>one_body_solution</p></td>
+<tr class="row-even"><td><p>one_body_solution</p></td>
 <td><p>false</p></td>
 <td><p>Only solves the one-body part of the problem, for the Green function</p></td>
 </tr>
-<tr class="row-even"><td><p>periodic</p></td>
+<tr class="row-odd"><td><p>periodic</p></td>
 <td><p>false</p></td>
 <td><p>considers the cluster(s) as periodic</p></td>
 </tr>
-<tr class="row-odd"><td><p>periodized_averages</p></td>
+<tr class="row-even"><td><p>periodized_averages</p></td>
 <td><p>false</p></td>
 <td><p>computes lattice averages using the periodized Green function</p></td>
 </tr>
-<tr class="row-even"><td><p>print_Hamiltonian</p></td>
+<tr class="row-odd"><td><p>print_Hamiltonian</p></td>
 <td><p>false</p></td>
 <td><p>Prints the Hamiltonian on the screen, if small enough</p></td>
 </tr>
-<tr class="row-odd"><td><p>print_all</p></td>
+<tr class="row-even"><td><p>print_all</p></td>
 <td><p>false</p></td>
 <td><p>prints dependent parameters as well</p></td>
 </tr>
-<tr class="row-even"><td><p>strip_anomalous_self</p></td>
+<tr class="row-odd"><td><p>strip_anomalous_self</p></td>
 <td><p>false</p></td>
 <td><p>sets to zero the anomalous part of the self-energy</p></td>
 </tr>
-<tr class="row-odd"><td><p>verb_ED</p></td>
+<tr class="row-even"><td><p>verb_ED</p></td>
 <td><p>false</p></td>
 <td><p>prints ED information and progress</p></td>
 </tr>
-<tr class="row-even"><td><p>verb_Hilbert</p></td>
+<tr class="row-odd"><td><p>verb_Hilbert</p></td>
 <td><p>false</p></td>
 <td><p>prints progress information on bases and operators in the Hilbert space</p></td>
 </tr>
-<tr class="row-odd"><td><p>verb_integrals</p></td>
+<tr class="row-even"><td><p>verb_integrals</p></td>
 <td><p>false</p></td>
 <td><p>prints information and progress about integrals</p></td>
 </tr>
-<tr class="row-even"><td><p>verb_warning</p></td>
+<tr class="row-odd"><td><p>verb_warning</p></td>
 <td><p>false</p></td>
 <td><p>prints warnings</p></td>
 </tr>
-<tr class="row-odd"><td><p>zero_dim</p></td>
+<tr class="row-even"><td><p>zero_dim</p></td>
 <td><p>false</p></td>
 <td><p>sets the spatial dimension to zero, on any model</p></td>
 </tr>
@@ -166,6 +162,14 @@ There are four kinds of global parameter, depending on the type of variable invo
 <tr class="row-odd"><td><p>GK_min_regions</p></td>
 <td><p>8</p></td>
 <td><p>minimum number of regions in the Gauss-Kronrod method</p></td>
+</tr>
+<tr class="row-even"><td><p>PRIMME_algorithm</p></td>
+<td><p>1</p></td>
+<td><p>PRIMME algorithm to solve ground state (if qcm_wed was compiled with PRIMME): 1 (PRIMME_DYNAMIC - default), 2 (PRIMME_DEFAULT_MIN_TIME), 3 (PRIMME_DEFAULT_MIN_MATVECS), 4 (PRIMME_Arnoldi), 5 (PRIMME_GD), 6 (PRIMME_GD_plusK), 7 (PRIMME_GD_Olsen_plusK), 8 (PRIMME_JD_Olsen_plusK), 9 (PRIMME_RQI), 10 (PRIMME_JDQR), 11 (PRIMME_JDQMR), 12 (PRIMME_JDQMR_ETol), 13 (PRIMME_STEEPEST_DESCENT), 14 (PRIMME_LOBPCG_OrthoBasis), 15 (PRIMME_LOBPCG_OrthoBasis_Window). See PRIMME documentation for more information</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRIMME_preconditionning</p></td>
+<td><p>0</p></td>
+<td><p>Choose of preconditionner to solve ground state (if qcm_wed was compiled with PRIMME): 0 (No preconditionning), 1 (Jacobi preconditionner)</p></td>
 </tr>
 <tr class="row-even"><td><p>cuba2D_mineval</p></td>
 <td><p>1024</p></td>
@@ -263,7 +267,7 @@ There are four kinds of global parameter, depending on the type of variable invo
 </tr>
 <tr class="row-even"><td><p>accur_deflation</p></td>
 <td><p>1e-07</p></td>
-<td><p>norm below which a vector is deflated in the Band Lanczos method</p></td>
+<td><p>norm below which a vector is deflated in the band Lanczos method</p></td>
 </tr>
 <tr class="row-odd"><td><p>accur_lanczos</p></td>
 <td><p>1e-12</p></td>
@@ -315,11 +319,15 @@ There are four kinds of global parameter, depending on the type of variable invo
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Hamiltonian_format</p></td>
-<td><p>S</p></td>
-<td><p>Desired Hamiltonian format: S (CSR matrix), O (individual operators), F (factorized), N (none = on the fly)</p></td>
+<tr class="row-even"><td><p>Ground_state_method</p></td>
+<td><p>L</p></td>
+<td><p>Desired method to compute the ground state: L (Lanczos method - default), M (modified Lanczos method), D (Davidson method), P (use external PRIMME eigensolver - need qcm_wed to be compiled with PRIMME)</p></td>
 </tr>
-<tr class="row-odd"><td><p>periodization</p></td>
+<tr class="row-odd"><td><p>Hamiltonian_format</p></td>
+<td><p>S</p></td>
+<td><p>Desired Hamiltonian format: S (CSR matrix), O (individual operators), F (factorized), N (none = on the fly), E (Eigen CSR matrix), P (MPI Distributed matrix with PETSc)</p></td>
+</tr>
+<tr class="row-even"><td><p>periodization</p></td>
 <td><p>G</p></td>
 <td><p>periodization scheme: G, S, M, C or N (None)</p></td>
 </tr>
@@ -394,7 +402,7 @@ There are four kinds of global parameter, depending on the type of variable invo
         <li class="right" >
           <a href="utilities.html" title="Hartree approximation and counterterms"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v.1.0.7(git hash 4d266e3) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Summary of options</a></li> 
       </ul>
     </div>

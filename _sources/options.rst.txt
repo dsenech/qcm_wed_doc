@@ -10,7 +10,6 @@ Boolean options
     "check_lanczos_residual", "false", "checks the Lanczos residual at the end of the eigenvector computation"
     "continued_fraction", "false", "Uses the continued fraction solver for the Green function instead of the band Lanczos method"
     "dual_basis", "false", "uses the dual basis for wavevector computations"
-    "modified_Lanczos", "false", "Uses the modified Lanczos method for the ground state instead of the usual Lanczos method"
     "no_degenerate_BL", "false", "forbids band lanczos to proceed when the eigenstates have degenerate energies"
     "nosym", "false", "does not take cluster symmetries into account"
     "one_body_solution", "false", "Only solves the one-body part of the problem, for the Green function"
@@ -35,6 +34,8 @@ Integer-valued options
 
     "Davidson_states", "1", "Number of states requested in the Davidson-Liu algorithm"
     "GK_min_regions", "8", "minimum number of regions in the Gauss-Kronrod method"
+    "PRIMME_algorithm", "1", "PRIMME algorithm to solve ground state (if qcm_wed was compiled with PRIMME): 1 (PRIMME_DYNAMIC - default), 2 (PRIMME_DEFAULT_MIN_TIME), 3 (PRIMME_DEFAULT_MIN_MATVECS), 4 (PRIMME_Arnoldi), 5 (PRIMME_GD), 6 (PRIMME_GD_plusK), 7 (PRIMME_GD_Olsen_plusK), 8 (PRIMME_JD_Olsen_plusK), 9 (PRIMME_RQI), 10 (PRIMME_JDQR), 11 (PRIMME_JDQMR), 12 (PRIMME_JDQMR_ETol), 13 (PRIMME_STEEPEST_DESCENT), 14 (PRIMME_LOBPCG_OrthoBasis), 15 (PRIMME_LOBPCG_OrthoBasis_Window). See PRIMME documentation for more information"
+    "PRIMME_preconditionning", "0", "Choose of preconditionner to solve ground state (if qcm_wed was compiled with PRIMME): 0 (No preconditionning), 1 (Jacobi preconditionner)"
     "cuba2D_mineval", "1024", "minimum number of integrand evaluations in CUBA (2D)"
     "cuba3D_mineval", "16000", "minimum number of integrand evaluations in CUBA (3D)"
     "dim_max_print", "64", "Maximum dimension for printing vectors and matrices"
@@ -63,7 +64,7 @@ Real-valued options
     "accur_SEF", "5e-08", "Accuracy of the Potthoff functional"
     "accur_band_lanczos", "1e-12", "energy difference tolerance for stopping the BL process"
     "accur_continued_fraction", "0.01", "value of beta below which the simple Lanczod process stops"
-    "accur_deflation", "1e-07", "norm below which a vector is deflated in the Band Lanczos method"
+    "accur_deflation", "1e-07", "norm below which a vector is deflated in the band Lanczos method"
     "accur_lanczos", "1e-12", "tolerance of the Ritz residual estimate in the Lanczos method"
     "band_lanczos_minimum_gap", "1e-05", "gap between the lowest two states in BL below which the method fails"
     "cutoff_scale", "1e+12", "high-frequency cutoff in integrals"
@@ -81,7 +82,8 @@ Char-valued options
     :header: "name", "default", "description"
     :widths: 15, 10, 50
 
-    "Hamiltonian_format", "S", "Desired Hamiltonian format: S (CSR matrix), O (individual operators), F (factorized), N (none = on the fly)"
+    "Ground_state_method", "L", "Desired method to compute the ground state: L (Lanczos method - default), M (modified Lanczos method), D (Davidson method), P (use external PRIMME eigensolver - need qcm_wed to be compiled with PRIMME)"
+    "Hamiltonian_format", "S", "Desired Hamiltonian format: S (CSR matrix), O (individual operators), F (factorized), N (none = on the fly), E (Eigen CSR matrix), P (MPI Distributed matrix with PETSc)"
     "periodization", "G", "periodization scheme: G, S, M, C or N (None)"
 
 

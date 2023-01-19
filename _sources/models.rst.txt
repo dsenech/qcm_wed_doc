@@ -195,17 +195,15 @@ The cluster Hamiltonian :math:`H'`, or *reference Hamiltonian*, has the same for
 Multiband models
 ================
 
-Multiband models are treated in **pyqcm** in a seemingly restrictive fashion, which in fact poses no restriction at all. It is assumed that each geometric site on the lattice correspond to a single orbital (with two spins). Models with more than one band must necessarily be accounted for by assigning differents sites to each band. The perfect example of this is the Hubbard model on the honeycomb (aka graphene) lattice.  The lattice is not a Bravais lattice, since it contains one vacancy for every two occupied sites on an underlying triangular lattice. But there is no obligation in **qcm** for the lattice to be a Bravais lattice, i.e., for every site of the lattice to be occupied by an orbital (empty sites are allowed).
-The reason for doing things this way is that sometimes the two bands are equivalent, like in graphene. For instance, one can then define a 6-site cluster centered on a vacancy (the vertices of a hexagon). See Fig. 3 below. This cluster, interesting to use because of its symmetry, is a repeatable unit of the honeycomb lattice, but does not contain three identical unit cells of graphene, and could not be used if bands were treated only on a unit-cell basis.
-The concept of band in fact is only relevant to the lattice itself, not to the clusters, which ignore it.
+Multiband models are treated in **pyqcm** in a seemingly restrictive fashion, which in fact poses no restriction at all. It is assumed that each geometric site on the lattice correspond to a single orbital (with two spins). Models with more than one band must necessarily be accounted for by assigning differents sites to each lattice orbital. The perfect example of this is the Hubbard model on the honeycomb (aka graphene) lattice.  The lattice is not a Bravais lattice, since it contains one vacancy for every two occupied sites on an underlying triangular lattice. But there is no obligation in **qcm** for the lattice to be a Bravais lattice, i.e., for every site of the lattice to be occupied by an orbital (empty sites are allowed).
+The reason for doing things this way is that sometimes the two lattice orbitals are equivalent, like in graphene. For instance, one can then define a 6-site cluster centered on a vacancy (the vertices of a hexagon). See Fig. 3 below. This cluster, interesting to use because of its symmetry, is a repeatable unit of the honeycomb lattice, but does not contain three identical unit cells of graphene, and could not be used if lattice orbitals were treated only on a unit-cell basis.
+The concept of lattice orbitals in fact is only relevant to the lattice itself, not to the clusters, which ignore it.
 
 .. figure:: hexa6.png
     :align: center
     :height: 300px
 
     Figure 3
-
-Note that we will use the term *band* in a rather loose fashion, since most of the time we work in the *orbital* basis, not the *band* (or *Bloch*) basis. Since the word *orbital* is commonly used here to refer to the different sites of the impurity model, we use the word *band* to refer to the different *orbitals* of the unit cell of the lattice model, which is certainly a misnomer.
 
 Bath sites
 ==========

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Models and clusters &#8212; pyqcm v.1.0.7(git hash 4d266e3) documentation</title>
+    <title>Models and clusters &#8212; pyqcm v1.1.1(git hash 5aa5568) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="intro.html" title="Introduction"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v.1.0.7(git hash 4d266e3) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Models and clusters</a></li> 
       </ul>
     </div>  
@@ -189,16 +189,15 @@ The cluster Hamiltonian <span class="math notranslate nohighlight">\(H'\)</span>
 </section>
 <section id="multiband-models">
 <h2>Multiband models<a class="headerlink" href="#multiband-models" title="Permalink to this headline">¶</a></h2>
-<p>Multiband models are treated in <strong>pyqcm</strong> in a seemingly restrictive fashion, which in fact poses no restriction at all. It is assumed that each geometric site on the lattice correspond to a single orbital (with two spins). Models with more than one band must necessarily be accounted for by assigning differents sites to each band. The perfect example of this is the Hubbard model on the honeycomb (aka graphene) lattice.  The lattice is not a Bravais lattice, since it contains one vacancy for every two occupied sites on an underlying triangular lattice. But there is no obligation in <strong>qcm</strong> for the lattice to be a Bravais lattice, i.e., for every site of the lattice to be occupied by an orbital (empty sites are allowed).
-The reason for doing things this way is that sometimes the two bands are equivalent, like in graphene. For instance, one can then define a 6-site cluster centered on a vacancy (the vertices of a hexagon). See Fig. 3 below. This cluster, interesting to use because of its symmetry, is a repeatable unit of the honeycomb lattice, but does not contain three identical unit cells of graphene, and could not be used if bands were treated only on a unit-cell basis.
-The concept of band in fact is only relevant to the lattice itself, not to the clusters, which ignore it.</p>
+<p>Multiband models are treated in <strong>pyqcm</strong> in a seemingly restrictive fashion, which in fact poses no restriction at all. It is assumed that each geometric site on the lattice correspond to a single orbital (with two spins). Models with more than one band must necessarily be accounted for by assigning differents sites to each lattice orbital. The perfect example of this is the Hubbard model on the honeycomb (aka graphene) lattice.  The lattice is not a Bravais lattice, since it contains one vacancy for every two occupied sites on an underlying triangular lattice. But there is no obligation in <strong>qcm</strong> for the lattice to be a Bravais lattice, i.e., for every site of the lattice to be occupied by an orbital (empty sites are allowed).
+The reason for doing things this way is that sometimes the two lattice orbitals are equivalent, like in graphene. For instance, one can then define a 6-site cluster centered on a vacancy (the vertices of a hexagon). See Fig. 3 below. This cluster, interesting to use because of its symmetry, is a repeatable unit of the honeycomb lattice, but does not contain three identical unit cells of graphene, and could not be used if lattice orbitals were treated only on a unit-cell basis.
+The concept of lattice orbitals in fact is only relevant to the lattice itself, not to the clusters, which ignore it.</p>
 <figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="_images/hexa6.png"><img alt="_images/hexa6.png" src="_images/hexa6.png" style="height: 300px;" /></a>
 <figcaption>
 <p><span class="caption-text">Figure 3</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>Note that we will use the term <em>band</em> in a rather loose fashion, since most of the time we work in the <em>orbital</em> basis, not the <em>band</em> (or <em>Bloch</em>) basis. Since the word <em>orbital</em> is commonly used here to refer to the different sites of the impurity model, we use the word <em>band</em> to refer to the different <em>orbitals</em> of the unit cell of the lattice model, which is certainly a misnomer.</p>
 </section>
 <section id="bath-sites">
 <h2>Bath sites<a class="headerlink" href="#bath-sites" title="Permalink to this headline">¶</a></h2>
@@ -339,7 +338,7 @@ However, the lattice model will have the more general mixing of the two and the 
         <li class="right" >
           <a href="intro.html" title="Introduction"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v.1.0.7(git hash 4d266e3) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Models and clusters</a></li> 
       </ul>
     </div>
