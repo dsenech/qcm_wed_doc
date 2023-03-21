@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>The Hartree approximation &#8212; pyqcm v2.0.0(git hash 30c811f) documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Summary of options" href="options.html" />
+    <link rel="prev" title="The Variational Cluster Approximation" href="vca.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="options.html" title="Summary of options"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vca.html" title="The Variational Cluster Approximation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">The Hartree approximation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="the-hartree-approximation">
+<h1>The Hartree approximation<a class="headerlink" href="#the-hartree-approximation" title="Permalink to this heading">¶</a></h1>
+<p>Extended interactions require an extension of quantum cluster methods: inter-cluster interactions have to be cut off and replaced by a mean field, in the Hartree approximation.
+An extended interaction on the cluster is then reduced to</p>
+<div class="math notranslate nohighlight">
+\[\sum_{(ij)}V^c_{ij}n_i n_j +
+\sum_{(ij)}V^m_{ij}\left(n_i \langle n_j\rangle + n_j \langle n_i\rangle - \langle n_i\rangle\langle n_j\rangle \right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(V_m\)</span> stands for the terms of <span class="math notranslate nohighlight">\(V_{ij}\)</span> which need to be treated in the Hartree approximation, and <span class="math notranslate nohighlight">\(V^c\)</span> those that do not need to be. <span class="math notranslate nohighlight">\((ij)\)</span> stands for a pair of sites (<span class="math notranslate nohighlight">\(i\ne j\)</span>).</p>
+<p>Since <span class="math notranslate nohighlight">\(V_m\)</span> is real symmetric, the mean-field Hamiltonian may be recast into</p>
+<div class="math notranslate nohighlight">
+\[H_m = \sum_{ij}V^m_{ij}\left(n_i \langle n_j\rangle - \frac12\langle n_i\rangle\langle n_j\rangle \right)\]</div>
+<p>where now the sum is over independent values of <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.
+<span class="math notranslate nohighlight">\(V^m\)</span> can be diagonalized by an orthogonal transformation <span class="math notranslate nohighlight">\(L\)</span>: <span class="math notranslate nohighlight">\(V^m = L\Lambda \tilde L\)</span>.
+One then defines eigenoperators <span class="math notranslate nohighlight">\(O_a = L_{aj}n_j\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[H_m = \sum_a \lambda_a\left\{O_a \langle O_a\rangle - \frac12 \langle O_a\rangle^2\right\}\]</div>
+<p>Now, let us consider the mean values <span class="math notranslate nohighlight">\(\langle O_a\rangle\)</span> as adjustable variational (or mean-field) parameters.
+Then, in terms of the coefficients <span class="math notranslate nohighlight">\(h_a=\lambda_a\langle O_a\rangle\)</span> of the operator <span class="math notranslate nohighlight">\(O_a\)</span>, the mean-field Hamiltonian takes the following form:</p>
+<div class="math notranslate nohighlight">
+\[H_m = \sum_a \left\{ h_a O_a - \frac{h_a^2}{2\lambda_a} \right\}\]</div>
+<p>The variation of parameter <span class="math notranslate nohighlight">\(h_a\)</span> the yields</p>
+<div class="math notranslate nohighlight">
+\[\langle O_a\rangle = \frac{h_a}{\lambda_a} \rightarrow h_a=\lambda_a\langle O_a\rangle\]</div>
+<p>The Hartree procedure consists in starting with trial values of <span class="math notranslate nohighlight">\(_a\)</span> and iteratively performing the above assignation until convergence.</p>
+<section id="the-hartree-class">
+<h2>The hartree class<a class="headerlink" href="#the-hartree-class" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.hartree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hartree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class contains the elements needed to perform the Hartree approximation for the inter-cluster components of an
+extended interaction. The basic self-consistency relation is</p>
+<div class="math notranslate nohighlight">
+\[v_m = ve\langle V_m\rangle    \]</div>
+<p>where <em>v</em> is the coefficient of the operator <em>V</em> and <span class="math notranslate nohighlight">\(v_m\)</span> that of the operator <span class="math notranslate nohighlight">\(V_m\)</span>, and <em>e</em> is an eigenvalue specific to the cluster shape and the interaction. <span class="math notranslate nohighlight">\(\langle V_m\rangle\)</span> is the average of the operator <span class="math notranslate nohighlight">\(V_m\)</span>, taken
+as a lattice of as a cluster average.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference internal" href="model_classes.html#pyqcm.lattice_model" title="pyqcm.lattice_model"><em>lattice_model</em></a>) – the lattice model</p></li>
+<li><p><strong>Vm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the mean-field operator</p></li>
+<li><p><strong>V</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the interaction operator</p></li>
+<li><p><strong>eig</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – eigenvalue</p></li>
+<li><p><strong>accur</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – required accuracy of the self-consistent procedure</p></li>
+<li><p><strong>lattice</strong> (<em>boolean</em>) – if True, the lattice average is used, otherwise the cluster average</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>Vm</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – mean-field operator</p></li>
+<li><p><strong>V</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – extended interaction</p></li>
+<li><p><strong>eig</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – eigenvalue <em>e</em> of the mean-field operator in the self-consistency relation</p></li>
+<li><p><strong>lattice</strong> (<em>boolean</em>) – True if lattice averages are used</p></li>
+<li><p><strong>diff</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – difference between successive values of <span class="math notranslate nohighlight">\(v_m\)</span></p></li>
+<li><p><strong>ave</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – average of the operator <span class="math notranslate nohighlight">\(V_m\)</span></p></li>
+<li><p><strong>accur</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – desired accuracy</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.converged">
+<span class="sig-name descname"><span class="pre">converged</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.converged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests whether the mean-field procedure has converged</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the mean-field procedure has converged</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.omega">
+<span class="sig-name descname"><span class="pre">omega</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.omega" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the constant contribution, added to the Potthoff functional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model_instance</strong> (<em>I</em>) – the current model_instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.omega_var">
+<span class="sig-name descname"><span class="pre">omega_var</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.omega_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the constant contribution, added to the Potthoff functional</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.hartree.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.hartree.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the value of the mean-field operator based on its average</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>I</strong> (<a class="reference internal" href="instances.html#pyqcm.model_instance" title="pyqcm.model_instance"><em>model_instance</em></a>) – instance of the lattice model</p></li>
+<li><p><strong>pr</strong> (<em>boolean</em>) – if True, progress is printed on the screen</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">The Hartree approximation</a><ul>
+<li><a class="reference internal" href="#the-hartree-class">The hartree class</a><ul>
+<li><a class="reference internal" href="#pyqcm.hartree"><code class="docutils literal notranslate"><span class="pre">hartree</span></code></a><ul>
+<li><a class="reference internal" href="#pyqcm.hartree.converged"><code class="docutils literal notranslate"><span class="pre">converged()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.hartree.omega"><code class="docutils literal notranslate"><span class="pre">omega()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.hartree.omega_var"><code class="docutils literal notranslate"><span class="pre">omega_var()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.hartree.update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="vca.html"
+                          title="previous chapter">The Variational Cluster Approximation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="options.html"
+                          title="next chapter">Summary of options</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/hartree.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="options.html" title="Summary of options"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="vca.html" title="The Variational Cluster Approximation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">The Hartree approximation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+  </body>
+</html>

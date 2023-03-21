@@ -1,18 +1,17 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Parallel processing &#8212; pyqcm v1.1.1(git hash 5aa5568) documentation</title>
+    <title>Parallel processing &#8212; pyqcm v2.0.0(git hash 30c811f) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Summary of options" href="options.html" /> 
@@ -29,7 +28,7 @@
         <li class="right" >
           <a href="options.html" title="Summary of options"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Parallel processing</a></li> 
       </ul>
     </div>  
@@ -40,9 +39,9 @@
           <div class="body" role="main">
             
   <section id="parallel-processing">
-<h1>Parallel processing<a class="headerlink" href="#parallel-processing" title="Permalink to this headline">¶</a></h1>
+<h1>Parallel processing<a class="headerlink" href="#parallel-processing" title="Permalink to this heading">¶</a></h1>
 <section id="generality">
-<h2>Generality<a class="headerlink" href="#generality" title="Permalink to this headline">¶</a></h2>
+<h2>Generality<a class="headerlink" href="#generality" title="Permalink to this heading">¶</a></h2>
 <p>pyqcm could benefit from various methods to perform parallel processing in shared memory system.
 Three parallelisations method could be used in theory:</p>
 <ul class="simple">
@@ -64,7 +63,7 @@ QCM OpenMP parallelization must also be unset:</p>
 <p>However, using this method, only the integration section would be treated in parallel.</p>
 </section>
 <section id="performance">
-<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this heading">¶</a></h2>
 <p>The following Figure 1 compares parallelization performance on a simulation which spend most of its time (i.e. more than 99% using a single core) in the numerical integration.
 Tests were performed on a 2 x Intel Xeon Gold 6238 Cascade Lake &#64; 2.10GHz with 22 cores each and HyperThreading disabled.</p>
 <figure class="align-center" id="id1">
@@ -116,7 +115,7 @@ Tests were performed on a 2 x Intel Xeon Gold 6238 Cascade Lake &#64; 2.10GHz wi
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -133,13 +132,13 @@ Tests were performed on a 2 x Intel Xeon Gold 6238 Cascade Lake &#64; 2.10GHz wi
         <li class="right" >
           <a href="options.html" title="Summary of options"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Parallel processing</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, David Sénéchal.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+        &#169; Copyright 2023, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

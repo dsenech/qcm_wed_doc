@@ -1,0 +1,1469 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Class model_instance &#8212; pyqcm v2.0.0(git hash 30c811f) documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Cluster Dynamical Mean Field Theory" href="cdmft.html" />
+    <link rel="prev" title="Classes for defining models" href="model_classes.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cdmft.html" title="Cluster Dynamical Mean Field Theory"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="model_classes.html" title="Classes for defining models"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class model_instance</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="class-model-instance">
+<h1>Class model_instance<a class="headerlink" href="#class-model-instance" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.model_instance">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes a particular instance of the lattice model, i.e., for a given set of parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference internal" href="model_classes.html#pyqcm.lattice_model" title="pyqcm.lattice_model"><em>lattice_model</em></a>) – the (unique) lattice model</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – a unique label for the model instance. Most of the time the default is fine. Exception when two concurrent instances are needed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>is_complex</strong> (<em>boolean</em>) – True if the instance has a complex-valued state, as opposed to real</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Berry_curvature">
+<span class="sig-name descname"><span class="pre">Berry_curvature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'G'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subdivide</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Berry_curvature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws a 2D density plot of the Berry curvature as a function of wavevector, on a square grid going from -pi to pi in each direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on the side of the grid</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – imaginary part of the frequency at zero, i.e., w = eta*1j</p></li>
+<li><p><strong>period</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – type of periodization used (e.g. ‘G’, ‘M’, ‘None’)</p></li>
+<li><p><strong>range</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a>) – range of plot [originX, originY, side], in multiples of pi</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the orbital to use in the computation (1 to number of bands). None (default) means a sum over all bands.</p></li>
+<li><p><strong>subdivide</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – True if plaquette subdivision is used.</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – momentum component in the third direction (x pi)</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Name of the file to save the plot. If None, shows the plot on screen.</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the contourplot object of matplotlib</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Berry_field_map">
+<span class="sig-name descname"><span class="pre">Berry_field_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Berry_field_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a plot of the Berry flux as a function of wavevector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevector grid points on each side</p></li>
+<li><p><strong>nsides</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of sides of the polygon used to compute the circulation of the Berry field.</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – offset in wavevector in the direction perpendicular to the plane (x pi)</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the orbital to use in the computation (1 to number of bands). None (default) means a sum over all bands.</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Name of the file to save the plot. If None, shows the plot on screen.</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the contourplot object of matplotlib, the quiver object of matplotlib</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Berry_flux">
+<span class="sig-name descname"><span class="pre">Berry_flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Berry_flux" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the integral of the Berry connexion along a closed circle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k0</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – center of the circle</p></li>
+<li><p><strong>R</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – radius of the circle</p></li>
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on the circle</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the orbital to use in the computation (1 to number of bands). None (default) means a sum over all bands.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns float<span class="colon">:</span></dt>
+<dd class="field-even"><p>the flux</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Berry_flux_map">
+<span class="sig-name descname"><span class="pre">Berry_flux_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Berry_flux_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a plot of the Berry flux as a function of wavevector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevector grid points on each side</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – direction of flux, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – offset in wavevector in the direction perpendicular to the plane (x pi)</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the orbital to use in the computation (1 to number of bands). None (default) means a sum over all bands.</p></li>
+<li><p><strong>npoints</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – nombre de points sur chaque boucle</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Name of the file to save the plot. If None, shows the plot on screen.</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the contourplot object of matplotlib</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.CPT_Green_function">
+<span class="sig-name descname"><span class="pre">CPT_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.CPT_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the CPT Green function at a given frequency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> – complex frequency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single or an array of complex-valued matrices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Chern_number">
+<span class="sig-name descname"><span class="pre">Chern_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'G'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subdivide</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Chern_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the Chern number by summing the Berry curvature over wavevectors on a square grid going from (0,0) to (pi,pi)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on the side of the grid</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – imaginary part of the frequency at zero, i.e., w = eta*1j</p></li>
+<li><p><strong>period</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – type of periodization used (e.g. ‘G’, ‘M’, ‘None’)</p></li>
+<li><p><strong>offset</strong> (<em>wavevector</em>) – wavevector offset of the computation grid</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the orbital to use in the computation (1 to number of bands). None (default) means a sum over all occupied bands.</p></li>
+<li><p><strong>subdivide</strong> (<em>boolean</em>) – recursivity flag (wavevector grid subdivision)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns float<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Chern number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Fermi_surface">
+<span class="sig-name descname"><span class="pre">Fermi_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadrant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Fermi_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the Fermi surface of the non-interacting model (2D)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on each side of the grid</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – if None, plots all the orbitals. Otherwise just plots the FS for that orbital (starts at 1)</p></li>
+<li><p><strong>quadrant</strong> (<em>boolean</em>) – if True, plots the first quadrant of a square Brillouin zone only</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – momentum component in the third direction (in multiple of <span class="math notranslate nohighlight">\(\pi\)</span>)</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.G_dispersion">
+<span class="sig-name descname"><span class="pre">G_dispersion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'G'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadrant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.G_dispersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the eigenvalues of the inverse Green function at zero frequency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on each side of the grid</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – if 0, plots all the orbitals. Otherwise just shows the plot for that orbital (starts at 1)</p></li>
+<li><p><strong>period</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – periodization scheme (‘G’, ‘M’)</p></li>
+<li><p><strong>contour</strong> (<em>boolean</em>) – True for a contour plot; otherwise a 3D plot.</p></li>
+<li><p><strong>inv</strong> (<em>boolean</em>) – True if the inverse eigenvalues (inverse energies) are plotted instead</p></li>
+<li><p><strong>quadrant</strong> (<em>boolean</em>) – if True, plots the first quadrant of a square Brillouin zone only</p></li>
+<li><p><strong>datafile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if different from None, just writes the data in a file and does not plot</p></li>
+<li><p><strong>max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – energy range (from -max to max)</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – momentum component in the third direction (in multiple of <span class="math notranslate nohighlight">\(pi\)</span>)</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Green_function_average">
+<span class="sig-name descname"><span class="pre">Green_function_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Green_function_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cluster Green function average (integral over frequencies)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing =   4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Green_function_density">
+<span class="sig-name descname"><span class="pre">Green_function_density</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Green_function_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the density from the Green function average</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p>
+</dd>
+</dl>
+<p>return (float) : the density</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Green_function_solve">
+<span class="sig-name descname"><span class="pre">Green_function_solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Green_function_solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Usually, the Green function representation is computed only when needed, in a just-in-time fashion (i.e. in a lazy way).
+This forces the computation of the Green function representation for the current instance (i.e. non lazy).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Lehmann_Green_function">
+<span class="sig-name descname"><span class="pre">Lehmann_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Lehmann_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the Lehmann representation of the periodized Green function for a set of wavevectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – orbital index (starts at 1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of pairs {poles, residues}, each of poles and residues being itself a list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Luttinger_surface">
+<span class="sig-name descname"><span class="pre">Luttinger_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadrant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Luttinger_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the Luttinger surface (zeros of the Green function) in the Brillouin zone (2D)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on each side of the grid</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – orbital number (starts at 1)</p></li>
+<li><p><strong>quadrant</strong> (<em>boolean</em>) – if True, plots the first quadrant of a square Brillouin zone only</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – for 3D models, value of the component of k perpendicular to the plane</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – for 3D models, plane of the plot (‘z’=’xy’, ‘y’=’xz’, ‘x=’yz’)</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.Potthoff_functional">
+<span class="sig-name descname"><span class="pre">Potthoff_functional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hartree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sef.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetrized_operator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.Potthoff_functional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the Potthoff functional for a given instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the file to append with the result</p></li>
+<li><p><strong>hartree</strong> (<em>[</em><a class="reference internal" href="hartree.html#pyqcm.hartree" title="pyqcm.hartree"><em>hartree</em></a><em>]</em>) – Hartree approximation couplings (see pyqcm/hartree.py)</p></li>
+<li><p><strong>symmetrized_operator</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of an operator wrt which the functional must be symmetrized</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the value of the self-energy functional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.QP_weight">
+<span class="sig-name descname"><span class="pre">QP_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.QP_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the k-dependent quasi-particle weight from the self-energy derived from the periodized Green function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – increment in the imaginary axis direction used to computed the derivative of the self-energy</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – orbital index (starts at 1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single float or an array of floats, depending on the shape of k</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.V_matrix">
+<span class="sig-name descname"><span class="pre">V_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.V_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the matrix <span class="math notranslate nohighlight">\(V=G_0^{-1}-G^{c-1}_0\)</span> at a given frequency and wavevectors, where <span class="math notranslate nohighlight">\(G_0\)</span> is the noninteracting Green function on the infinite lattice and <span class="math notranslate nohighlight">\(G^c_0\)</span> is the noninteracting Green function on the cluster.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> (<em>wavevector</em>) – wavevector (ndarray(3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single (d,d) or an array (N,d,d) of complex-valued matrices. d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.averages">
+<span class="sig-name descname"><span class="pre">averages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ops</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'averages.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.averages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the lattice averages of the operators present in the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the file in which the information is appended</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a dict giving the values of the averages for each parameter</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{str,float}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.band_Green_function">
+<span class="sig-name descname"><span class="pre">band_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.band_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the periodized Green function at a given frequency and wavevectors, in the band basis (defined
+in the noninteracting model). It only differs from the periodized Green function in multi-band models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single (d,d) or an array (N,d,d) of complex-valued matrices. d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.cluster_Green_function">
+<span class="sig-name descname"><span class="pre">cluster_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.cluster_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cluster Green function at a given complex frequency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing =   4)</p></li>
+<li><p><strong>blocks</strong> (<em>boolean</em>) – true if returned in the basis of irreducible representations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.cluster_QP_weight">
+<span class="sig-name descname"><span class="pre">cluster_QP_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.cluster_QP_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cluster quasi-particle weight from the cluster self-energy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – cluster label (starts at 0)</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – increment in the imaginary axis direction used to computed the derivative of the self-energy</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – orbital index (starts at 1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.cluster_averages">
+<span class="sig-name descname"><span class="pre">cluster_averages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.cluster_averages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the average and variance of all operators of the cluster model in the cluster ground state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a dict str : (float, float) with the averages and variances as a function of operator name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.cluster_hopping_matrix">
+<span class="sig-name descname"><span class="pre">cluster_hopping_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.cluster_hopping_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the one-body matrix of cluster no i</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> – label of the cluster (0 to the number of clusters - 1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>full</strong> (<em>boolean</em>) – if True, returns the full hopping matrix, including bath</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.cluster_self_energy">
+<span class="sig-name descname"><span class="pre">cluster_self_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.cluster_self_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the cluster self-energy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters -1)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing =   4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance (default 0)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.cluster_spectral_function">
+<span class="sig-name descname"><span class="pre">cluster_spectral_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imaginary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'b'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.cluster_spectral_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the spectral function of the cluster in the site basis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – the frequency range is from -wmax to wmax if w is a float. If wmax is a tuple then the range is (wmax[0], wmax[1]). wmax can also be an explicit list of real frequencies</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lorentzian broadening</p></li>
+<li><p><strong>imaginary</strong> (<em>boolean</em>) – If True, the frequency range is along the imaginary frequency axis</p></li>
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster within the super unit cell (starts at 0)</p></li>
+<li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – vertical offset in the plot between the curves associated to successive wavevectors</p></li>
+<li><p><strong>full</strong> (<em>boolean</em>) – if True, plots off-diagonal components as well</p></li>
+<li><p><strong>self</strong> (<em>boolean</em>) – if True, plots the self-energy instead of the spectral function</p></li>
+<li><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if None, G is computed. Other options are ‘self’ (self-energy) and ‘hyb’ (hybridization function)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – if True, plots the spin down part, if different</p></li>
+<li><p><strong>blocks</strong> (<em>boolean</em>) – if True, gives the GF in the symmetry basis (block diagonal)</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>color</strong> – matplotlib color of the curves</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the array of frequencies, the spectral weight</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.density_matrix">
+<span class="sig-name descname"><span class="pre">density_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.density_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the density matrix of subsystem A, defined by the array of site indices “sites”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>sites</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – list of sites defining subsystem A</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the density matrix, the left and right bases (spins up and down)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)">complex</a>], [int32], [int32]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.dispersion">
+<span class="sig-name descname"><span class="pre">dispersion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.dispersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the dispersion relation for a single or an array of wavevectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> (<em>wavevector</em>) – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single (ndarray(d)) or an array (ndarray(N,d)) of real values (energies). d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.dos">
+<span class="sig-name descname"><span class="pre">dos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.dos" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the density of states at a given frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ndarray(d) of real values, d being the reduced GF dimension</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.double_counting_correct">
+<span class="sig-name descname"><span class="pre">double_counting_correct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DC</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.double_counting_correct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies some kinetic parameters in view of the presence of interactions and averages values,
+in order to account minimally for double counting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>DC</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>)</em><em>]</em>) – list of recipes for the correction: (kinetic operator, interaction operator, density operator, coefficient, value of the kinetic operator without interaction)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.gap">
+<span class="sig-name descname"><span class="pre">gap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.gap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the spectral gap for a series of wavevectors</p>
+<p>:param k : set of wavevectors
+:param int orb : orbital number (starts at 1)
+:param float threshold : weight below which a Lehmann contribution is deemed zero
+returns: an array of gap values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.ground_state">
+<span class="sig-name descname"><span class="pre">ground_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.ground_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the ground state of the cluster(s).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a list of pairs (float, str) of the ground state energy and sector string, for each cluster of the system</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.hybridization_function">
+<span class="sig-name descname"><span class="pre">hybridization_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.hybridization_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the hybridization function for cluster ‘cluster’ and instance ‘label’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a complex-valued matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.instance_parameters">
+<span class="sig-name descname"><span class="pre">instance_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.instance_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the values of the parameters in a given instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a dict {string,float}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.interactions">
+<span class="sig-name descname"><span class="pre">interactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.interactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the density-density interactions on a specific cluster</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clus</strong> – label of the cluster (starts at 0)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of matrix elements tuples (i,j,v)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.mdc">
+<span class="sig-name descname"><span class="pre">mdc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadrant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'GF'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sym</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.mdc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the spectral weight at zero frequency in the Brillouin zone (2D)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on each side of the grid</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lorentzian broadening</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – if None, sums all the orbitals. Otherwise just shows the weight for that orbital (starts at 1)</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>quadrant</strong> (<em>boolean</em>) – if True, plots the first quadrant of a square Brillouin zone only</p></li>
+<li><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The quantity to plot. ‘GF’ = Green function, ‘self’ = self-energy, ‘Z’ = quasi-particle weight</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – momentum component in the third direction (in multiple of pi)</p></li>
+<li><p><strong>freq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – frequency at which the spectral function is computed (0 by default)</p></li>
+<li><p><strong>max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – maximum value of the plotting range (if None, maximum of the data)</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>band_basis</strong> (<em>boolean</em>) – uses the band basis instead of the orbital basis (for multiband models)</p></li>
+<li><p><strong>sym</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – symmetrization option for the mdc</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – size of the plot, in multiple of the default (2 pi on the side)</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the contour plot object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.mdc_anomalous">
+<span class="sig-name descname"><span class="pre">mdc_anomalous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbitals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selfenergy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">im_part</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadrant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.mdc_anomalous" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the anomalous Green function or self-energy (2D)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on each side of the grid</p></li>
+<li><p><strong>w</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – complex frequency at which the Green function is computed</p></li>
+<li><p><strong>orbitals</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – shows the weight for orbitals (b1,b2) (starts at 1), or numpy array of spin-Nambu projection</p></li>
+<li><p><strong>self</strong> (<em>boolean</em>) – if True, plots the anomalous self-energy instead of the spectral function</p></li>
+<li><p><strong>im_part</strong> (<em>boolean</em>) – if True, plots the imaginary part instead of the real part</p></li>
+<li><p><strong>quadrant</strong> (<em>boolean</em>) – if True, plots the first quadrant of a square Brillouin zone only</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – for 3D models, value of the component of k perpendicular to the plane</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – for 3D models, plane of the plot (‘z’=’xy’, ‘y’=’xz’, ‘x=’yz’)</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.momentum_profile">
+<span class="sig-name descname"><span class="pre">momentum_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.momentum_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the momentum-resolved average of an operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the lattice operator</p></li>
+<li><p><strong>k</strong> – array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an array of values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.monopole">
+<span class="sig-name descname"><span class="pre">monopole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subdivide</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.monopole" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the topological charge of a node in a Weyl semi-metal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> (<em>[</em><em>double</em><em>]</em>) – wavevector, position of the node</p></li>
+<li><p><strong>a</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – half-side of the cube surrounding the node</p></li>
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of divisions along the side of the cube</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – orbital to compute the charge of (if None, sums over all bands)</p></li>
+<li><p><strong>subdivide</strong> (<em>booleean</em>) – True if subdivision is allowed (False by default)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the monopole charge</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.monopole_map">
+<span class="sig-name descname"><span class="pre">monopole_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'z'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.monopole_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a plot of the monopole density (divergence of B) as a function of wavevector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevector grid points on each side</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – offset in wavevector in the direction perpendicular to the plane (x pi)</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the orbital to use in the computation (1 to number of bands). None (default) means a sum over all bands.</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Name of the file to save the plot. If None, shows the plot on screen.</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the contourplot object of matplotlib</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the values of the parameters of the instance (as opposed to the parameter_set object)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a dict {string,float}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.periodized_Green_function">
+<span class="sig-name descname"><span class="pre">periodized_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.periodized_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the periodized Green function at a given frequency and wavevectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single (d,d) or an array (N,d,d) of complex-valued matrices. d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.periodized_Green_function_element">
+<span class="sig-name descname"><span class="pre">periodized_Green_function_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.periodized_Green_function_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the element (r,c) of the periodized Green function at a given frequency and wavevectors (starts at 0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – a row index (starts at 0)</p></li>
+<li><p><strong>c</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – a column index (starts at 0)</p></li>
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> – array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a vector of complex numbers</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.plot_DoS">
+<span class="sig-name descname"><span class="pre">plot_DoS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dos.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.plot_DoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the density of states (DoS) as a function of frequency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – the frequency range is from -w to w if w is a float. If w is a tuple then the range is (wmax[0], wmax[1]). w can also be an explicit list of real frequencies, or of complex frequencies (in which case eta is ignored)</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lorentzian broadening, if w is real</p></li>
+<li><p><strong>sum</strong> (<em>boolean</em>) – if True, the sum of the DoS of all lattice orbitals is plotted in addition to each orbital individually</p></li>
+<li><p><strong>progress</strong> (<em>boolean</em>) – if True, prints computation progress</p></li>
+<li><p><strong>labels</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – labels of the different curves</p></li>
+<li><p><strong>colors</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – colors of the different curves</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.plot_dispersion">
+<span class="sig-name descname"><span class="pre">plot_dispersion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datafile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadrant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.plot_dispersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the dispersion relation in the Brillouin zone (2D)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on each side of the grid</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – if None, sums all the orbitals. Otherwise just shows the weight for that orbital (starts at 1)</p></li>
+<li><p><strong>contour</strong> (<em>boolean</em>) – True if a contour plot is produced instead of a 3D plot.</p></li>
+<li><p><strong>datafile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if given, name of the data file (no extension please) in which the data is printed, for plotting with an external program. Does not plot. Will produce one file per orbital, with the .tsv extension.</p></li>
+<li><p><strong>quadrant</strong> (<em>boolean</em>) – if True, plots the first quadrant of a square Brillouin zone only</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – momentum component in the third direction (in multiple of pi)</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>view_angle</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><em>tuple</em></a>) – optional projection angle to pass to view_init() in the format of (elevation, azimuth) in degrees</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot_surface’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.plot_host_hybrid">
+<span class="sig-name descname"><span class="pre">plot_host_hybrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.plot_host_hybrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a comparison between the host function and the hybridization function</p>
+<p>:param [float] w : array of frequencies used
+:param (int,int) e: matrix element to plot
+:param int clus: cluster label (starts at 0)
+:param str file: if not None, saves the plot in a file with that name
+:param plt_ax: optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set
+:param kwargs: keyword arguments passed to the matplotlib ‘plot’ function
+:return: None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.plot_hybridization_function">
+<span class="sig-name descname"><span class="pre">plot_hybridization_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imaginary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">realpart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.plot_hybridization_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function plots the imaginary part of the hybridization function Gamma as a function of frequency.
+Only the diagonal elements are plotted, but for all clusters if there is more than one.
+The arguments have the same meaning as in <cite>plot_spectrum</cite>, except ‘realpart’ which, if True, plots
+the real part instead of the imaginary part.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – the frequency range is from -wmax to wmax if w is a float. If wmax is a tuple then the range is (wmax[0], wmax[1]). wmax can also be an explicit list of real frequencies</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lorentzian broadening</p></li>
+<li><p><strong>imaginary</strong> (<em>boolean</em>) – If True, the frequency range is along the imaginary frequency axis</p></li>
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – cluster index (starts at 0)</p></li>
+<li><p><strong>realpart</strong> (<em>boolean</em>) – if True, the real part of the Green function is shown, not the imaginary part</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.plot_momentum_profile">
+<span class="sig-name descname"><span class="pre">plot_momentum_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadrant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.plot_momentum_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the momentum-resolved average of operator op in the Brillouin zone (2D)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>op</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the lattice operator</p></li>
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on each side of the grid</p></li>
+<li><p><strong>quadrant</strong> (<em>boolean</em>) – if True, plots the first quadrant of a square Brillouin zone only</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – momentum component in the third direction (in multiple of pi)</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.plot_profile">
+<span class="sig-name descname"><span class="pre">plot_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_spin_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">singlet_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">triplet_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.plot_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a figure of various local quantities on the repeated unit, from averages computed in the ground state wavefunction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – scale factor applied to the density</p></li>
+<li><p><strong>bond_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – scale factor applied to the bond charge density</p></li>
+<li><p><strong>current_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – scale factor applied to the currents on the bonds</p></li>
+<li><p><strong>spin_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – scale factor applied to the spins on the sites</p></li>
+<li><p><strong>spin_angle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – angle at which to draw the spins, from their nominal direction</p></li>
+<li><p><strong>bond_spin_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – scale factor applied to the spins on the bonds</p></li>
+<li><p><strong>singlet_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – scale factor applied to the singlet pairing amplitudes</p></li>
+<li><p><strong>triplet_scale</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – scale factor applied to the triplet pairing amplitudes</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the output file for the plot, if not None</p></li>
+<li><p><strong>layer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – layer number (z coordinate)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.potential_energy">
+<span class="sig-name descname"><span class="pre">potential_energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.potential_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the potential energy for a given instance, as the functional trace of Sigma x G</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the value of the potential energy</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.print_wavefunction">
+<span class="sig-name descname"><span class="pre">print_wavefunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.print_wavefunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the ground state wavefunction(s) on the screen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the cluster (0 to the number of clusters-1)</p></li>
+<li><p><strong>pr</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – prints wavefunction to screen if pr=True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the wavefunction</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.projected_Green_function">
+<span class="sig-name descname"><span class="pre">projected_Green_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.projected_Green_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the projected Green function at a given frequency, as used in CDMFT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – true is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the projected Green function matrix (d x d), d being the dimension of the CPT Green function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.properties">
+<span class="sig-name descname"><span class="pre">properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns two strings of properties of a model instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a pair of strings (the description line and the data line).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.qmatrix">
+<span class="sig-name descname"><span class="pre">qmatrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.qmatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Lehmann representation of the Green function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2-tuple made of
+1. the array of M real eigenvalues, M being the number of poles in the representation
+2. a rectangular (L x M) matrix (real of complex), L being the dimension of the Green function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.read_cluster_model_instance">
+<span class="sig-name descname"><span class="pre">read_cluster_model_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">S</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.read_cluster_model_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the solution from a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> – label of the cluster (0 to the number of clusters - 1)</p></li>
+<li><p><strong>S</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – long string containing the solution</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the model instance to the current parameters, with the same label</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.segment_dispersion">
+<span class="sig-name descname"><span class="pre">segment_dispersion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'triangle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.segment_dispersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the dispersion relation in the Brillouin zone along a wavevector path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – wavevector path, as used by the function wavevector_path()</p></li>
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on each side of the grid</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.self_energy">
+<span class="sig-name descname"><span class="pre">self_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.self_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the self-energy associated with the periodized Green function at a given frequency and wavevectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – frequency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single (d,d) or an array (N,d,d) of complex-valued matrices. d is the reduced GF dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.site_and_bond_profile">
+<span class="sig-name descname"><span class="pre">site_and_bond_profile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.site_and_bond_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the site and bond profiles in all clusters of the repeated unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A pair of ndarrays</p>
+</dd>
+</dl>
+<p>site profile – the components are 
+x y z n Sx Sy Sz psi.real psi.imag</p>
+<p>bond profile – the components are  
+x1 y1 z1 x2 y2 z2 b0 bx by bz d0.real dx.real dy.real dz.real d0.imag dx.imag dy.imag dz.imag</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.spectral_average">
+<span class="sig-name descname"><span class="pre">spectral_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.spectral_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the contribution of a frequency to the average of an operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the operator</p></li>
+<li><p><strong>z</strong> – complex frequency</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.spectral_function">
+<span class="sig-name descname"><span class="pre">spectral_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'triangle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'A'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nambu_redress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.spectral_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the spectral function <span class="math notranslate nohighlight">\(A(\mathbf{k},\omega)\)</span> along a wavevector path in the Brillouin zone.
+This version plots the spin-down part with the correct sign of the frequency in the Nambu formalism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – the frequency range is from -wmax to wmax if w is a float. If wmax is a tuple then the range is (wmax[0], wmax[1]). wmax can also be an explicit list of real frequencies</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lorentzian broadening</p></li>
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – a keyword that is passed to pyqcm.wavevector_path() to produce a set of wavevectors along a path, or a tuple</p></li>
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the number of wavevectors along each segment of the path (passed to pyqcm.wavevector_grid())</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – if not None, only plots the spectral function associated with this orbital number (starts at 1). If None, sums over all orbitals.</p></li>
+<li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – vertical offset in the plot between the curves associated to successive wavevectors</p></li>
+<li><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – ‘A’ : spectral function, ‘self’ : self-energy, ‘Sx’ : spin (x component), ‘Sy’ : spin (y component)</p></li>
+<li><p><strong>Nambu_redress</strong> (<em>boolean</em>) – if True, evaluates the Nambu component at the opposite frequency</p></li>
+<li><p><strong>inverse_path</strong> (<em>boolean</em>) – if True, inverts the path (k –&gt; -k)</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – optional title for the plot. If None, a string with the model parameters will be used.</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.spectral_function_Lehmann">
+<span class="sig-name descname"><span class="pre">spectral_function_Lehmann</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'triangle'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.spectral_function_Lehmann" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a Lehmann representation of the spectral function along a wavevector path in the Brillouin zone. Singularities are plotted as impulses with heights proportionnal to the residue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – if a string, keyword passed to <cite>pyqcm.wavevector_path()</cite> to produce a set of wavevectors; else, explicit list of wavevectors (N x 3 numpy array).</p></li>
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the number of wavevectors along each segment of the path (passed to pyqcm.wavevector_path())</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – only plots the spectral function associated with this orbital number (starts at 1)</p></li>
+<li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – vertical offset in the plot between the curves associated to successive wavevectors</p></li>
+<li><p><strong>lims</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>)</em>) – limits of the plot in frequency (2-tuple)</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.spin_mdc">
+<span class="sig-name descname"><span class="pre">spin_mdc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quadrant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_perp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plane</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'xy'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band_basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.spin_mdc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the spin spectral weight at zero frequency in the Brillouin zone (2D)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nk</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of wavevectors on each side of the grid</p></li>
+<li><p><strong>eta</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – Lorentzian broadening</p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – if None, sums all the orbitals. Otherwise just shows the weight for that orbital (starts at 1)</p></li>
+<li><p><strong>quadrant</strong> (<em>boolean</em>) – if True, plots the first quadrant of a square Brillouin zone only</p></li>
+<li><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The quantity to plot. ‘spin’ = spin texture, ‘spins’ = spin texture (saturated), ‘sz’ = z-component, ‘spinp’ = modulus of xy-component</p></li>
+<li><p><strong>freq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – frequency at which the spectral function is computed (0 by default)</p></li>
+<li><p><strong>max</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – maximum value of the plotting range (if None, maximum of the data)</p></li>
+<li><p><strong>k_perp</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – momentum component in the third direction (in multiple of pi)</p></li>
+<li><p><strong>plane</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – momentum plane, ‘xy’=’z’, ‘yz’=’x’=’zy’ or ‘xz’=’zx’=’y’</p></li>
+<li><p><strong>band_basis</strong> – uses the band basis instead of the orbital basis (for multiband models)</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – if not None, saves the plot in a file with that name</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments passed to the matplotlib ‘plot’ function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The contour plot object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.spin_spectral_function">
+<span class="sig-name descname"><span class="pre">spin_spectral_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.spin_spectral_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the k-dependent spin-resolved spectral function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq</strong> – complex freqency</p></li>
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>orb</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – if None, sums all the orbitals. Otherwise just shows the weight for that orbital (starts at 1)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>depending on the shape of k, a nd.array(3) of nd.array(N,3)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.susceptibility">
+<span class="sig-name descname"><span class="pre">susceptibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freqs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.susceptibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the dynamic susceptibility of an operator point by point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>freqs</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>]</em>) – array of complex frequencies</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of cluster model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of complex susceptibilities</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.susceptibility_poles">
+<span class="sig-name descname"><span class="pre">susceptibility_poles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.susceptibility_poles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the Lehmann representation of the dynamic susceptibility of an operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p>
+</dd>
+<dt class="field-even">Returns [(float,float)]<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of 2-tuple (pole, residue)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.tk">
+<span class="sig-name descname"><span class="pre">tk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.tk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the k-dependent one-body matrix of the lattice model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> – single wavevector (ndarray(3)) or array of wavevectors (ndarray(N,3)) in units of <span class="math notranslate nohighlight">\(\pi\)</span></p></li>
+<li><p><strong>spin_down</strong> (<em>boolean</em>) – True is the spin down sector is to be computed (applies if mixing = 4)</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of the model instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a single or an array of complex-valued matrices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the solved cluster model instance to a text file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.model_instance.write_summary">
+<span class="sig-name descname"><span class="pre">write_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suppl_descr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suppl_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_of_series</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.model_instance.write_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a summary of the properties of the model instance in a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the output file</p></li>
+<li><p><strong>suppl_descr</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – additional description fields compared to the standard ones</p></li>
+<li><p><strong>suppl_values</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – additional values compared to the standard ones</p></li>
+<li><p><strong>first_of_series</strong> (<em>boolean</em>) – True if the header (description fields) are to be written</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Class model_instance</a><ul>
+<li><a class="reference internal" href="#pyqcm.model_instance"><code class="docutils literal notranslate"><span class="pre">model_instance</span></code></a><ul>
+<li><a class="reference internal" href="#pyqcm.model_instance.Berry_curvature"><code class="docutils literal notranslate"><span class="pre">Berry_curvature()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Berry_field_map"><code class="docutils literal notranslate"><span class="pre">Berry_field_map()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Berry_flux"><code class="docutils literal notranslate"><span class="pre">Berry_flux()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Berry_flux_map"><code class="docutils literal notranslate"><span class="pre">Berry_flux_map()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.CPT_Green_function"><code class="docutils literal notranslate"><span class="pre">CPT_Green_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Chern_number"><code class="docutils literal notranslate"><span class="pre">Chern_number()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Fermi_surface"><code class="docutils literal notranslate"><span class="pre">Fermi_surface()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.G_dispersion"><code class="docutils literal notranslate"><span class="pre">G_dispersion()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Green_function_average"><code class="docutils literal notranslate"><span class="pre">Green_function_average()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Green_function_density"><code class="docutils literal notranslate"><span class="pre">Green_function_density()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Green_function_solve"><code class="docutils literal notranslate"><span class="pre">Green_function_solve()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Lehmann_Green_function"><code class="docutils literal notranslate"><span class="pre">Lehmann_Green_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Luttinger_surface"><code class="docutils literal notranslate"><span class="pre">Luttinger_surface()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.Potthoff_functional"><code class="docutils literal notranslate"><span class="pre">Potthoff_functional()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.QP_weight"><code class="docutils literal notranslate"><span class="pre">QP_weight()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.V_matrix"><code class="docutils literal notranslate"><span class="pre">V_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.averages"><code class="docutils literal notranslate"><span class="pre">averages()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.band_Green_function"><code class="docutils literal notranslate"><span class="pre">band_Green_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.cluster_Green_function"><code class="docutils literal notranslate"><span class="pre">cluster_Green_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.cluster_QP_weight"><code class="docutils literal notranslate"><span class="pre">cluster_QP_weight()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.cluster_averages"><code class="docutils literal notranslate"><span class="pre">cluster_averages()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.cluster_hopping_matrix"><code class="docutils literal notranslate"><span class="pre">cluster_hopping_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.cluster_self_energy"><code class="docutils literal notranslate"><span class="pre">cluster_self_energy()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.cluster_spectral_function"><code class="docutils literal notranslate"><span class="pre">cluster_spectral_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.density_matrix"><code class="docutils literal notranslate"><span class="pre">density_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.dispersion"><code class="docutils literal notranslate"><span class="pre">dispersion()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.dos"><code class="docutils literal notranslate"><span class="pre">dos()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.double_counting_correct"><code class="docutils literal notranslate"><span class="pre">double_counting_correct()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.gap"><code class="docutils literal notranslate"><span class="pre">gap()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.ground_state"><code class="docutils literal notranslate"><span class="pre">ground_state()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.hybridization_function"><code class="docutils literal notranslate"><span class="pre">hybridization_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.instance_parameters"><code class="docutils literal notranslate"><span class="pre">instance_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.interactions"><code class="docutils literal notranslate"><span class="pre">interactions()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.mdc"><code class="docutils literal notranslate"><span class="pre">mdc()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.mdc_anomalous"><code class="docutils literal notranslate"><span class="pre">mdc_anomalous()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.momentum_profile"><code class="docutils literal notranslate"><span class="pre">momentum_profile()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.monopole"><code class="docutils literal notranslate"><span class="pre">monopole()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.monopole_map"><code class="docutils literal notranslate"><span class="pre">monopole_map()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.parameters"><code class="docutils literal notranslate"><span class="pre">parameters()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.periodized_Green_function"><code class="docutils literal notranslate"><span class="pre">periodized_Green_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.periodized_Green_function_element"><code class="docutils literal notranslate"><span class="pre">periodized_Green_function_element()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.plot_DoS"><code class="docutils literal notranslate"><span class="pre">plot_DoS()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.plot_dispersion"><code class="docutils literal notranslate"><span class="pre">plot_dispersion()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.plot_host_hybrid"><code class="docutils literal notranslate"><span class="pre">plot_host_hybrid()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.plot_hybridization_function"><code class="docutils literal notranslate"><span class="pre">plot_hybridization_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.plot_momentum_profile"><code class="docutils literal notranslate"><span class="pre">plot_momentum_profile()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.plot_profile"><code class="docutils literal notranslate"><span class="pre">plot_profile()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.potential_energy"><code class="docutils literal notranslate"><span class="pre">potential_energy()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.print_wavefunction"><code class="docutils literal notranslate"><span class="pre">print_wavefunction()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.projected_Green_function"><code class="docutils literal notranslate"><span class="pre">projected_Green_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.properties"><code class="docutils literal notranslate"><span class="pre">properties()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.qmatrix"><code class="docutils literal notranslate"><span class="pre">qmatrix()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.read_cluster_model_instance"><code class="docutils literal notranslate"><span class="pre">read_cluster_model_instance()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.segment_dispersion"><code class="docutils literal notranslate"><span class="pre">segment_dispersion()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.self_energy"><code class="docutils literal notranslate"><span class="pre">self_energy()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.site_and_bond_profile"><code class="docutils literal notranslate"><span class="pre">site_and_bond_profile()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.spectral_average"><code class="docutils literal notranslate"><span class="pre">spectral_average()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.spectral_function"><code class="docutils literal notranslate"><span class="pre">spectral_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.spectral_function_Lehmann"><code class="docutils literal notranslate"><span class="pre">spectral_function_Lehmann()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.spin_mdc"><code class="docutils literal notranslate"><span class="pre">spin_mdc()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.spin_spectral_function"><code class="docutils literal notranslate"><span class="pre">spin_spectral_function()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.susceptibility"><code class="docutils literal notranslate"><span class="pre">susceptibility()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.susceptibility_poles"><code class="docutils literal notranslate"><span class="pre">susceptibility_poles()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.tk"><code class="docutils literal notranslate"><span class="pre">tk()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.model_instance.write_summary"><code class="docutils literal notranslate"><span class="pre">write_summary()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="model_classes.html"
+                          title="previous chapter">Classes for defining models</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cdmft.html"
+                          title="next chapter">Cluster Dynamical Mean Field Theory</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/instances.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cdmft.html" title="Cluster Dynamical Mean Field Theory"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="model_classes.html" title="Classes for defining models"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class model_instance</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+  </body>
+</html>

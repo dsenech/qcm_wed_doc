@@ -1,22 +1,21 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Summary of options &#8212; pyqcm v1.1.1(git hash 5aa5568) documentation</title>
+    <title>Summary of options &#8212; pyqcm v2.0.0(git hash 30c811f) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Parallel processing" href="parallel.html" />
-    <link rel="prev" title="Hartree approximation and counterterms" href="utilities.html" /> 
+    <link rel="prev" title="The Hartree approximation" href="hartree.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -31,9 +30,9 @@
           <a href="parallel.html" title="Parallel processing"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="utilities.html" title="Hartree approximation and counterterms"
+          <a href="hartree.html" title="The Hartree approximation"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Summary of options</a></li> 
       </ul>
     </div>  
@@ -44,7 +43,7 @@
           <div class="body" role="main">
             
   <section id="summary-of-options">
-<h1>Summary of options<a class="headerlink" href="#summary-of-options" title="Permalink to this headline">¶</a></h1>
+<h1>Summary of options<a class="headerlink" href="#summary-of-options" title="Permalink to this heading">¶</a></h1>
 <p>The behavior of <cite>qcm</cite> can be controlled by many global parameters that can be set via a call to <code class="docutils literal notranslate"><span class="pre">qcm.set_global_parameter()</span></code>.
 There are four kinds of global parameter, depending on the type of variable involved:</p>
 <ol class="arabic simple">
@@ -55,12 +54,12 @@ There are four kinds of global parameter, depending on the type of variable invo
 </ol>
 <p>The following tables list the different global parameters, their default value and a short description.</p>
 <section id="boolean-options">
-<h2>Boolean options<a class="headerlink" href="#boolean-options" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-given docutils align-default">
+<h2>Boolean options<a class="headerlink" href="#boolean-options" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 13%" />
-<col style="width: 67%" />
+<col style="width: 20.0%" />
+<col style="width: 13.3%" />
+<col style="width: 66.7%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>name</p></th>
@@ -113,27 +112,31 @@ There are four kinds of global parameter, depending on the type of variable invo
 <td><p>false</p></td>
 <td><p>prints dependent parameters as well</p></td>
 </tr>
-<tr class="row-odd"><td><p>strip_anomalous_self</p></td>
+<tr class="row-odd"><td><p>print_variances</p></td>
+<td><p>false</p></td>
+<td><p>prints the variance of the operators in files</p></td>
+</tr>
+<tr class="row-even"><td><p>strip_anomalous_self</p></td>
 <td><p>false</p></td>
 <td><p>sets to zero the anomalous part of the self-energy</p></td>
 </tr>
-<tr class="row-even"><td><p>verb_ED</p></td>
+<tr class="row-odd"><td><p>verb_ED</p></td>
 <td><p>false</p></td>
 <td><p>prints ED information and progress</p></td>
 </tr>
-<tr class="row-odd"><td><p>verb_Hilbert</p></td>
+<tr class="row-even"><td><p>verb_Hilbert</p></td>
 <td><p>false</p></td>
 <td><p>prints progress information on bases and operators in the Hilbert space</p></td>
 </tr>
-<tr class="row-even"><td><p>verb_integrals</p></td>
+<tr class="row-odd"><td><p>verb_integrals</p></td>
 <td><p>false</p></td>
 <td><p>prints information and progress about integrals</p></td>
 </tr>
-<tr class="row-odd"><td><p>verb_warning</p></td>
+<tr class="row-even"><td><p>verb_warning</p></td>
 <td><p>false</p></td>
 <td><p>prints warnings</p></td>
 </tr>
-<tr class="row-even"><td><p>zero_dim</p></td>
+<tr class="row-odd"><td><p>zero_dim</p></td>
 <td><p>false</p></td>
 <td><p>sets the spatial dimension to zero, on any model</p></td>
 </tr>
@@ -141,12 +144,12 @@ There are four kinds of global parameter, depending on the type of variable invo
 </table>
 </section>
 <section id="integer-valued-options">
-<h2>Integer-valued options<a class="headerlink" href="#integer-valued-options" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-given docutils align-default">
+<h2>Integer-valued options<a class="headerlink" href="#integer-valued-options" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 13%" />
-<col style="width: 67%" />
+<col style="width: 20.0%" />
+<col style="width: 13.3%" />
+<col style="width: 66.7%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>name</p></th>
@@ -179,17 +182,17 @@ There are four kinds of global parameter, depending on the type of variable invo
 <td><p>16000</p></td>
 <td><p>minimum number of integrand evaluations in CUBA (3D)</p></td>
 </tr>
-<tr class="row-even"><td><p>dim_max_print</p></td>
-<td><p>64</p></td>
-<td><p>Maximum dimension for printing vectors and matrices</p></td>
-</tr>
-<tr class="row-odd"><td><p>kgrid_side</p></td>
+<tr class="row-even"><td><p>kgrid_side</p></td>
 <td><p>32</p></td>
 <td><p>number of wavevectors on the side in a fixed wavevector grid</p></td>
 </tr>
-<tr class="row-even"><td><p>max_dim_full</p></td>
+<tr class="row-odd"><td><p>max_dim_full</p></td>
 <td><p>256</p></td>
 <td><p>Maximum dimension for using full diagonalization</p></td>
+</tr>
+<tr class="row-even"><td><p>max_dim_print</p></td>
+<td><p>64</p></td>
+<td><p>Maximum dimension for printing vectors and matrices</p></td>
 </tr>
 <tr class="row-odd"><td><p>max_iter_BL</p></td>
 <td><p>600</p></td>
@@ -219,12 +222,12 @@ There are four kinds of global parameter, depending on the type of variable invo
 </table>
 </section>
 <section id="real-valued-options">
-<h2>Real-valued options<a class="headerlink" href="#real-valued-options" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-given docutils align-default">
+<h2>Real-valued options<a class="headerlink" href="#real-valued-options" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 13%" />
-<col style="width: 67%" />
+<col style="width: 20.0%" />
+<col style="width: 13.3%" />
+<col style="width: 66.7%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>name</p></th>
@@ -305,12 +308,12 @@ There are four kinds of global parameter, depending on the type of variable invo
 </table>
 </section>
 <section id="char-valued-options">
-<h2>Char-valued options<a class="headerlink" href="#char-valued-options" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-given docutils align-default">
+<h2>Char-valued options<a class="headerlink" href="#char-valued-options" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 13%" />
-<col style="width: 67%" />
+<col style="width: 20.0%" />
+<col style="width: 13.3%" />
+<col style="width: 66.7%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>name</p></th>
@@ -358,8 +361,8 @@ There are four kinds of global parameter, depending on the type of variable invo
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="utilities.html"
-                          title="previous chapter">Hartree approximation and counterterms</a></p>
+    <p class="topless"><a href="hartree.html"
+                          title="previous chapter">The Hartree approximation</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -382,7 +385,7 @@ There are four kinds of global parameter, depending on the type of variable invo
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -400,15 +403,15 @@ There are four kinds of global parameter, depending on the type of variable invo
           <a href="parallel.html" title="Parallel processing"
              >next</a> |</li>
         <li class="right" >
-          <a href="utilities.html" title="Hartree approximation and counterterms"
+          <a href="hartree.html" title="The Hartree approximation"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Summary of options</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, David Sénéchal.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+        &#169; Copyright 2023, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

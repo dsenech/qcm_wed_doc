@@ -14,12 +14,11 @@ pyqcm : documentation (|version|)
    models
    defining_models
    parameters
-   functions
-   spectral
-   berry
+   model_classes
+   instances
    cdmft
    vca
-   utilities
+   hartree
    options
    parallel
 

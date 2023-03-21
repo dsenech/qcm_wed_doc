@@ -9,16 +9,16 @@ Defining cluster models
 =======================
 
 Clusters are the building blocks of lattice models. One needs to define them first.
-This is done through calls to `new_cluster_model()`. For instance::
+This is done through the construction of an object of type `cluster_model`. For instance::
 
-    from pyqcm import *
-    new_cluster_model('2x2_C2v', 4, 0, [[3, 4, 1, 2], [2, 1, 4, 3]])
+    import pyqcm
+    CM = pyqcm.cluster_model(4, 0, '2x2_C2v', [[3, 4, 1, 2], [2, 1, 4, 3]])
 
-The function ``new_cluster_model(name, Ns, Nb, perm, bath_irrep)`` takes the following arguments:
+The constructor ``cluster_model(Ns, Nb, name, perm, bath_irrep)`` takes the following arguments:
 
-#. A name given to the cluster model
 #. The number :math:`N_s` of physical sites
 #. The number :math:`N_b`  of bath sites
+#. A name given to the cluster model ('clus' by default). Useful if more than one cluster models are necessary.
 #. (optional) A list of permutations of the  :math:`N_o=N_s+N_b`  orbitals that define generators of the symmetries of the cluster.
 #. (optional) A boolean flag that, if true, signals that bath orbitals belong to irreducible representations of the symmetry group of the cluster, instead of being part of permutations of the different orbitals of the cluster-bath system.
 
@@ -32,7 +32,7 @@ However, a plaquette geometry is implicit here, with the following site labels:
     Figure 1
 
 
-The cluster symmetries (permutations) passed to the function thus correspond to reflexions with respect to the horizontal and vertical axes, respectively.
+The cluster symmetries (permutations) passed to the function thus correspond to reflections with respect to the horizontal and vertical axes, respectively.
 The cluster symmetries will be used by the ED solver to lighten the exact diagonalization task. Large clusters will take less memory, convergence of the Lanczos method will be faster, and computing the Green function at a given frequency will be more efficient.
 The different permutations that constitute the generators must commute with each other. They generate an Abelian group with :math:`g` elements. Such a group has an equal number :math:`g` of irreducible representations, numbered from 0 to :math:`g-1`.
 
@@ -56,10 +56,10 @@ Content of the cluster definition file::
 
     no = 10
     ns = 4
-    new_cluster_model('clus', ns, no-ns, [[1, 3, 4, 2, 6, 7, 5, 9, 10, 8]])
+    CM = pyqcm.cluster_model(ns, no-ns, 'clus', [[1, 3, 4, 2, 6, 7, 5, 9, 10, 8]])
 
 
-    new_cluster_operator('clus', 'bt1', 'one-body', [
+    CM.new_operator('bt1', 'one-body', [
         (2, 5, 1.0),
         (3, 6, 1.0),
         (4, 7, 1.0),
@@ -68,7 +68,7 @@ Content of the cluster definition file::
         (4+no, 7+no, 1.0)
     ])
 
-    new_cluster_operator('clus', 'bt2', 'one-body', [
+    CM.new_operator('bt2', 'one-body', [
         (2, 8, 1.0),
         (3, 9, 1.0),
         (4, 10, 1.0),
@@ -77,7 +77,7 @@ Content of the cluster definition file::
         (4+no, 10+no, 1.0)
     ])
 
-    new_cluster_operator('clus', 'be1', 'one-body', [
+    CM.new_operator('be1', 'one-body', [
         (5, 5, 1.0),
         (6, 6, 1.0),
         (7, 7, 1.0),
@@ -86,7 +86,7 @@ Content of the cluster definition file::
         (7+no, 7+no, 1.0)
     ])
 
-    new_cluster_operator('clus', 'be2', 'one-body', [
+    CM.new_operator('be2', 'one-body', [
         (8, 8, 1.0),
         (9, 9, 1.0),
         (10, 10, 1.0),
@@ -98,9 +98,8 @@ Content of the cluster definition file::
 
 Note that the symmetry defined here is a rotation by 120 degrees. This generates the group :math:`C_3`, which has complex representations. **pyqcm** can only deal with Abelian groups (the correct treatment of non-Abelian symmetries is too complex when computing Green functions for the benefits it would provide). In the above example, a better strategy when no complex operators are present would be to define only a :math:`C_2` symmetry based on one of three possible reflections. This would only provide 2 symmetry operations instead of 3, but the representations would be real instead of complex, thus saving more time and memory.
 
-The function ``new_cluster_operator(model, name, type, elements)`` takes the following arguments:
+The member function ``new_operator(name, type, elements)`` takes the following arguments:
 
-#. The name of the model (the same given to ``new_model()``)
 #. The name of the operator
 #. The type of operator; one of 'one-body', 'anomalous', 'interaction', 'Hund', 'Heisenberg'
 #. An array of real matrix elements. Each element of the array is a 3-tuple giving the labels of the orbitals involved and the value of the matrix element itself. Note that spin-up and spin-down orbital labels are separated by the total number of orbitals on the custer, here `no=10`.
@@ -115,46 +114,47 @@ A simple example
 
 The following simple example illustrates how to define a Hubbard model on the square lattice in two dimensions::
 
-    from pyqcm import *
+    import pyqcm
 
-    new_cluster_model(clus', 4, 0, [[4, 3, 2, 1]])
-    add_cluster('clus', [0, 0, 0], [[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0]])
-    lattice_model('2x2_C2', [[2, 0, 0], [0, 2, 0]])
-    interaction_operator('U')
-    hopping_operator('t', [1, 0, 0], -1)
-    hopping_operator('t', [0, 1, 0], -1)
-    hopping_operator('t2', [1, 1, 0], -1)
-    hopping_operator('t2', [-1, 1, 0], -1)
-    hopping_operator('t3', [2, 0, 0], -1)
-    hopping_operator('t3', [0, 2, 0], -1)
-    anomalous_operator('D', [1, 0, 0], 1)
-    anomalous_operator('D', [0, 1, 0], -1)
-    density_wave('M', 'Z', [1, 1, 0])
+    CM = pyqcm.cluster_model(4, 0, 'clus', ((4, 3, 2, 1),))
+    clus = pyqcm.cluster(CM, ((0, 0, 0), (1, 0, 0), (0, 1, 0), (1, 1, 0)))
+    model = pyqcm.lattice_model('2x2_C2', clus, ((2, 0, 0), (0, 2, 0)))
+    model.interaction_operator('U')
+    model.hopping_operator('t', (1, 0, 0), -1)
+    model.hopping_operator('t', (0, 1, 0), -1)
+    model.hopping_operator('t2', (1, 1, 0), -1)
+    model.hopping_operator('t2', (-1, 1, 0), -1)
+    model.hopping_operator('t3', (2, 0, 0), -1)
+    model.hopping_operator('t3', (0, 2, 0), -1)
+    model.anomalous_operator('D', (1, 0, 0), 1)
+    model.anomalous_operator('D', (0, 1, 0), -1)
+    model.density_wave('M', 'Z', (1, 1, 0))
 
-There is a call to ``new_cluster_model()`` to define a :math:`2\times2` plaquette with a :math:`C_2` symmetry (rotation by 180 degrees). Then this cluster is added to the lattice model via the function ``add_cluster()`` which takes 3 arguments:
+There is a call to ``cluster_model()`` to define a :math:`2\times2` plaquette with a :math:`C_2` symmetry (rotation by 180 degrees). Then another object, of type `cluster`, is defined based on this model. This object has geometrical meaning, whereas the `cluster_model` does not. The `cluster` constructor takes the following arguments:
 
-#. The name of the cluster model (here ``clus``)
-#. The base position of the cluster within the super unit cell (here ``[0,0,0]``)
+#. The `cluster_model` object it is based on
 #. An array of integer positions of the different cluster sites. This is where the geometry of the cluster appears.
+#. The base position of the cluster within the super unit cell ( ``[0,0,0]`` by default). This is just added for convenience when complex super unit cells are built out of the same cluster, shifted in position.
 
-The funcion ``add_cluster()`` is used to add individual clusters to the super unit cell. Only at the end of this process can the lattice model itself be defined properly by the function ``lattice_model()``, which is the signal that no more clusters are needed.
-In the above example, the super unit cell contains a single cluster. Therefore ``add_cluster()`` is called only once and the lattice model can then be wrapped up by a call to ``lattice_model()``, which takes three arguments (the last one optional):
+Once the different clusters (or the single cluster) have been defined, one can construct an object of type ``lattice_model`` that contains the different clusters arranged in a super-lattice. The constructor takes the following arguments:
 
 #. The name of the model, for reporting purposes
+#. The cluster (or sequence of clusters) forming the repeated unit.
 #. The :math:`d` vectors defining the superlattice vectors. :math:`d` is the dimension of the model.
-#. The :math:`d` vectors defining the lattice vectors of the model. In the above example this is omitted because the default value is used: ``[[1,0,0], [0,1,0]]``.
+#. The :math:`d` vectors defining the lattice vectors of the model. In the above example this is omitted because the default value is used: ``((1,0,0), (0,1,0))``.
 
-Note that all vectors used in these specifications have three components (even for lower dimensional models) and have **integer** components. They are in fact coefficients of basis vectors generating a working Bravais lattice and are therefore integers by definition (not all vectors of this working Bravais lattice need belong to the actual Bravais lattice of the model; the case of the graphene lattice is illustrated below).
+Note that all vectors used in these specifications have three components (even for lower dimensional models) and have **integer** components. They are in fact coefficients of basis vectors generating a working Bravais lattice and are therefore integers by definition (not all vectors of this working Bravais lattice need belong to the actual Bravais lattice of the model; the case of the graphene lattice is illustrated below). They can be tuples, lists or numpy arrays.
+We recommend using tuples for simplicity.
 
-Once the geometry of the model is defined, operators can be added to the model via various functions. The Hubbard on-site interaction is added with a call to ``interaction_operator('U')``, whose sole argument in this case is the name we choose for that operator (more arguments are needed for other types of interactions, multi-band models, etc; see the detailed documents in the reference section on functions).
+Once the geometry of the model is defined, operators can be added to the model via various functions. The Hubbard on-site interaction is added with a call to the ``lattice_model`` member function  ``interaction_operator('U')``, whose sole argument in this case is the name we choose for that operator (more arguments are needed for other types of interactions, multi-band models, etc; see the detailed documents in the reference section on functions).
 
-Nearest-neighbor hopping is defined with a call to ``hopping_operator()``, which has three mandatory arguments:
+Nearest-neighbor hopping is defined with a call to the member function ``hopping_operator()``, which has three mandatory arguments:
 
 #. The name of the operator
 #. The link on which the operator is defined
 #. The amplitude of the operator on that link.
 
-Optional keyword arguments are needed for multi-band models, spin-flip operators, etc. In the above example this function is called twice with the same name but different links (along [1,0,0] and [0,1,0] respectively). The matrix elements generated by the two calls are simply added to the list associated with this operator. Similar calls are performed for the second-neighbor hopping ``t2`` and the third-neighbor hopping ``t3``.
+Optional keyword arguments are needed for multi-band models, spin-flip operators, etc. In the above example this function is called twice with the same name but different links (along (1,0,0) and (0,1,0) respectively). The matrix elements generated by the two calls are simply added to the list associated with this operator. Similar calls are performed for the second-neighbor hopping ``t2`` and the third-neighbor hopping ``t3``.
 
 A d-wave pairing operator is defined via a call to ``anomalous_operator()`` , which takes the same arguments as ``hopping_operator()``, i.e., name, link and amplitude. Note that two calls are made with the same name ``D``, one in the :math:`x` direction, the other one in the :math:`y` direction, with amplitudes 1 and -1, in accordance with the d-wave character of the operator.
 
@@ -188,20 +188,21 @@ The following example defines a model on the graphene lattice using two cluster 
 
 Of possible set of function calls to define the Hubbard model on this system is::
 
-    import cluster_h4_6b_C3
-    from pyqcm import *
+    from cluster_h4_6b_C3 import CM
+    import pyqcm
 
-    add_cluster('clus', [-1, 0, 0], [[0, 0, 0], [-1, 0, 0], [1, 1, 0], [0, -1, 0]])
-    add_cluster('clus', [1, 0, 0], [[0, 0, 0], [1, 0, 0], [-1, -1, 0], [0, 1, 0]])
-    lattice_model('h4_6b_C3', [[2, -2, 0],[2, 4, 0]], [[1, -1, 0], [2, 1, 0]])
-    set_basis([[1, 0, 0], [-0.5, 0.866025403784438, 0], [0, 0, 1]])
+    C1 = pyqcm.cluster(CM, [[0, 0, 0], [-1, 0, 0], [1, 1, 0], [0, -1, 0]], [-1, 0, 0])
+    C2 = pyqcm.cluster(CM, [[0, 0, 0], [1, 0, 0], [-1, -1, 0], [0, 1, 0]], [1, 0, 0])
+    model = pyqcm.lattice_model('h4_6b_C3', (C1, C2), [[2, -2, 0],[2, 4, 0]], [[1, -1, 0], [2, 1, 0]])
+    model.set_basis([[1, 0, 0], [-0.5, 0.866025403784438, 0], [0, 0, 1]])
 
-    interaction_operator('U')
-    hopping_operator('t', [1,0,0], -1, orbitals=(2,1))
-    hopping_operator('t', [0,1,0], -1, orbitals=(2,1))
-    hopping_operator('t', [-1,-1,0], -1, orbitals=(2,1))
+    model.interaction_operator('U')
+    model.hopping_operator('t', [1,0,0], -1, orbitals=(2,1))
+    model.hopping_operator('t', [0,1,0], -1, orbitals=(2,1))
+    model.hopping_operator('t', [-1,-1,0], -1, orbitals=(2,1))
 
-The first statement, ``import cluster_h4_6b_C3``, imports a cluster definition file, for instance the one associated with Fig. 2 above. Using the name ``clus`` given to the cluster in that file, two copies of the clusters are added to the super unit cell. The positions associated with the two copies are different, but the cluster model is the same, which means that only one copy of the Hilbert space operators and bases necessary for the exact diagonalization will be constructed. The origin has been placed exactly between the two clusters. The positions in each cluster are defined relative to the base position of each cluster.
+The first statement, ``from cluster_h4_6b_C3 import CM``, imports a cluster definition file, for instance the one associated with Fig. 2 above, in which the ``cluster_model`` object named ``CM`` was defined. 
+Two copies of the clusters are added to the super unit cell. The positions associated with the two copies are different, but the cluster model is the same, which means that only one copy of the Hilbert space operators and bases necessary for the exact diagonalization will be constructed. The origin has been placed exactly between the two clusters. The positions in each cluster are defined relative to the base position of each cluster.
 
 The integer positions are defined in terms of the basis defined by the call to ``set_basis()``. The argument of that function is a set of real-valued vectors defining the basis vectors of the working Bravais lattice.
 On Fig. 3, the first two of these vectors are :math:`\mathbf{e}_1` and :math:`\mathbf{e}_2`.
@@ -211,8 +212,8 @@ The lattice basis vectors only serve to attribute orbital labels to the differen
 
 Given that the model has two bands, the definition of the hopping operator ``t`` must contain orbital information: the keywords ``orbitals`` (a tuple) is used to specify the orbital numbers associated with the two sites separated by the bond vector (link) given in argument. Internally, a loop is done over all sites of the super unit cell; the bond vector is used to identify a second site; if that site exists and if the orbitals associated with the two sites agree with ``orbitals``, then a matrix element is added to the operator. In the above example, three calls are needed because of the three directions (bonds). 
 
-The greatest risk in such calls is to mislabel the orbitals. In order to check that operators were defined properly, a call to ``print_model()`` is warranted. This function takes one mandatory argument: the name of a text file in which a detailed enumeration of model properties will be printed. Additional keyword arguments control the production of asymptote files (.asy) that graphically illustrate each operator. This is a powerful way to check the validity of the model definition.
-
+The greatest risk in such calls is to mislabel the orbitals. In order to check that operators were defined properly, a 
+submodule called ``draw_operator`` is provided, that can draw on the screen a schematic view of each operator defined on the lattice or in a particular cluster model.
 
 Other examples
 --------------

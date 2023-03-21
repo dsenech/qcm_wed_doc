@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Classes for defining models &#8212; pyqcm v2.0.0(git hash 30c811f) documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Class model_instance" href="instances.html" />
+    <link rel="prev" title="Parameter sets, Hilbert space sectors and model instances" href="parameters.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="instances.html" title="Class model_instance"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Classes for defining models</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-pyqcm">
+<span id="classes-for-defining-models"></span><h1>Classes for defining models<a class="headerlink" href="#module-pyqcm" title="Permalink to this heading">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">members<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<section id="list-of-classes">
+<h2>List of classes<a class="headerlink" href="#list-of-classes" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.cluster_model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cluster_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'clus'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generators</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bath_irrep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that contains the impurity (or cluster) model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_sites</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of physical sites</p></li>
+<li><p><strong>n_bath</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of bath orbitals</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the cluster model (important if there are more than one cluster models)</p></li>
+<li><p><strong>generators</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – permutations that generate the point group</p></li>
+<li><p><strong>bath_irrep</strong> (<em>boolean</em>) – if True, the elements of ‘generators’ associated to bath orbitals are phases (integers, in multiple of 2*pi/G, where G is the number of group elements)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the model</p></li>
+<li><p><strong>n_sites</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of physical sites</p></li>
+<li><p><strong>n_bath</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of bath orbitals</p></li>
+<li><p><strong>generators</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – symmetry generators</p></li>
+<li><p><strong>is_closed</strong> (<em>boolean</em>) – True if the model can no longer be modified by adding operators</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.cluster_model.matrix_elements">
+<span class="sig-name descname"><span class="pre">matrix_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_model.matrix_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the type and matrix elements defining a Hermitian operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>op</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a tuple (typ, elem)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.cluster_model.new_model_instance">
+<span class="sig-name descname"><span class="pre">new_model_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_model.new_model_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initiates a new instance of the cluster model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>values</strong> (<em>{str</em><em>,</em><em>float}</em>) – values of the operators</p></li>
+<li><p><strong>sec</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – target Hilbert space sectors</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – label of model_instance</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.cluster_model.new_operator">
+<span class="sig-name descname"><span class="pre">new_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_model.new_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a new operator from its matrix elements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>op_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – type of operator (‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’)</p></li>
+<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>)</em><em>]</em>) – array of matrix elements (list of tuples)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.cluster_model.new_operator_complex">
+<span class="sig-name descname"><span class="pre">new_operator_complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster_model.new_operator_complex" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a new operator from its complex-valued matrix elements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>op_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – type of operator (‘one-body’, ‘anomalous’, ‘interaction’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’)</p></li>
+<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>)</em><em>]</em>) – array of matrix elements (list of tuples)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.cluster">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sites</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.cluster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class describing a geometric cluster, part of the repeated unit (or super unit cell)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<a class="reference internal" href="#pyqcm.cluster_model" title="pyqcm.cluster_model"><em>cluster_model</em></a>) – abstract cluster model the geometric cluster is hosting</p></li>
+<li><p><strong>sites</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – sequence of 3-component integer vectors, the geometric sites of the cluster</p></li>
+<li><p><strong>pos</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – base position of the cluster; all site vectors are added this position (for convenience)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – index of the cluster within the set of clusters forming the repeated unit (starts at 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyqcm.lattice_model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lattice_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">superlattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class containing the unique model studied by this library</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – a name given to the model, for reference in the output data</p></li>
+<li><p><strong>clus</strong> (<em>[</em><a class="reference internal" href="#pyqcm.cluster" title="pyqcm.cluster"><em>cluster</em></a><em>]</em>) – a single object or a sequence of objects of the class cluster, forming the repeated unit</p></li>
+<li><p><strong>superlattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – the integer-component vectors defining the superlattice. Their number is the spatial dimension of the model.</p></li>
+<li><p><strong>lattice</strong> (<em>[</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em><em>]</em>) – the the integer-component vectors defining the lattice. Used to define bands.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.Hartree_procedure">
+<span class="sig-name descname"><span class="pre">Hartree_procedure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">couplings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps_algo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hartree.tsv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SEF</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double_counting_correct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.Hartree_procedure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the Hartree approximation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> – task to perform within the loop. Must return a model_instance</p></li>
+<li><p><strong>couplings</strong> (<em>[</em><a class="reference internal" href="hartree.html#pyqcm.hartree" title="pyqcm.hartree"><em>hartree</em></a><em>]</em>) – sequence of couplings (or single coupling)</p></li>
+<li><p><strong>maxiter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – maximum number of iterations</p></li>
+<li><p><strong>eps_algo</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – number of elements in the epsilon algorithm convergence accelerator = 2*eps_algo + 1 (0 = no acceleration)</p></li>
+<li><p><strong>double_counting_correct</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>)</em><em>]</em>) – double counting corrections (kinetic operator, interaction operator, density operator, coefficient, value of the kinetic operator without interaction)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.anomalous_operator">
+<span class="sig-name descname"><span class="pre">anomalous_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbitals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.anomalous_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an anomalous operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>link</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – bond vector (3-component integer array)</p></li>
+<li><p><strong>amplitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a>) – pairing multiplier</p></li>
+<li><p><strong>orbitals</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>)</em>) – lattice orbital labels (start at 1); if None, tries all possibilities.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>type (<em>str</em>) – one of ‘singlet’ (default), ‘dz’, ‘dy’, ‘dx’</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.controlled_loop">
+<span class="sig-name descname"><span class="pre">controlled_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varia</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.controlled_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a controlled loop for VCA or CDMFT with a predictor.  The definition of each
+model instance must be done and returned by ‘task’; it is not done by this looping function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> – a function called at each step of the loop. Must return a model_instance.</p></li>
+<li><p><strong>varia</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – names of the variational parameters</p></li>
+<li><p><strong>loop_param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the parameter looped over</p></li>
+<li><p><strong>loop_range</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>)</em>) – range of the loop (start, end, step)</p></li>
+<li><p><strong>control_func</strong> – (optional) name of the function that controls the loop (returns boolean). Takes a model instance as argument</p></li>
+<li><p><strong>adjust</strong> (<em>boolean</em>) – if True, adjusts the steps depending on control or status of convergence</p></li>
+<li><p><strong>predict</strong> (<em>boolean</em>) – if True, uses a linear or quadratic predictor</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.density_wave">
+<span class="sig-name descname"><span class="pre">density_wave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.density_wave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a density wave</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>t</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – type of density-wave – one of ‘Z’, ‘X’, ‘Y’, ‘N’=’cdw’, ‘singlet’, ‘dz’, ‘dy’, ‘dx’</p></li>
+<li><p><strong>Q</strong> (<em>wavevector</em>) – wavevector of the density wave (in multiple of <span class="math notranslate nohighlight">\(pi\)</span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>link (<em>[int]</em>) – bond vector, for bond density waves</p></li>
+<li><p>amplitude (<em>complex</em>) – amplitude multiplier. <strong>Caution</strong>: A factor of 2 must be used in some situations (see <a class="reference internal" href="models.html#density-wave-theory"><span class="std std-ref">Density waves</span></a>)</p></li>
+<li><p>orb (<em>int</em>) – orbital label (0 by default = all orbitals)</p></li>
+<li><p>phase (<em>float</em>) – real phase (as a multiple of <span class="math notranslate nohighlight">\(pi\)</span>)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.draw_cluster_operator">
+<span class="sig-name descname"><span class="pre">draw_cluster_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.draw_cluster_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws an operator defined on a cluster model to the screen (for debugging purposes)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>clus</strong> (<a class="reference internal" href="#pyqcm.cluster" title="pyqcm.cluster"><em>cluster</em></a>) – instance of a cluster</p></li>
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>show_labels</strong> (<em>boolean</em>) – if True, shows the labels of the cluster</p></li>
+<li><p><strong>values</strong> (<em>boolean</em>) – if True, prints de values of the elements</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.draw_operator">
+<span class="sig-name descname"><span class="pre">draw_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_orb_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orb_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_inter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.draw_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws an operator defined on a lattice model to the screen (for debugging purposes)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>op_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>show_labels</strong> (<em>boolean</em>) – if True, shows the labels of the cluster</p></li>
+<li><p><strong>show_neighbors</strong> (<em>boolean</em>) – if True, shows the neighbors of the central cluster</p></li>
+<li><p><strong>values</strong> (<em>boolean</em>) – if True, prints de values of the elements</p></li>
+<li><p><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – offset between sites and labels</p></li>
+<li><p><strong>orb_offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – offset between sites and orbital labels</p></li>
+<li><p><strong>z_offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – offset between sites and labels for sites along the z axis</p></li>
+<li><p><strong>alpha_inter</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – alpha value of the inter-cluster links</p></li>
+<li><p><strong>plt_ax</strong> – optional matplotlib axis set, to be passed when one wants to collect a subplot of a larger set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.explicit_operator">
+<span class="sig-name descname"><span class="pre">explicit_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.explicit_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an explicit operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>elem</strong> (<em>[</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.11)"><em>complex</em></a><em>)</em><em>]</em>) – List of tuples. Each tuple contains three elements (in order): a list representing position, a list representing link and a complex amplitude.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>tau (<em>int</em>) – specifies the tau Pauli matrix  (0,1,2,3)</p></li>
+<li><p>sigma (<em>int</em>) – specifies the sigma Pauli matrix  (0,1,2,3)</p></li>
+<li><p>type (<em>str</em>) – one of ‘one-body’ [default], ‘singlet’, ‘dz’, ‘dy’, ‘dx’, ‘Hubbard’, ‘Hund’, ‘Heisenberg’, ‘X’, ‘Y’, ‘Z’</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.fade">
+<span class="sig-name descname"><span class="pre">fade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.fade" title="Permalink to this definition">¶</a></dt>
+<dd><p>fades the model between two sets of parameters, in n steps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> – task to perform wihtin the loop</p></li>
+<li><p><strong>p1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – first set of parameters</p></li>
+<li><p><strong>p2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – second set of parameters</p></li>
+<li><p><strong>n</strong> – number of steps</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.fidelity">
+<span class="sig-name descname"><span class="pre">fidelity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">I1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">I2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.fidelity" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the fidelity between the two instances I1 and I2, i.e. the overlap squared of the ground states (or generalization thereof in case of a mixed state)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>I1</strong> (<a class="reference internal" href="instances.html#pyqcm.model_instance" title="pyqcm.model_instance"><em>model_instance</em></a>) – first model instance</p></li>
+<li><p><strong>I2</strong> (<a class="reference internal" href="instances.html#pyqcm.model_instance" title="pyqcm.model_instance"><em>model_instance</em></a>) – second model instance</p></li>
+<li><p><strong>clus</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – cluster label</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.finalize">
+<span class="sig-name descname"><span class="pre">finalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.finalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets some data for the model following the first instance declaration
+e.g.  the mixing state of the system:</p>
+<ul class="simple">
+<li><p>0 – normal.  GF matrix is n x n, n being the number of sites</p></li>
+<li><p>1 – anomalous. GF matrix is 2n x 2n</p></li>
+<li><p>2 – spin-flip.  GF matrix is 2n x 2n</p></li>
+<li><p>3 – anomalous and spin-flip (full Nambu doubling).  GF matrix is 4n x 4n</p></li>
+<li><p>4 – up and down spins different.  GF matrix is n x n, but computed twice, with spin_down = false and true</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.fixed_density_loop">
+<span class="sig-name descname"><span class="pre">fixed_density_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_mu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxdmu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dens_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.fixed_density_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a loop while trying to keep a fixed density</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> – function called at each step of the loop. No required argument; must return a model_instance.</p></li>
+<li><p><strong>target_n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – desired value of the density</p></li>
+<li><p><strong>initial_mu</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – initial value of mu</p></li>
+<li><p><strong>kappa</strong> – initial guess of the compressibility</p></li>
+<li><p><strong>maxdmu</strong> – maximum change in mu at each step (absolute value)</p></li>
+<li><p><strong>loop_param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the parameter looped over</p></li>
+<li><p><strong>loop_values</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – an array of values of loop_param</p></li>
+<li><p><strong>var_param</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – array of variational parameters (names) to be predicted</p></li>
+<li><p><strong>dens_tol</strong> – tolerance on the value of the density</p></li>
+<li><p><strong>dir</strong> – directory of calling script</p></li>
+<li><p><strong>measure</strong> – name of function to be called when the desired density is reached</p></li>
+<li><p><strong>cluster_density</strong> – if True, uses the cluster density instead of the lattice density</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.hopping_operator">
+<span class="sig-name descname"><span class="pre">hopping_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbitals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.hopping_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a hopping term or, more generally, a one-body operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of operator</p></li>
+<li><p><strong>link</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – bond vector (3-component integer array)</p></li>
+<li><p><strong>amplitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – hopping amplitude multiplier</p></li>
+<li><p><strong>orbitals</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>)</em>) – lattice orbital labels (start at 1); if None, tries all possibilities.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>tau (<em>int</em>) – specifies the tau Pauli matrix  (0,1,2,3)</p></li>
+<li><p>sigma (<em>int</em>) – specifies the sigma Pauli matrix  (0,1,2,3)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.interaction_operator">
+<span class="sig-name descname"><span class="pre">interaction_operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbitals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.interaction_operator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines an interaction operator of type Hubbard, Hund, Heisenberg or X, Y, Z</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the operator</p></li>
+<li><p><strong>orbitals</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>)</em>) – lattice orbital labels (start at 1); if None, tries all possibilities.</p></li>
+<li><p><strong>link</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>]</em>) – link of the operator (None by default)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p>amplitude (<em>float</em>): amplitude multiplier</p></li>
+<li><p>type (<em>str</em>): one of ‘Hubbard’, ‘Heisenberg’, ‘Hund’, ‘X’, ‘Y’, ‘Z’</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.linear_loop">
+<span class="sig-name descname"><span class="pre">linear_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varia</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.linear_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a loop with a predictor. The definition of each
+model instance must be done in ‘task’; it is not done by this looping function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>N</strong> – number of intervals within the loop</p></li>
+<li><p><strong>task</strong> – function called at each step of the loop</p></li>
+<li><p><strong>varia</strong> (<em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – names of the variational parameters</p></li>
+<li><p><strong>P</strong> (<em>{str</em><em> (</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>,</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a><em>)</em><em>}</em>) – dict of parameters to vary with a tuple of initial and final values</p></li>
+<li><p><strong>predict</strong> (<em>boolean</em>) – if True, uses a linear or quadratic predictor</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.loop_from_file">
+<span class="sig-name descname"><span class="pre">loop_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.loop_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a task ‘task’ over a set of instances defined in a file. The definition of each
+model instance must be done in the task ‘task’; it is not done by this looping function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> – function (task) to perform</p></li>
+<li><p><strong>file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the data file specifying the solutions, in the same tab-separated format usually used to write solutions</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.parameter_set">
+<span class="sig-name descname"><span class="pre">parameter_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.parameter_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the content of the parameter set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>opt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – governs the action of the function</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>depends on opt</p>
+</dd>
+</dl>
+<p>if opt = ‘all’, all parameters as a dictionary {str,(float, str, float)}. The three components are</p>
+<ol class="arabic simple">
+<li><p>the value of the parameter,</p></li>
+<li><p>the name of its overlord (or None),</p></li>
+<li><p>the multiplier by which its value is obtained from that of the overlord.</p></li>
+</ol>
+<p>if opt = ‘independent’, returns only the independent parameters, as a dictionary {str,float}
+if opt = ‘report’, returns a string with parameter values and dependencies.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.parameter_string">
+<span class="sig-name descname"><span class="pre">parameter_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lattice</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.parameter_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the model parameters. Used for including in plots.
+:param boolean lattice : if True, only indicates the independent lattice parameters.
+:param boolean CR : if True, puts each parameter on a line.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the values of the parameters in the parameter set, in the form of a dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a dict {string,float}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.print_model">
+<span class="sig-name descname"><span class="pre">print_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.print_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a description of the model into a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.set_basis">
+<span class="sig-name descname"><span class="pre">set_basis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.set_basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the working basis in terms of a physical basis, i.e., provides a transformation matrix between
+the two.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>B</strong> – the basis (a (D x 3) real matrix)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.set_parameter">
+<span class="sig-name descname"><span class="pre">set_parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.set_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the value of a parameter within a parameter_set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of the parameter</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – its value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.set_parameters">
+<span class="sig-name descname"><span class="pre">set_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a new set of parameters, including dependencies</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> (<em>tuple/str</em>) – the values/dependence of the parameters (array of 2- or 3-tuples), or string containing syntax (preferred method). See section in the documentation or examples for more details.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.set_params_from_file">
+<span class="sig-name descname"><span class="pre">set_params_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.set_params_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the parameters in the parameter_set object from a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>out_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – name of output file from which parameters are read</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – line number of data in output file (excluding titles)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyqcm.lattice_model.set_target_sectors">
+<span class="sig-name descname"><span class="pre">set_target_sectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyqcm.lattice_model.set_target_sectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the Hilbert space sectors in which to look for the ground state. Each sector is specified by 
+a string of the form ‘<a class="reference external" href="Rx:Ny:Sz">Rx:Ny:Sz</a>’ where x is the irreducible representation label (starts at 0), y
+is the number of electrons and z is twice the total spin projection. For instance, ‘R0:N7:S1’ means
+7 electrons and total spin projection 1/2, in the trivial representation. If more than one sector
+must be explored, their corresponding strings are separated by ‘/’, e.g. ‘R0:N7:S1/R0:N7:S-1’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sec</strong> (<em>(</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>)</em>) – the target sectors</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Classes for defining models</a><ul>
+<li><a class="reference internal" href="#list-of-classes">List of classes</a><ul>
+<li><a class="reference internal" href="#pyqcm.cluster_model"><code class="docutils literal notranslate"><span class="pre">cluster_model</span></code></a><ul>
+<li><a class="reference internal" href="#pyqcm.cluster_model.matrix_elements"><code class="docutils literal notranslate"><span class="pre">matrix_elements()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.cluster_model.new_model_instance"><code class="docutils literal notranslate"><span class="pre">new_model_instance()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.cluster_model.new_operator"><code class="docutils literal notranslate"><span class="pre">new_operator()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.cluster_model.new_operator_complex"><code class="docutils literal notranslate"><span class="pre">new_operator_complex()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyqcm.cluster"><code class="docutils literal notranslate"><span class="pre">cluster</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model"><code class="docutils literal notranslate"><span class="pre">lattice_model</span></code></a><ul>
+<li><a class="reference internal" href="#pyqcm.lattice_model.Hartree_procedure"><code class="docutils literal notranslate"><span class="pre">Hartree_procedure()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.anomalous_operator"><code class="docutils literal notranslate"><span class="pre">anomalous_operator()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.controlled_loop"><code class="docutils literal notranslate"><span class="pre">controlled_loop()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.density_wave"><code class="docutils literal notranslate"><span class="pre">density_wave()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.draw_cluster_operator"><code class="docutils literal notranslate"><span class="pre">draw_cluster_operator()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.draw_operator"><code class="docutils literal notranslate"><span class="pre">draw_operator()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.explicit_operator"><code class="docutils literal notranslate"><span class="pre">explicit_operator()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.fade"><code class="docutils literal notranslate"><span class="pre">fade()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.fidelity"><code class="docutils literal notranslate"><span class="pre">fidelity()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.finalize"><code class="docutils literal notranslate"><span class="pre">finalize()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.fixed_density_loop"><code class="docutils literal notranslate"><span class="pre">fixed_density_loop()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.hopping_operator"><code class="docutils literal notranslate"><span class="pre">hopping_operator()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.interaction_operator"><code class="docutils literal notranslate"><span class="pre">interaction_operator()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.linear_loop"><code class="docutils literal notranslate"><span class="pre">linear_loop()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.loop_from_file"><code class="docutils literal notranslate"><span class="pre">loop_from_file()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.parameter_set"><code class="docutils literal notranslate"><span class="pre">parameter_set()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.parameter_string"><code class="docutils literal notranslate"><span class="pre">parameter_string()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.parameters"><code class="docutils literal notranslate"><span class="pre">parameters()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.print_model"><code class="docutils literal notranslate"><span class="pre">print_model()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.set_basis"><code class="docutils literal notranslate"><span class="pre">set_basis()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.set_parameter"><code class="docutils literal notranslate"><span class="pre">set_parameter()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.set_parameters"><code class="docutils literal notranslate"><span class="pre">set_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.set_params_from_file"><code class="docutils literal notranslate"><span class="pre">set_params_from_file()</span></code></a></li>
+<li><a class="reference internal" href="#pyqcm.lattice_model.set_target_sectors"><code class="docutils literal notranslate"><span class="pre">set_target_sectors()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="parameters.html"
+                          title="previous chapter">Parameter sets, Hilbert space sectors and model instances</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="instances.html"
+                          title="next chapter">Class model_instance</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/model_classes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="instances.html" title="Class model_instance"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="parameters.html" title="Parameter sets, Hilbert space sectors and model instances"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Classes for defining models</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+  </body>
+</html>

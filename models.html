@@ -1,18 +1,17 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Models and clusters &#8212; pyqcm v1.1.1(git hash 5aa5568) documentation</title>
+    <title>Models and clusters &#8212; pyqcm v2.0.0(git hash 30c811f) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -34,7 +33,7 @@
         <li class="right" >
           <a href="intro.html" title="Introduction"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Models and clusters</a></li> 
       </ul>
     </div>  
@@ -45,12 +44,12 @@
           <div class="body" role="main">
             
   <section id="models-and-clusters">
-<h1>Models and clusters<a class="headerlink" href="#models-and-clusters" title="Permalink to this headline">¶</a></h1>
+<h1>Models and clusters<a class="headerlink" href="#models-and-clusters" title="Permalink to this heading">¶</a></h1>
 <p>Pyqcm can be applied to Hubbard and extended Hubbard models with one or more bands defined in 0 to 3 dimensions of space.
 These models are defined on a lattice, which may not be a Bravais lattice, but which contains a Bravais lattice as a subset.
 In other words, the <em>sites</em> of the lattice constitute the Bravais lattice itself and its <em>basis</em> within each unit cell.</p>
 <section id="lattices-and-superlattices">
-<h2>Lattices and superlattices<a class="headerlink" href="#lattices-and-superlattices" title="Permalink to this headline">¶</a></h2>
+<h2>Lattices and superlattices<a class="headerlink" href="#lattices-and-superlattices" title="Permalink to this heading">¶</a></h2>
 <p>In quantum cluster methods, the lattice is divided into repeated units that are generally (but not necessarily) larger than
 the unit cell. The repeated unit is called the the <em>super unit cell</em> (SUC) and is made of one or more <em>clusters</em>.
 The repetition defines a superlattice. For instance, the figure below shows how the honeycomb lattice is tiled with an 8-site super unit cell (shaded in blue), itself made of two 4-site clusters. The original Bravais basis vectors are <span class="math notranslate nohighlight">\(\mathbf{e}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{e}_2\)</span>. The superlattice vectors are <span class="math notranslate nohighlight">\(\mathbf{E}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{E}_2\)</span>. The inter-cluster links are indicated by dashed lines and the intra-cluster links by full lines.</p>
@@ -75,7 +74,7 @@ The repetition defines a superlattice. For instance, the figure below shows how 
 </ul>
 </section>
 <section id="lattice-models">
-<h2>Lattice models<a class="headerlink" href="#lattice-models" title="Permalink to this headline">¶</a></h2>
+<h2>Lattice models<a class="headerlink" href="#lattice-models" title="Permalink to this heading">¶</a></h2>
 <p>In quantum cluster methods, one deals with a Hubbard-like model defined on the infinite lattice, the so-called <em>lattice model</em>, which we are attempting to solve approximately.
 The road to this approximate solution goes through defining closely related models on small clusters (the so-called <em>impurity models</em>), but more on this below. Let us start by explaining the range of lattice models that can be studied and defined in <strong>pyqcm</strong>.</p>
 <p>Lattice models are defined by a Hamiltonian in dimension <span class="math notranslate nohighlight">\(D=0,1,2\)</span> or 3.
@@ -87,31 +86,31 @@ The road to this approximate solution goes through defining closely related mode
 <p>In the code, the definition of an operator <span class="math notranslate nohighlight">\(H_a\)</span>, the value of its coefficient <span class="math notranslate nohighlight">\(h_a\)</span> in the Hamiltonian and of its expectation value <span class="math notranslate nohighlight">\(\langle H_a\rangle\)</span> are encapsulated in the same data structure, so that the same symbol is often used to refer to all three concepts. This has to be kept in mind in this manual. When we say <em>the value of operator</em> <span class="math notranslate nohighlight">\(H_a\)</span>, we mean the value of its coefficient <span class="math notranslate nohighlight">\(h_a\)</span>, and we sometimes use the words <em>operator</em> and <em>parameter</em> interchangeably.</p>
 <p>One distinguishes the following types of terms:</p>
 <section id="one-body-operators">
-<h3>One-body operators<a class="headerlink" href="#one-body-operators" title="Permalink to this headline">¶</a></h3>
+<h3>One-body operators<a class="headerlink" href="#one-body-operators" title="Permalink to this heading">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[H_a = \sum_{\alpha\beta} t^{(a)}_{\alpha\beta} c^\dagger_\alpha c_\beta\]</div>
 <p>where each of the indices <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> stands for a given site and spin (composite index <span class="math notranslate nohighlight">\((i,\sigma)\)</span>).
 The hopping amplitude matrix <span class="math notranslate nohighlight">\(t^{(a)}_{\alpha\beta}\)</span> is Hermitian.
 For a given pair of sites, labelled 1 and 2, the general form of the one-body term is</p>
 <div class="math notranslate nohighlight">
-\[\sum_{\alpha\beta}\sum_{i,j} c^\dagger_{i\alpha} \tau^{(a)}_{ij} \sigma^{(b)}_{\alpha\beta}  c_{j\beta}\]</div>
-<p>The use of Pauli matrices <span class="math notranslate nohighlight">\(\sigma^b_{\alpha\beta}\)</span> and <span class="math notranslate nohighlight">\(\tau^a_{ij}\)</span> makes sure that the operator is Hermitian (<span class="math notranslate nohighlight">\(a=0\)</span>, <span class="math notranslate nohighlight">\(b=0\)</span> correspond to the identity matrix). Case <span class="math notranslate nohighlight">\(a=1\)</span> and <span class="math notranslate nohighlight">\(b=0\)</span> corresponds to an ordinary hopping term, without spin flip. In specifying the precise shape of the one-body operator, it will suffice to specify the matrix types <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> for the spatial and spin parts respectively.</p>
+\[\sum_{ss'}\sum_{i,j} c^\dagger_{is} \tau^{(a)}_{ij} \sigma^{(b)}_{ss'}  c_{js'}\]</div>
+<p>The use of Pauli matrices <span class="math notranslate nohighlight">\(\sigma^b_{ss'}\)</span> and <span class="math notranslate nohighlight">\(\tau^a_{ij}\)</span> makes sure that the operator is Hermitian (<span class="math notranslate nohighlight">\(a=0\)</span>, <span class="math notranslate nohighlight">\(b=0\)</span> correspond to the identity matrix). Case <span class="math notranslate nohighlight">\(a=1\)</span> and <span class="math notranslate nohighlight">\(b=0\)</span> corresponds to an ordinary hopping term, without spin flip. In specifying the precise shape of the one-body operator, it will suffice to specify the matrix types <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> for the spatial and spin parts respectively.</p>
 </section>
 <section id="anomalous-operators">
-<h3>Anomalous operators<a class="headerlink" href="#anomalous-operators" title="Permalink to this headline">¶</a></h3>
+<h3>Anomalous operators<a class="headerlink" href="#anomalous-operators" title="Permalink to this heading">¶</a></h3>
 <p>Anomalous (or pairing) operators are useful in describing superconductivity. They have the general form</p>
 <div class="math notranslate nohighlight">
 \[H_a = \sum_{\alpha\beta} \left(\Delta^{(a)}_{\alpha\beta} c_\alpha c_\beta  + \mathrm{H.c.}\right)\]</div>
 <p>where again the indices <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are composite indices. The pairing amplitude <span class="math notranslate nohighlight">\(\Delta^{(a)}_{\alpha\beta}\)</span> is antisymmetric. It may be symmetric in site indices and antisymmetric in spin indices (singlet superconductivity), or vice-versa (triplet superconductivity). A common way of representing these possibilities is the so-called <em>d-vector</em> :</p>
 <div class="math notranslate nohighlight">
-\[H_a = \sum_{i,j,\sigma,\sigma'} \left(\Delta^{(a)}_{ij,b} c_{is} (i\sigma_b\sigma_2)_{ss'} c_{js'}  + \mathrm{H.c.}\right)\]</div>
+\[H_a = \sum_{i,j,s,s'} \left(\Delta^{(a)}_{ij,b} c_{is} (i\sigma_b\sigma_2)_{ss'} c_{js'}  + \mathrm{H.c.}\right)\]</div>
 <p>where the index <span class="math notranslate nohighlight">\(b\)</span> can take the values 0 to 3. The case <span class="math notranslate nohighlight">\(b=0\)</span> corresponds to singlet superconductivity (in which case
 <span class="math notranslate nohighlight">\((\Delta^{(a)}_{ij,0} = \Delta^{(a)}_{ji,0}\)</span>) and the cases <span class="math notranslate nohighlight">\(b=1,2,3\)</span> corresponds to triplet superconductivity (in which case
-<span class="math notranslate nohighlight">\((\Delta^{(a)}_{ij,b} = -\Delta^{(a)}_{ji,b}\)</span>).</p>
+<span class="math notranslate nohighlight">\(\Delta^{(a)}_{ij,b} = -\Delta^{(a)}_{ji,b}\)</span>).</p>
 <p><strong>pyqcm</strong> provides functions to define pairing operators by specifying the vectors <span class="math notranslate nohighlight">\(i-j\)</span> and the values of <span class="math notranslate nohighlight">\(b\)</span>.</p>
 </section>
 <section id="density-waves">
-<span id="density-wave-theory"></span><h3>Density waves<a class="headerlink" href="#density-waves" title="Permalink to this headline">¶</a></h3>
+<span id="density-wave-theory"></span><h3>Density waves<a class="headerlink" href="#density-waves" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><p>Density wave operators are defined with a spatial modulation characterized by a wave vector <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span>. They can be based on sites or on bonds.
 If the operator is a site density wave, its expression is</p>
@@ -139,20 +138,20 @@ If the operator is a site density wave, its expression is</p>
 </div></blockquote>
 </section>
 <section id="on-site-interaction-terms">
-<h3>On-site interaction terms<a class="headerlink" href="#on-site-interaction-terms" title="Permalink to this headline">¶</a></h3>
+<h3>On-site interaction terms<a class="headerlink" href="#on-site-interaction-terms" title="Permalink to this heading">¶</a></h3>
 <p>Interaction terms can of the Hubbard or extended Hubbard type. The Hubbard on-site interaction is expressed as</p>
 <div class="math notranslate nohighlight">
 \[H_a = \sum_{i} U^{(a)}_i n_{i\uparrow} n_{i\downarrow}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n_{is}=c^\dagger_{is} c_{is}\)</span> is the number operator at site <span class="math notranslate nohighlight">\(i\)</span> and spin projection <span class="math notranslate nohighlight">\(s=\uparrow,\downarrow\)</span>.</p>
 </section>
 <section id="extended-interaction-terms">
-<h3>Extended interaction terms<a class="headerlink" href="#extended-interaction-terms" title="Permalink to this headline">¶</a></h3>
+<h3>Extended interaction terms<a class="headerlink" href="#extended-interaction-terms" title="Permalink to this heading">¶</a></h3>
 <p>The extended (Coulomb) interaction is expressed as</p>
 <div class="math notranslate nohighlight">
 \[H_a = \sum_{ij} V^{(a)}_{ij} n_i n_j \qquad (n_i = n_{i\uparrow}+n_{i\downarrow})\]</div>
 </section>
 <section id="hund-s-coupling-terms">
-<h3>Hund’s coupling terms<a class="headerlink" href="#hund-s-coupling-terms" title="Permalink to this headline">¶</a></h3>
+<h3>Hund’s coupling terms<a class="headerlink" href="#hund-s-coupling-terms" title="Permalink to this heading">¶</a></h3>
 <p>It is also possible to add a Hund’s coupling term:</p>
 <div class="math notranslate nohighlight">
 \[\hat O = \sum_{i,j} J_{ij} H_{ij}\]</div>
@@ -176,19 +175,19 @@ This can also be written as</p>
 - c^\dagger_{i\uparrow}c^\dagger_{j\downarrow}c_{j\uparrow}c_{i\downarrow}\]</div>
 </section>
 <section id="heisenberg-coupling-terms">
-<h3>Heisenberg coupling terms<a class="headerlink" href="#heisenberg-coupling-terms" title="Permalink to this headline">¶</a></h3>
+<h3>Heisenberg coupling terms<a class="headerlink" href="#heisenberg-coupling-terms" title="Permalink to this heading">¶</a></h3>
 <p>Finally, it is possible to add a Heisenberg coupling term:</p>
 <div class="math notranslate nohighlight">
 \[\hat O = \sum_{i,j} J_{ij} \mathbf{S}_i\cdot \mathbf{S}_j\]</div>
 </section>
 </section>
 <section id="clusters">
-<h2>Clusters<a class="headerlink" href="#clusters" title="Permalink to this headline">¶</a></h2>
+<h2>Clusters<a class="headerlink" href="#clusters" title="Permalink to this heading">¶</a></h2>
 <p>A cluster is a unit of the system (or <em>impurity</em>, in the DMFT jargon) that is solved exactly by the <em>impurity solver</em>, in our case by exact diagonalization. There may be more than one cluster in the repeated unit (or super unit cell). The spatial correlations are exactly taken care of only within the cluster. The size of the cluster is limited by the capacity to perform exact diagonalizations. Clusters may also be attached to bath sites, which are not part of the lattice model <em>per se</em> but serve to simulate each cluster’s environment in cluster (or cellular) dynamical mean field theory (CDMFT).
 The cluster Hamiltonian <span class="math notranslate nohighlight">\(H'\)</span>, or <em>reference Hamiltonian</em>, has the same form as the lattice Hamiltonian (except for the possible presence of a bath), but the values of its one-body terms, noted <span class="math notranslate nohighlight">\(h'_a\)</span>, may differ. The interaction terms are the same on the cluster and on the lattice. The case of extended interactions requires a special treatment because of the bonds broken across cluster boundaries, which must be treated within the Hartree approximation.</p>
 </section>
 <section id="multiband-models">
-<h2>Multiband models<a class="headerlink" href="#multiband-models" title="Permalink to this headline">¶</a></h2>
+<h2>Multiband models<a class="headerlink" href="#multiband-models" title="Permalink to this heading">¶</a></h2>
 <p>Multiband models are treated in <strong>pyqcm</strong> in a seemingly restrictive fashion, which in fact poses no restriction at all. It is assumed that each geometric site on the lattice correspond to a single orbital (with two spins). Models with more than one band must necessarily be accounted for by assigning differents sites to each lattice orbital. The perfect example of this is the Hubbard model on the honeycomb (aka graphene) lattice.  The lattice is not a Bravais lattice, since it contains one vacancy for every two occupied sites on an underlying triangular lattice. But there is no obligation in <strong>qcm</strong> for the lattice to be a Bravais lattice, i.e., for every site of the lattice to be occupied by an orbital (empty sites are allowed).
 The reason for doing things this way is that sometimes the two lattice orbitals are equivalent, like in graphene. For instance, one can then define a 6-site cluster centered on a vacancy (the vertices of a hexagon). See Fig. 3 below. This cluster, interesting to use because of its symmetry, is a repeatable unit of the honeycomb lattice, but does not contain three identical unit cells of graphene, and could not be used if lattice orbitals were treated only on a unit-cell basis.
 The concept of lattice orbitals in fact is only relevant to the lattice itself, not to the clusters, which ignore it.</p>
@@ -200,7 +199,7 @@ The concept of lattice orbitals in fact is only relevant to the lattice itself, 
 </figure>
 </section>
 <section id="bath-sites">
-<h2>Bath sites<a class="headerlink" href="#bath-sites" title="Permalink to this headline">¶</a></h2>
+<h2>Bath sites<a class="headerlink" href="#bath-sites" title="Permalink to this heading">¶</a></h2>
 <p>Each cluster can be associated with a bath of uncorrelated sites. This is illustrated on Fig. 4 for the four-site cluster of Fig. 1. From the point of view of the ED solver, the distinction between bath sites and physical sites is irrelevant. The only difference is that only physical sites have interactions. All the sites associated with a cluster are labelled consecutively, starting with the physical sites.
 The bath sites do not really have a position, even though they are pictured on Fig. 4 as if they occupied neighboring sites on the lattice.</p>
 <figure class="align-center" id="id4">
@@ -211,7 +210,7 @@ The bath sites do not really have a position, even though they are pictured on F
 </figure>
 </section>
 <section id="site-and-orbital-labels">
-<h2>Site and orbital labels<a class="headerlink" href="#site-and-orbital-labels" title="Permalink to this headline">¶</a></h2>
+<h2>Site and orbital labels<a class="headerlink" href="#site-and-orbital-labels" title="Permalink to this heading">¶</a></h2>
 <p>By convention, orbitals (or degrees of freedom) within a cluster are numbered and labelled consecutively as follows, where <span class="math notranslate nohighlight">\(N_s\)</span> is the number of physical sites, <span class="math notranslate nohighlight">\(N_b\)</span> the number of bath sites, and <span class="math notranslate nohighlight">\(N_o=N_s+N_b\)</span>:</p>
 <ul class="simple">
 <li><p>From 0 to <span class="math notranslate nohighlight">\(N_s-1\)</span>, the spin up orbitals of the cluster proper.</p></li>
@@ -231,7 +230,7 @@ Explicitly, the ordering of labels in the super unit cell is as follows:</p>
 </ul>
 </section>
 <section id="green-function-indices-and-mixing-states">
-<h2>Green function indices and mixing states<a class="headerlink" href="#green-function-indices-and-mixing-states" title="Permalink to this headline">¶</a></h2>
+<h2>Green function indices and mixing states<a class="headerlink" href="#green-function-indices-and-mixing-states" title="Permalink to this heading">¶</a></h2>
 <p>The above scheme describes the indices labeling the degrees of freedom.
 A slightly different scheme labels the indices of the Green function, depending on the <em>mixing state</em>:</p>
 <p><strong>Normal mixing</strong>. If there are no anomalous terms nor spin-flip terms in the model, then the Green function (cluster or lattice) does not mix up and down spins and the Gorkov function vanishes. The cluster Green function for cluster <span class="math notranslate nohighlight">\(i\)</span> is a <span class="math notranslate nohighlight">\(N_{si}\times N_{si}\)</span> matrix, associated with the destructions operators forming an array</p>
@@ -318,7 +317,7 @@ However, the lattice model will have the more general mixing of the two and the 
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -338,13 +337,13 @@ However, the lattice model will have the more general mixing of the two and the 
         <li class="right" >
           <a href="intro.html" title="Introduction"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Models and clusters</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, David Sénéchal.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+        &#169; Copyright 2023, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

@@ -1,22 +1,21 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Parameter sets, Hilbert space sectors and model instances &#8212; pyqcm v1.1.1(git hash 5aa5568) documentation</title>
+    <title>Parameter sets, Hilbert space sectors and model instances &#8212; pyqcm v2.0.0(git hash 30c811f) documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/nature.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Reference: List of functions" href="functions.html" />
+    <link rel="next" title="Classes for defining models" href="model_classes.html" />
     <link rel="prev" title="Defining models" href="defining_models.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -29,12 +28,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="functions.html" title="Reference: List of functions"
+          <a href="model_classes.html" title="Classes for defining models"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="defining_models.html" title="Defining models"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Parameter sets, Hilbert space sectors and model instances</a></li> 
       </ul>
     </div>  
@@ -45,16 +44,16 @@
           <div class="body" role="main">
             
   <section id="parameter-sets-hilbert-space-sectors-and-model-instances">
-<h1>Parameter sets, Hilbert space sectors and model instances<a class="headerlink" href="#parameter-sets-hilbert-space-sectors-and-model-instances" title="Permalink to this headline">¶</a></h1>
+<h1>Parameter sets, Hilbert space sectors and model instances<a class="headerlink" href="#parameter-sets-hilbert-space-sectors-and-model-instances" title="Permalink to this heading">¶</a></h1>
 <section id="parameter-sets">
-<h2>Parameter sets<a class="headerlink" href="#parameter-sets" title="Permalink to this headline">¶</a></h2>
+<h2>Parameter sets<a class="headerlink" href="#parameter-sets" title="Permalink to this heading">¶</a></h2>
 <p>Each term in the lattice Hamiltonian is associated with a parameter <span class="math notranslate nohighlight">\(h_a\)</span>, and each cluster of the super unit cell has an equal number of parameters, for the corresponding terms of its Hamiltonian. If a bath is added to a cluster, then even more parameters are necessary to specify the cluster Hamiltonian. By default, the values of the cluster parameters are inherited from those of the lattice parameters. But their values may be different if desired.
 In addition, even within the lattice or within a cluster, one may want to impose automatic constraints between parameters, such as between the Coulomb repulsion <span class="math notranslate nohighlight">\(U\)</span> and the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span>, or other constraints coming from accidental symmetries.
 The large number of parameters and this inheritance of values needs to be managed. This is done via a <em>parameter set</em>.</p>
 <p>On a cluster, the name of the operator will received a suffix <code class="docutils literal notranslate"><span class="pre">_i</span></code>, i being the cluster label (from 1 to the number of clusters <span class="math notranslate nohighlight">\(N_\mathrm{clus}\)</span>). Thus, from a lattice operator <code class="docutils literal notranslate"><span class="pre">t</span></code>, an operator <code class="docutils literal notranslate"><span class="pre">t_1</span></code> will be constructed on cluster #1, and an operator <code class="docutils literal notranslate"><span class="pre">t_2</span></code> on cluster #2, and so on. The values of the coefficients of these operators will be designated by the same symbols. This suffix scheme will apply to all operators defined in the model and on the clusters.</p>
-<p>The qcm library contains a single instance of a structure called <cite>parameter_set</cite> that can define equivalences between parameters beyond those imposed by default, or release the default constraints. This structure is defined in pyqcm through the function <code class="docutils literal notranslate"><span class="pre">set_parameters(str)</span></code>.
+<p>The <cite>lattice_model</cite> object contains a single instance of a structure called <cite>parameter_set</cite> that can define equivalences between parameters beyond those imposed by default, or release the default constraints. This structure is defined in pyqcm through the member function <code class="docutils literal notranslate"><span class="pre">set_parameters(str)</span></code>.
 This may be the most important function of the library. It takes a single, long string argument, for instance:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">set_parameters</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">set_parameters</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    t = 1</span>
 <span class="s2">    U = 8</span>
 <span class="s2">    mu = 0.5*U</span>
@@ -67,13 +66,13 @@ This may be the most important function of the library. It takes a single, long 
 Notice that setting a parameter to <code class="docutils literal notranslate"><span class="pre">0</span></code> causes qcm to <em>not create the operator</em> in the model.</p>
 </section>
 <section id="hilbert-space-sectors">
-<h2>Hilbert space sectors<a class="headerlink" href="#hilbert-space-sectors" title="Permalink to this headline">¶</a></h2>
+<h2>Hilbert space sectors<a class="headerlink" href="#hilbert-space-sectors" title="Permalink to this heading">¶</a></h2>
 <p>For each cluster in the super unit cell, one must specify in which Hilbert space sector to look for the ground state.
 Each sector is specified by a Python string indicating  which sectors of the Hilbert space must be considered in the exact diagonalization procedure. For instance, if the model conserves the number of particles and the z-component of the spin, the string <code class="docutils literal notranslate"><span class="pre">R0:N4:S0</span></code> means that the ground state of the cluster must be looked for in the Hilbert space sector with N=4 electrons and S=0 spin projection. R0 means that the ground state should belong to the trivial representation (labeled 0) of the point group. The spin projection is expressed by an integer <span class="math notranslate nohighlight">\(S = 2 S_z\)</span>. Thus, <code class="docutils literal notranslate"><span class="pre">S1</span></code> means <span class="math notranslate nohighlight">\(S_z=\frac12\)</span> and <code class="docutils literal notranslate"><span class="pre">S-2</span></code> means <span class="math notranslate nohighlight">\(S_z=-1\)</span>.</p>
 <p>The label of the irreducible representation is taken from the character table of the point group. For instance, in the important case of a <span class="math notranslate nohighlight">\(C_{2v}\)</span> symmetry, each irreducible representation is either even or odd with respect to horizontal and vertical reflections. The binary digits 0 and 1 are associated with even and odd symmetries, respectively.
 Thus, the binary number 10 = 2 labels a representation that is odd in y and even in x, 01 = 1 labels a representation that is even in y and odd in x, 11 = 3 is odd in both directions and 00=0 is even in both directions. These possibilities are thus represented by the strings R2, R1, R3 and R0, respectively.</p>
-<p>Hilbert space sectors are a crucial element of the use of the library and may be the source of physical errors. Performance issues dictate that not all Hilbert space sectors should be checked for the true ground state for every calculation. Some judgement must be applied as to which sector or subset of sectors contains the true ground state. For a given cluster, a subset of sectors may be provided instead of a single one, by separating the sector keywords by slashes ( / ). For instance, the string indicating that the ground state should be search in the sectors of the trivial representation, with N=4 electrons and spin projection -1 or 1 is <code class="docutils literal notranslate"><span class="pre">R0:N4:S-1/R0:N4:S1</span></code>. Such a set of possible sectors is then specified with this call:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">set_target_sectors</span><span class="p">([</span><span class="s1">&#39;R0:N4:S-1/R0:N4:S1&#39;</span><span class="p">])</span>
+<p>Hilbert space sectors are a crucial element of the use of the library and may be the source of physical errors. Performance issues dictate that not all Hilbert space sectors should be checked for the true ground state for every calculation. Some judgement must be applied as to which sector or subset of sectors contains the true ground state. For a given cluster, a subset of sectors may be provided instead of a single one, by separating the sector keywords by slashes ( / ). For instance, the string indicating that the ground state should be search in the sectors of the trivial representation, with N=3 electrons and spin projection -1/2 or 1/2 is <code class="docutils literal notranslate"><span class="pre">R0:N3:S-1/R0:N3:S1</span></code>. Such a set of possible sectors is then specified with this call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">set_target_sectors</span><span class="p">([</span><span class="s1">&#39;R0:N3:S-1/R0:N3:S1&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Note that the argument to that function is a list of strings, which in the above example contains a single element because the super unit cell contains a single cluster.</p>
@@ -84,8 +83,12 @@ For instance, the string <code class="docutils literal notranslate"><span class=
 <p>The ED solver has a global real-valued parameter called <code class="docutils literal notranslate"><span class="pre">temperature</span></code> which allows a certain mixtures of Hilbert space sectors in the density matrix of the system. This temperature must be low, as the ED solver is not a finite-temperature impurity solver. Only a few low-lying states may be computed. Within a Hilbert space sector, only the lowest-energy state will be found, unless the Davidson method is used and the global parameter <code class="docutils literal notranslate"><span class="pre">Davidson_states</span></code> is set to an integer value greater than one. A finite number of low-energy states will then be computed, and will contribute to the density matrix, provided their Boltzmann weight is larger than some minimum defined by the global parameter <code class="docutils literal notranslate"><span class="pre">minimum_weight</span></code>. The same applies to states coming from different sectors. This feature allows for a smoother transition between sectors when looping over chemical potential.</p>
 </section>
 <section id="model-instances">
-<h2>Model instances<a class="headerlink" href="#model-instances" title="Permalink to this headline">¶</a></h2>
-<p>Once a set of parameters has been recorded in the library’s parameter set, one may define an instance of the lattice model by a call to <code class="docutils literal notranslate"><span class="pre">new_model_instance(lab)</span></code> , where <code class="docutils literal notranslate"><span class="pre">lab</span></code> is a non-negative integer that defines a label for that instance. All computations from the qcm library are performed on a given model instance, associated with particular values of the lattice and cluster parameters. In most cases a single model instance is needed at a given time, so that the label <code class="docutils literal notranslate"><span class="pre">lab</span></code> is 0 by default. A call to <code class="docutils literal notranslate"><span class="pre">new_model_instance(lab)</span></code> will erase any previous instance of the model with the same label.</p>
+<h2>Model instances<a class="headerlink" href="#model-instances" title="Permalink to this heading">¶</a></h2>
+<p>Once a set of parameters has been recorded in the library’s parameter set, one may define an instance of the lattice model by creating an object of type <cite>model_instance</cite></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="n">pyqcm</span><span class="o">.</span><span class="n">model_instance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">lab</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here <cite>model</cite> is the lattice model object and <cite>lab</cite> is a non-negative integer that defines a label for that instance. All computations from the qcm library are performed on a given model instance, associated with particular values of the lattice and cluster parameters. In most cases a single model instance is needed at a given time, so that the label <cite>lab</cite> is 0 by default. Another call to <code class="docutils literal notranslate"><span class="pre">model_instance(lab)</span></code> with the same label will erase any previous instance of the model with the same label. Alternately, the member function <code class="docutils literal notranslate"><span class="pre">I.reset()</span></code> can be called to reset the instance to a blank state with the current values of the parameters in the <cite>parameter_set`</cite> object.</p>
 <p>Computations on a model instance are <strong>lazy</strong>. For instance, computing the ground state of the cluster is done only when needed, for instance when asking for the ground state averages or the Green function; computing the cluster Green function representation (either Lehmann or through continued fractions) is done only when a Green-function related quantity is needed, etc.</p>
 </section>
 </section>
@@ -116,8 +119,8 @@ For instance, the string <code class="docutils literal notranslate"><span class=
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="functions.html"
-                          title="next chapter">Reference: List of functions</a></p>
+    <p class="topless"><a href="model_classes.html"
+                          title="next chapter">Classes for defining models</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -135,7 +138,7 @@ For instance, the string <code class="docutils literal notranslate"><span class=
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -150,18 +153,18 @@ For instance, the string <code class="docutils literal notranslate"><span class=
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="functions.html" title="Reference: List of functions"
+          <a href="model_classes.html" title="Classes for defining models"
              >next</a> |</li>
         <li class="right" >
           <a href="defining_models.html" title="Defining models"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v1.1.1(git hash 5aa5568) documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyqcm v2.0.0(git hash 30c811f) documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Parameter sets, Hilbert space sectors and model instances</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, David Sénéchal.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+        &#169; Copyright 2023, David Sénéchal.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>
